@@ -74,7 +74,7 @@ struct EditorView: View {
                 ShareSheet(url: payload.url) {
                     if payload.deleteAfter {
                         Task {
-                            do { try await editor.deleteOriginal(); flash("Shared · original deleted") }
+                            do { try await editor.deleteOriginal(); flash(String(localized: "Shared · original deleted")) }
                             catch { flash(error.localizedDescription) }
                         }
                     }
@@ -217,7 +217,7 @@ struct EditorView: View {
         .tint(.accentColor)
     }
 
-    private func menuRow(_ title: String, systemImage: String, subtitle: String? = nil,
+    private func menuRow(_ title: LocalizedStringKey, systemImage: String, subtitle: LocalizedStringKey? = nil,
                          role: ButtonRole? = nil, action: @escaping () -> Void) -> some View {
         Button(role: role, action: action) {
             VStack(alignment: .leading, spacing: 2) {
@@ -356,7 +356,7 @@ struct EditorView: View {
     }
 
     private var colorControlTitle: String {
-        editor.isMarkerMode ? "Brush color" : "Block color"
+        editor.isMarkerMode ? String(localized: "Brush color") : String(localized: "Block color")
     }
 
     /// Marker mode targets the brush color; otherwise the Block fill color.
@@ -383,7 +383,7 @@ struct EditorView: View {
             HStack(spacing: 0) {
                 paletteButton("Auto", systemImage: "wand.and.stars", active: false) {
                     editor.applyAllSuggestions()
-                    flash("Applied \(editor.selectedRegions.count) suggestions")
+                    flash(String(localized: "Applied \(editor.selectedRegions.count) suggestions"))
                 }
                 .padding(.leading, 6)
                 divider
@@ -447,7 +447,7 @@ struct EditorView: View {
         }
     }
 
-    private func banner(_ text: String, systemImage: String, color: Color) -> some View {
+    private func banner(_ text: LocalizedStringKey, systemImage: String, color: Color) -> some View {
         Label(text, systemImage: systemImage)
             .font(.caption2).foregroundStyle(color)
             .padding(.horizontal, 10).padding(.vertical, 6)
@@ -459,14 +459,14 @@ struct EditorView: View {
             .padding(.horizontal, 3)
     }
 
-    private func styleButton(_ style: RedactionStyle, _ title: String, _ symbol: String) -> some View {
+    private func styleButton(_ style: RedactionStyle, _ title: LocalizedStringKey, _ symbol: String) -> some View {
         paletteButton(title, systemImage: symbol,
                       active: !editor.isMarkerMode && editor.style == style) {
             editor.setStyle(style)
         }
     }
 
-    private func paletteButton(_ title: String, systemImage: String, active: Bool,
+    private func paletteButton(_ title: LocalizedStringKey, systemImage: String, active: Bool,
                                action: @escaping () -> Void) -> some View {
         Button(action: action) {
             VStack(spacing: 4) {
@@ -494,7 +494,7 @@ struct EditorView: View {
         Task {
             guard let export = await editor.makeExport(),
                   let url = editor.shareURL(for: export) else {
-                flash("Couldn't prepare image"); return
+                flash(String(localized: "Couldn't prepare image")); return
             }
             sharePayload = SharePayload(url: url, deleteAfter: deleteAfter)
         }
@@ -503,8 +503,8 @@ struct EditorView: View {
     private func saveCopy() {
         showExport = false
         Task {
-            guard let export = await editor.makeExport() else { flash("Couldn't prepare image"); return }
-            do { try await editor.saveToPhotos(export); flash("Saved a copy") }
+            guard let export = await editor.makeExport() else { flash(String(localized: "Couldn't prepare image")); return }
+            do { try await editor.saveToPhotos(export); flash(String(localized: "Saved a copy")) }
             catch { flash(error.localizedDescription) }
         }
     }
@@ -512,8 +512,8 @@ struct EditorView: View {
     private func saveOverwrite() {
         showExport = false
         Task {
-            guard let export = await editor.makeExport() else { flash("Couldn't prepare image"); return }
-            do { try await editor.overwriteOriginal(export); flash("Saved · original updated") }
+            guard let export = await editor.makeExport() else { flash(String(localized: "Couldn't prepare image")); return }
+            do { try await editor.overwriteOriginal(export); flash(String(localized: "Saved · original updated")) }
             catch { flash(error.localizedDescription) }
         }
     }
@@ -799,7 +799,7 @@ struct HelpSheet: View {
         .presentationDetents([.medium, .large])
     }
 
-    private func step(_ n: String, _ text: String) -> some View {
+    private func step(_ n: String, _ text: LocalizedStringKey) -> some View {
         HStack(alignment: .top, spacing: 12) {
             Text(n).font(.caption.bold())
                 .frame(width: 24, height: 24)
@@ -809,7 +809,7 @@ struct HelpSheet: View {
         }
     }
 
-    private func tool(_ name: String, _ desc: String, _ symbol: String) -> some View {
+    private func tool(_ name: LocalizedStringKey, _ desc: LocalizedStringKey, _ symbol: String) -> some View {
         HStack(spacing: 12) {
             Image(systemName: symbol).foregroundStyle(Color.accentColor).frame(width: 26)
             VStack(alignment: .leading, spacing: 2) {

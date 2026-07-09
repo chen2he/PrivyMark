@@ -1,0 +1,1550 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "": {},
+    "%@ (%lld)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ (%2$lld)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (%2$lld)"
+          }
+        }
+      }
+    },
+    "AI-enhanced detection": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI 增强识别"
+          }
+        }
+      }
+    },
+    "Access Denied": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "访问被拒绝"
+          }
+        }
+      }
+    },
+    "Additional metadata present": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含其他元数据"
+          }
+        }
+      }
+    },
+    "Address": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "地址"
+          }
+        }
+      }
+    },
+    "All": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部"
+          }
+        }
+      }
+    },
+    "All Photos": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有照片"
+          }
+        }
+      }
+    },
+    "Allow Access": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "允许访问"
+          }
+        }
+      }
+    },
+    "Allow PrivyMark to access Photos in Settings to save your redacted image.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在「设置」中允许 PrivyMark 访问照片，以保存打码后的图片。"
+          }
+        }
+      }
+    },
+    "Applied %lld suggestions": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已应用 %lld 处建议"
+          }
+        }
+      }
+    },
+    "Apply": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用"
+          }
+        }
+      }
+    },
+    "Auto": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动"
+          }
+        }
+      }
+    },
+    "Auto-edit newest photo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动编辑最新照片"
+          }
+        }
+      }
+    },
+    "Back": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "返回"
+          }
+        }
+      }
+    },
+    "Blends into a solid background.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "融入纯色背景。"
+          }
+        }
+      }
+    },
+    "Block": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "色块"
+          }
+        }
+      }
+    },
+    "Block color": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "色块颜色"
+          }
+        }
+      }
+    },
+    "Blur": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模糊"
+          }
+        }
+      }
+    },
+    "Brush color": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "画笔颜色"
+          }
+        }
+      }
+    },
+    "Camera make, model, software": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机品牌、型号、软件"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
+          }
+        }
+      }
+    },
+    "Capture Info": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拍摄信息"
+          }
+        }
+      }
+    },
+    "Card Number": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卡号"
+          }
+        }
+      }
+    },
+    "Clears pixel low-bits + all metadata. Can't remove robust forensic watermarks.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除像素低位 + 全部元数据。无法去除专业级取证水印。"
+          }
+        }
+      }
+    },
+    "Compress similar colors": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "压缩相近颜色"
+          }
+        }
+      }
+    },
+    "Coordinates %@, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Coordinates %1$@, %2$@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "坐标 %1$@, %2$@"
+          }
+        }
+      }
+    },
+    "Couldn't Open Photo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法打开照片"
+          }
+        }
+      }
+    },
+    "Couldn't prepare image": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法准备图片"
+          }
+        }
+      }
+    },
+    "Covered": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已覆盖"
+          }
+        }
+      }
+    },
+    "Date, exposure, lens settings": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期、曝光、镜头设置"
+          }
+        }
+      }
+    },
+    "Default tool": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默认工具"
+          }
+        }
+      }
+    },
+    "Defaults": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默认设置"
+          }
+        }
+      }
+    },
+    "Detected Risks": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "识别到的风险"
+          }
+        }
+      }
+    },
+    "Device Info": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设备信息"
+          }
+        }
+      }
+    },
+    "Device data present": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含设备信息"
+          }
+        }
+      }
+    },
+    "Documentation": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文档"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        }
+      }
+    },
+    "Downloading from iCloud, %lld percent": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在从 iCloud 下载，百分之 %lld"
+          }
+        }
+      }
+    },
+    "Downloading from iCloud… %lld%%": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在从 iCloud 下载… %lld%%"
+          }
+        }
+      }
+    },
+    "Drag anywhere on the image to redact a custom area.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在图片任意位置拖动，即可打码自定义区域。"
+          }
+        }
+      }
+    },
+    "Drag on the image to add a redaction box manually.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在图片上拖动即可手动添加打码框。"
+          }
+        }
+      }
+    },
+    "Drag to draw. Pinch to zoom.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拖动绘制。双指捏合缩放。"
+          }
+        }
+      }
+    },
+    "EXIF data present": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含 EXIF 信息"
+          }
+        }
+      }
+    },
+    "EXIF is stripped on export": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导出时清除 EXIF"
+          }
+        }
+      }
+    },
+    "Email": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "邮箱"
+          }
+        }
+      }
+    },
+    "Emoji cover, drag to move, tap to change": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emoji 覆盖，拖动移动，点按更换"
+          }
+        }
+      }
+    },
+    "Enable Photos access for PrivyMark in Settings, or try a sample image.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在「设置」中开启 PrivyMark 的照片访问权限，或试用示例图片。"
+          }
+        }
+      }
+    },
+    "Export": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导出"
+          }
+        }
+      }
+    },
+    "Face": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人脸"
+          }
+        }
+      }
+    },
+    "Face Cover": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人脸覆盖"
+          }
+        }
+      }
+    },
+    "Find private details\nin your images": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找出图片里的\n隐私信息"
+          }
+        }
+      }
+    },
+    "Free, forever. Every scan runs on your device — nothing is ever uploaded.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永久免费。每次扫描都在你的设备上完成——绝不上传。"
+          }
+        }
+      }
+    },
+    "Free-draw; pick any color or eyedrop from the image.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自由绘制；可选任意颜色，或从图片吸色。"
+          }
+        }
+      }
+    },
+    "GPS data present": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含 GPS 信息"
+          }
+        }
+      }
+    },
+    "Gaussian blur (can be reversible on text).": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高斯模糊（文字上可能被还原）。"
+          }
+        }
+      }
+    },
+    "Get Started": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始使用"
+          }
+        }
+      }
+    },
+    "Get started": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始使用"
+          }
+        }
+      }
+    },
+    "Hide %@": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐藏%@"
+          }
+        }
+      }
+    },
+    "Hide Text": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐藏文字"
+          }
+        }
+      }
+    },
+    "Hide Text works best on a solid background.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「隐藏文字」在纯色背景上效果最佳。"
+          }
+        }
+      }
+    },
+    "High": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高"
+          }
+        }
+      }
+    },
+    "How to Use": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用方法"
+          }
+        }
+      }
+    },
+    "How to use": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用方法"
+          }
+        }
+      }
+    },
+    "ID Number": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "证件号"
+          }
+        }
+      }
+    },
+    "IPTC, color profile notes, etc.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IPTC、色彩描述等"
+          }
+        }
+      }
+    },
+    "Import an image or try a sample to get started.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导入图片或试用示例，即可开始。"
+          }
+        }
+      }
+    },
+    "Import image from Files": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从「文件」导入图片"
+          }
+        }
+      }
+    },
+    "Keep %@ in exported image": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在导出图片中保留%@"
+          }
+        }
+      }
+    },
+    "Keep in exported image": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在导出图片中保留"
+          }
+        }
+      }
+    },
+    "License Plate": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "车牌"
+          }
+        }
+      }
+    },
+    "Link": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "链接"
+          }
+        }
+      }
+    },
+    "Loading photo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在加载照片"
+          }
+        }
+      }
+    },
+    "Loading photo…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在加载照片…"
+          }
+        }
+      }
+    },
+    "Location (GPS)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "位置（GPS）"
+          }
+        }
+      }
+    },
+    "Location is removed by default. Anything switched off is stripped from the exported copy; the original photo is never changed.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "位置信息默认移除。关闭的项目会从导出副本中清除；原图始终不变。"
+          }
+        }
+      }
+    },
+    "Long-press text to explode it into words — tap any word to cover it, or cover the whole line.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "长按文字将其炸成词块——点按任意词即可覆盖，或覆盖整行。"
+          }
+        }
+      }
+    },
+    "Manual Area": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手动区域"
+          }
+        }
+      }
+    },
+    "Marker": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "马克笔"
+          }
+        }
+      }
+    },
+    "Maybe": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可能"
+          }
+        }
+      }
+    },
+    "Medium": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中"
+          }
+        }
+      }
+    },
+    "Metadata": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "元数据"
+          }
+        }
+      }
+    },
+    "More": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更多"
+          }
+        }
+      }
+    },
+    "Mosaic (can be reversible on text).": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "马赛克（文字上可能被还原）。"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "姓名"
+          }
+        }
+      }
+    },
+    "No Metadata Found": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未发现元数据"
+          }
+        }
+      }
+    },
+    "No Photos": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有照片"
+          }
+        }
+      }
+    },
+    "No Risks Detected": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未识别到风险"
+          }
+        }
+      }
+    },
+    "None": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无"
+          }
+        }
+      }
+    },
+    "Not Now": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂不"
+          }
+        }
+      }
+    },
+    "Not covered": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未覆盖"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开设置"
+          }
+        }
+      }
+    },
+    "Opens a photo taken in the last minute automatically.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动打开一分钟内拍摄的照片。"
+          }
+        }
+      }
+    },
+    "Opens export options to remove hidden marks": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开导出选项以清除隐藏标记"
+          }
+        }
+      }
+    },
+    "Order / Tracking": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "订单 / 快递单号"
+          }
+        }
+      }
+    },
+    "Other Metadata": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "其他元数据"
+          }
+        }
+      }
+    },
+    "Phone": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "电话"
+          }
+        }
+      }
+    },
+    "Photo Access": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片访问"
+          }
+        }
+      }
+    },
+    "Photo preview with redactions applied": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已应用打码的照片预览"
+          }
+        }
+      }
+    },
+    "Photo, tap to scan": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片，点按以扫描"
+          }
+        }
+      }
+    },
+    "Pick an emoji from the keyboard, or remove the cover.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从键盘选择一个 emoji，或移除覆盖。"
+          }
+        }
+      }
+    },
+    "Pinch to zoom; drag to pan when zoomed in.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双指捏合缩放；放大后拖动平移。"
+          }
+        }
+      }
+    },
+    "Pixelate": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "马赛克"
+          }
+        }
+      }
+    },
+    "Pixelate/blur on text can be reversed. Block is safest.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字上的马赛克/模糊可能被还原。色块最安全。"
+          }
+        }
+      }
+    },
+    "Possible hidden watermark — will be scrubbed on export": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可能含隐藏水印——导出时将清除"
+          }
+        }
+      }
+    },
+    "Privacy Policy": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐私政策"
+          }
+        }
+      }
+    },
+    "PrivyMark": {},
+    "PrivyMark detects private info in a photo — faces, phone numbers, emails, names, card numbers, IDs, license plates — and redacts it for you.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 识别照片中的隐私信息——人脸、电话、邮箱、姓名、卡号、证件号、车牌——并帮你打码。"
+          }
+        }
+      }
+    },
+    "PrivyMark needs access to your photos so you can pick one to redact.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 需要访问你的照片，以便你选择一张进行打码。"
+          }
+        }
+      }
+    },
+    "QR / Barcode": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "二维码 / 条形码"
+          }
+        }
+      }
+    },
+    "Rate Us": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "给我们评分"
+          }
+        }
+      }
+    },
+    "Redact": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打码"
+          }
+        }
+      }
+    },
+    "Redo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重做"
+          }
+        }
+      }
+    },
+    "Remove": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除"
+          }
+        }
+      }
+    },
+    "Remove All Metadata": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除全部元数据"
+          }
+        }
+      }
+    },
+    "Remove Cover": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除覆盖"
+          }
+        }
+      }
+    },
+    "Remove hidden marks": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除隐藏标记"
+          }
+        }
+      }
+    },
+    "Risk list": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风险列表"
+          }
+        }
+      }
+    },
+    "Save (Overwrite Original)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存（覆盖原图）"
+          }
+        }
+      }
+    },
+    "Save a Copy": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存副本"
+          }
+        }
+      }
+    },
+    "Saved a copy": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已保存副本"
+          }
+        }
+      }
+    },
+    "Saved · original updated": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已保存 · 原图已更新"
+          }
+        }
+      }
+    },
+    "Scanning happens offline. Nothing you open is ever uploaded.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "扫描离线进行。你打开的任何内容都不会上传。"
+          }
+        }
+      }
+    },
+    "Scanning on device…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在设备上扫描…"
+          }
+        }
+      }
+    },
+    "Send Feedback": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "发送反馈"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置"
+          }
+        }
+      }
+    },
+    "Share & Delete Original": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享并删除原图"
+          }
+        }
+      }
+    },
+    "Share PrivyMark": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享 PrivyMark"
+          }
+        }
+      }
+    },
+    "Shared · original deleted": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已分享 · 原图已删除"
+          }
+        }
+      }
+    },
+    "Share…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享…"
+          }
+        }
+      }
+    },
+    "Solid, irreversible cover. Tap the color well to recolor it.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不透明、不可逆的覆盖。点按色板可更改颜色。"
+          }
+        }
+      }
+    },
+    "Stamp your own text across the image, e.g. \"Internal use only\".": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在图片上平铺你自己的文字，例如「仅供内部使用」。"
+          }
+        }
+      }
+    },
+    "Stamp your own text across the image.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在图片上平铺你自己的文字。"
+          }
+        }
+      }
+    },
+    "Support Us": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支持我们"
+          }
+        }
+      }
+    },
+    "Taken %@": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拍摄于 %@"
+          }
+        }
+      }
+    },
+    "Tap Auto to apply all detected suggestions at once.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按「自动」即可一次性应用所有识别到的建议。"
+          }
+        }
+      }
+    },
+    "Tap a text line to redact the whole line. Tap again to undo.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按一行文字即可打码整行。再次点按撤销。"
+          }
+        }
+      }
+    },
+    "Tap words to cover them. Your picks are redacted on the photo.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按词语即可覆盖。所选内容会在照片上打码。"
+          }
+        }
+      }
+    },
+    "Text Explode": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字大爆炸"
+          }
+        }
+      }
+    },
+    "This image contains no EXIF, GPS, or device metadata.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此图片不含 EXIF、GPS 或设备元数据。"
+          }
+        }
+      }
+    },
+    "This photo can't be edited in place. Try \"Save a Copy\".": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此照片无法原地编辑。请尝试「保存副本」。"
+          }
+        }
+      }
+    },
+    "This photo couldn't be downloaded. Check your connection and try again.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此照片无法下载。请检查网络后重试。"
+          }
+        }
+      }
+    },
+    "Tools": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "工具"
+          }
+        }
+      }
+    },
+    "Try a Sample Image": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "试用示例图片"
+          }
+        }
+      }
+    },
+    "Undo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撤销"
+          }
+        }
+      }
+    },
+    "Uses on-device intelligence to catch names and other sensitive text. Runs 100% on your device — nothing is uploaded. Needs a supported device.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用端上智能识别姓名等敏感文字。100% 在你的设备上运行——绝不上传。需要受支持的设备。"
+          }
+        }
+      }
+    },
+    "View EXIF": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看 EXIF"
+          }
+        }
+      }
+    },
+    "Watermark": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水印"
+          }
+        }
+      }
+    },
+    "Watermark text": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水印文字"
+          }
+        }
+      }
+    },
+    "Welcome": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "欢迎"
+          }
+        }
+      }
+    },
+    "Where the photo was taken": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片的拍摄地点"
+          }
+        }
+      }
+    },
+    "Whole Line": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "整行"
+          }
+        }
+      }
+    },
+    "You've allowed access to selected photos. Tap to manage.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你已允许访问所选照片。点按以管理。"
+          }
+        }
+      }
+    },
+    "Your photos are never uploaded.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的照片绝不会被上传。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

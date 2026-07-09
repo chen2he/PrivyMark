@@ -24,18 +24,18 @@ nonisolated enum RiskType: String, CaseIterable, Codable, Sendable {
 
     var displayName: String {
         switch self {
-        case .face: return "Face"
-        case .code: return "QR / Barcode"
-        case .email: return "Email"
-        case .phone: return "Phone"
-        case .address: return "Address"
-        case .url: return "Link"
-        case .payment: return "Card Number"
-        case .name: return "Name"
-        case .idNumber: return "ID Number"
-        case .orderNumber: return "Order / Tracking"
-        case .licensePlateCandidate: return "License Plate"
-        case .otherText: return "Manual Area"
+        case .face: return String(localized: "Face")
+        case .code: return String(localized: "QR / Barcode")
+        case .email: return String(localized: "Email")
+        case .phone: return String(localized: "Phone")
+        case .address: return String(localized: "Address")
+        case .url: return String(localized: "Link")
+        case .payment: return String(localized: "Card Number")
+        case .name: return String(localized: "Name")
+        case .idNumber: return String(localized: "ID Number")
+        case .orderNumber: return String(localized: "Order / Tracking")
+        case .licensePlateCandidate: return String(localized: "License Plate")
+        case .otherText: return String(localized: "Manual Area")
         }
     }
 
@@ -76,9 +76,9 @@ nonisolated enum RiskLevel: Int, Comparable, Codable, Sendable {
 
     var displayName: String {
         switch self {
-        case .high: return "High"
-        case .medium: return "Medium"
-        case .low: return "Maybe" // PRD §8.3: low confidence shown as "Maybe"
+        case .high: return String(localized: "High")
+        case .medium: return String(localized: "Medium")
+        case .low: return String(localized: "Maybe") // PRD §8.3: low confidence shown as "Maybe"
         }
     }
 }
@@ -97,10 +97,10 @@ nonisolated enum RedactionStyle: String, CaseIterable, Codable, Sendable {
 
     var displayName: String {
         switch self {
-        case .block: return "Block"
-        case .pixelate: return "Pixelate"
-        case .blur: return "Blur"
-        case .hideText: return "Hide Text"
+        case .block: return String(localized: "Block")
+        case .pixelate: return String(localized: "Pixelate")
+        case .blur: return String(localized: "Blur")
+        case .hideText: return String(localized: "Hide Text")
         }
     }
 

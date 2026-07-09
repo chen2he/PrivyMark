@@ -555,9 +555,9 @@ final class EditorModel: ObservableObject {
         var errorDescription: String? {
             switch self {
             case .photoAccessDenied:
-                return "Allow PrivyMark to access Photos in Settings to save your redacted image."
+                return String(localized: "Allow PrivyMark to access Photos in Settings to save your redacted image.")
             case .editUnavailable:
-                return "This photo can't be edited in place. Try \"Save a Copy\"."
+                return String(localized: "This photo can't be edited in place. Try \"Save a Copy\".")
             }
         }
     }

@@ -22,19 +22,19 @@ nonisolated enum MetadataCategory: String, CaseIterable, Identifiable, Sendable 
 
     var displayName: String {
         switch self {
-        case .location: return "Location (GPS)"
-        case .captureInfo: return "Capture Info"
-        case .deviceInfo: return "Device Info"
-        case .other: return "Other Metadata"
+        case .location: return String(localized: "Location (GPS)")
+        case .captureInfo: return String(localized: "Capture Info")
+        case .deviceInfo: return String(localized: "Device Info")
+        case .other: return String(localized: "Other Metadata")
         }
     }
 
     var detail: String {
         switch self {
-        case .location: return "Where the photo was taken"
-        case .captureInfo: return "Date, exposure, lens settings"
-        case .deviceInfo: return "Camera make, model, software"
-        case .other: return "IPTC, color profile notes, etc."
+        case .location: return String(localized: "Where the photo was taken")
+        case .captureInfo: return String(localized: "Date, exposure, lens settings")
+        case .deviceInfo: return String(localized: "Camera make, model, software")
+        case .other: return String(localized: "IPTC, color profile notes, etc.")
         }
     }
 
@@ -90,15 +90,15 @@ nonisolated struct ImageMetadata: @unchecked Sendable {
         case .location:
             if let gps = props[kCGImagePropertyGPSDictionary] as? [CFString: Any],
                let lat = gps[kCGImagePropertyGPSLatitude], let lon = gps[kCGImagePropertyGPSLongitude] {
-                return "Coordinates \(lat), \(lon)"
+                return String(localized: "Coordinates \(String(describing: lat)), \(String(describing: lon))")
             }
-            return "GPS data present"
+            return String(localized: "GPS data present")
         case .captureInfo:
             if let exif = props[kCGImagePropertyExifDictionary] as? [CFString: Any],
                let date = exif[kCGImagePropertyExifDateTimeOriginal] as? String {
-                return "Taken \(date)"
+                return String(localized: "Taken \(date)")
             }
-            return "EXIF data present"
+            return String(localized: "EXIF data present")
         case .deviceInfo:
             if let tiff = props[kCGImagePropertyTIFFDictionary] as? [CFString: Any] {
                 let make = tiff[kCGImagePropertyTIFFMake] as? String
@@ -106,9 +106,9 @@ nonisolated struct ImageMetadata: @unchecked Sendable {
                 let name = [make, model].compactMap(\.self).joined(separator: " ")
                 if !name.isEmpty { return name }
             }
-            return "Device data present"
+            return String(localized: "Device data present")
         case .other:
-            return "Additional metadata present"
+            return String(localized: "Additional metadata present")
         }
     }
 

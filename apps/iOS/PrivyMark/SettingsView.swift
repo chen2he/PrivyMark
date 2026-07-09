@@ -101,7 +101,7 @@ struct SettingsView: View {
         .padding(.vertical, 4)
     }
 
-    private func row(_ title: String, systemImage: String) -> some View {
+    private func row(_ title: LocalizedStringKey, systemImage: String) -> some View {
         // Docs / privacy policy land with the website (PRD: deferred).
         HStack {
             Label(title, systemImage: systemImage)
