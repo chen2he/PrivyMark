@@ -1,27 +1,78 @@
 // App Store 上架状态开关：上架后把 COMING 置 false（对齐 OC 的做法）。
+// 2026-07-09：已提交 App Store 审核（通常 24h 内上架），切上线状态。
 export const APP_STORE_URL = "https://apps.apple.com/app/id6782443539";
-export const APP_STORE_COMING = true;
+export const APP_STORE_COMING = false;
 
-/** 上架前显示置灰「即将登陆」，上架后变成可点的下载按钮 */
-export default function AppStoreBadge({ coming, alt }: { coming: string; alt: string }) {
-	const apple = (
-		<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-			<path d="M17.05 12.53c-.03-2.68 2.19-3.97 2.29-4.03-1.25-1.83-3.19-2.08-3.88-2.11-1.65-.17-3.22.97-4.06.97-.84 0-2.13-.95-3.5-.92-1.8.03-3.46 1.05-4.38 2.66-1.87 3.24-.48 8.04 1.34 10.67.89 1.29 1.95 2.73 3.34 2.68 1.34-.05 1.85-.87 3.47-.87 1.62 0 2.08.87 3.5.84 1.45-.02 2.36-1.31 3.24-2.6 1.02-1.49 1.44-2.94 1.46-3.01-.03-.02-2.8-1.07-2.82-4.28zM14.4 4.66c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.12 1.6-.69.8-1.29 2.07-1.13 3.29 1.19.09 2.41-.6 3.15-1.51z" />
-		</svg>
+// 官方「Download on the App Store」本地化徽章（Apple 营销资源，存 public/appstore/）。
+// 遵循 Apple《营销资源和识别标志指南》：使用官方原图、不改比例/颜色/文案，
+// 深色背景改用白色版（`-wht`）。黑白两版均来自 Apple 官方下载包。
+const BADGE_LOCALES = [
+	"en", "zh-Hans", "zh-Hant", "zh-HK",
+	"es-ES", "es-MX", "pt-PT", "pt-BR", "fr", "de", "it",
+];
+
+function badgeSrc(locale: string, dark: boolean): string {
+	const l = BADGE_LOCALES.includes(locale) ? locale : "en";
+	return `/appstore/${l}${dark ? "-wht" : ""}.svg`;
+}
+
+/**
+ * 官方 App Store 徽章。
+ * - `dark`：深色背景用白色版徽章。
+ * - `coming=true`：审核中，降透明度 + 下方状态标签，不可点（上架后置 false 即变可点）。
+ */
+export default function AppStoreBadge({
+	locale = "en",
+	alt,
+	comingLabel,
+	coming = false,
+	dark = false,
+	className = "",
+}: {
+	locale?: string;
+	alt: string;
+	comingLabel?: string;
+	coming?: boolean;
+	dark?: boolean;
+	className?: string;
+}) {
+	const img = (
+		// eslint-disable-next-line @next/next/no-img-element
+		<img
+			src={badgeSrc(locale, dark)}
+			alt={alt}
+			width={145}
+			height={48}
+			style={{ height: "48px", width: "auto", display: "block" }}
+		/>
 	);
 
-	if (APP_STORE_COMING) {
+	if (coming) {
 		return (
-			<span className="cta-store select-none" aria-disabled="true" title={alt}>
-				{apple}
-				{coming}
-			</span>
+			<div className={`inline-block cursor-not-allowed select-none ${className}`}>
+				<div className="opacity-50">{img}</div>
+				{comingLabel && (
+					<p className="mt-2 flex items-center gap-1.5 text-[12px] t-secondary">
+						<span
+							className="inline-block h-[5px] w-[5px] flex-none animate-pulse rounded-full"
+							style={{ background: "#fbbf24" }}
+						/>
+						{comingLabel}
+					</p>
+				)}
+			</div>
 		);
 	}
+
 	return (
-		<a className="cta-store" href={APP_STORE_URL} aria-label={alt}>
-			{apple}
-			{alt}
+		<a
+			href={APP_STORE_URL}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label={alt}
+			className={`inline-block no-underline transition-transform duration-150 ease-out hover:scale-[1.03] active:scale-[0.97] ${className}`}
+		>
+			{img}
 		</a>
 	);
 }

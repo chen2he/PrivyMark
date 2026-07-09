@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { shotLocale } from "@/i18n/routing";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import AppStoreBadge from "@/components/AppStoreBadge";
+import AppStoreBadge, { APP_STORE_COMING } from "@/components/AppStoreBadge";
 import Reveal from "@/components/Reveal";
 
 const SHOT_FILES = ["01_scan", "02_languages", "03_review", "04_private"];
@@ -157,7 +157,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 							</Reveal>
 							<Reveal index={3}>
 								<div className="mt-8">
-									<AppStoreBadge coming={t("badge.coming")} alt={t("badge.alt")} />
+									<AppStoreBadge
+										locale={locale}
+										alt={t("badge.alt")}
+										comingLabel={t("badge.coming")}
+										coming={APP_STORE_COMING}
+									/>
 								</div>
 								<p className="mt-3 text-[13px] t-tertiary">{t("hero.note")}</p>
 							</Reveal>
@@ -385,7 +390,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 						</Reveal>
 						<Reveal index={2}>
 							<div className="mt-9 flex flex-col items-center gap-4">
-								<AppStoreBadge coming={t("badge.coming")} alt={t("badge.alt")} />
+								<AppStoreBadge
+									locale={locale}
+									alt={t("badge.alt")}
+									comingLabel={t("badge.coming")}
+									coming={APP_STORE_COMING}
+									dark
+								/>
 							</div>
 							<p className="mt-5 text-[13px] t-tertiary">{t("cta.requirement")}</p>
 						</Reveal>
