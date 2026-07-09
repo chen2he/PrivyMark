@@ -1,0 +1,262 @@
+{
+	"meta": {
+		"title": "PrivyMark — Find private details before you share",
+		"description": "PrivyMark scans your photos on-device for faces, phone numbers, cards, IDs and addresses, and covers them in one tap. Nothing is ever uploaded. Free forever.",
+		"keywords": "redact,blur,mosaic,pixelate,privacy,screenshot,exif,metadata,face blur,photo privacy"
+	},
+	"header": {
+		"language": "Language",
+		"download": "App Store",
+		"downloadComing": "Coming soon"
+	},
+	"badge": {
+		"coming": "Coming to the App Store",
+		"alt": "Download on the App Store"
+	},
+	"hero": {
+		"kicker": "100% on-device · nothing uploaded",
+		"line1": [{ "t": "Find " }, { "r": "private" }, { "t": " details" }],
+		"line2": "before you share",
+		"sub": "A screenshot holds more than you think — a phone number, a card, an address, a face in the background. PrivyMark finds them and covers them in one tap, entirely on your iPhone.",
+		"note": "iOS 17.6+ · Free forever, no account, no watermark",
+		"peek": "Hover the block to peek — that's the idea."
+	},
+	"trust": {
+		"title": "Private by architecture, not by promise",
+		"sub": "PrivyMark has no servers, no accounts and no analytics. There is nothing to leak, because nothing leaves.",
+		"cards": [
+			{
+				"t": "Photos never leave",
+				"b": "Scanning, covering and exporting all run on your device. Turn on Airplane Mode and everything still works."
+			},
+			{
+				"t": "Nothing is collected",
+				"b": "No analytics, no ads SDK, no tracking, no crash logs with your content. The privacy label stays minimal because there's nothing to declare."
+			},
+			{
+				"t": "Nothing is kept",
+				"b": "No history, no copies of your photos. Images handed over from the share sheet are deleted the moment they're read."
+			}
+		]
+	},
+	"gallery": {
+		"title": "One tap from risky to ready",
+		"sub": "The same shots we ship to the App Store — swipe through the story: black bars are risks, green means covered.",
+		"alts": [
+			"PrivyMark editor with detected private fields covered on an invoice",
+			"A Chinese shipping label with phone, address and ID number covered",
+			"Welcome screen listing what PrivyMark detects",
+			"Photo access screen — your photos are never uploaded"
+		]
+	},
+	"features": {
+		"title": "Made for the moment before you hit send",
+		"sub": "From detection to cover styles to metadata, everything serves one flow: share safely.",
+		"items": [
+			{
+				"t": "Scans what matters",
+				"b": "Faces, QR codes, emails, phone numbers, URLs, addresses, card-style numbers, ID numbers, order numbers and names."
+			},
+			{
+				"t": "Covers, your way",
+				"b": "Solid block (irreversible, the default for text), pixelate, blur — plus a color well to match your style."
+			},
+			{
+				"t": "Hide Text",
+				"b": "Blends a text region into the surrounding background so it simply disappears in place."
+			},
+			{
+				"t": "Text Explode",
+				"b": "Long-press any line to fan it out into word chips — cover exactly the words that matter."
+			},
+			{
+				"t": "Marker & watermark",
+				"b": "Freehand strokes for anything the scan missed, and a tiled custom watermark for photos you hand out."
+			},
+			{
+				"t": "Faces get emoji",
+				"b": "Detected faces are covered with an emoji — tap to swap it, drag to reposition. Baked into pixels on export."
+			},
+			{
+				"t": "Metadata cleaned",
+				"b": "See what's inside the file — GPS, device, timestamps. GPS is stripped by default; you choose the rest."
+			},
+			{
+				"t": "Right in the share sheet",
+				"b": "Send a photo to PrivyMark from Photos, Messages or any app, cover it, and share back out."
+			}
+		]
+	},
+	"honest": {
+		"title": "Honest about the limits",
+		"body": "A privacy tool that overpromises is a privacy risk. So we'll say it plainly:",
+		"points": [
+			{
+				"t": "Suggestions, not guarantees",
+				"b": "Detection is a smart assistant, not a promise. Every match is a suggestion you review — always check before you share."
+			},
+			{
+				"t": "Blur can be reversed",
+				"b": "Pixelation and blur on text can sometimes be undone. That's why text defaults to a solid, irreversible block."
+			},
+			{
+				"t": "Hidden watermarks: best-effort",
+				"b": "The optional scrub clears simple pixel-level marks and all metadata. It cannot remove robust forensic watermarking."
+			}
+		]
+	},
+	"free": {
+		"title": "Free. Actually free.",
+		"sub": "No subscription, no paywalled tools, no export badge, no account. Covering one photo safely should never be a premium feature.",
+		"items": [
+			"Every detection type",
+			"Every cover style and tool",
+			"Share extension",
+			"Metadata cleaning",
+			"On-device AI enhancements (iOS 26+)",
+			"No watermark on your exports"
+		]
+	},
+	"family": {
+		"title": "From the same maker",
+		"sub": "PrivyMark keeps things on your device. These two put you in charge of your own infrastructure.",
+		"items": [
+			{
+				"name": "Orange Cloud",
+				"desc": "Your Cloudflare, at a glance — a native client for iPhone, iPad & Android with domains, DNS, analytics and edge storage.",
+				"domain": "o-c.do",
+				"url": "https://o-c.do"
+			},
+			{
+				"name": "Yield",
+				"desc": "A self-hosted App Store order console, fed entirely by Apple's server notifications — open source, on your own Cloudflare account.",
+				"domain": "yield.o-c.do",
+				"url": "https://yield.o-c.do"
+			}
+		]
+	},
+	"cta": {
+		"title": "Cover it before it travels",
+		"sub": "PrivyMark is on its way to the App Store.",
+		"requirement": "Requires iOS 17.6 or later · iPhone & iPad"
+	},
+	"footer": {
+		"copyright": "© 2026 JIAMIN CHEN. All rights reserved.",
+		"privacy": "Privacy",
+		"terms": "Terms",
+		"support": "Support",
+		"disclaimer": "PrivyMark's detection is best-effort assistance and does not guarantee that every private detail will be found. Review images before sharing."
+	},
+	"privacy": {
+		"title": "Privacy Policy",
+		"updated": "Last updated: July 8, 2026",
+		"sections": [
+			{
+				"h": "The short version",
+				"p": "PrivyMark collects nothing. Your photos are processed entirely on your device, are never uploaded anywhere, and we keep no copies. The app has no account system, no analytics, no ads and no tracking of any kind."
+			},
+			{
+				"h": "How your photos are handled",
+				"p": "Scanning, redaction and export all run locally using Apple's on-device frameworks (Vision, Core Image, and on capable devices Apple's on-device foundation models). Photos never leave your device through PrivyMark. If a photo you pick is stored only in iCloud, iOS downloads it to your device through Apple's own system — it does not pass through any server of ours; we don't operate any."
+			},
+			{
+				"h": "Permissions",
+				"p": "PrivyMark asks for photo library access only to show your photo grid and to save results; Limited access is fully supported, and you can also use the app without any access via the built-in sample image. The app does not use the camera, microphone, or location."
+			},
+			{
+				"h": "Metadata in your exports",
+				"p": "When you export, PrivyMark strips GPS location by default and lets you decide about other metadata (device model, timestamps, and so on). The optional hidden-mark scrub additionally clears pixel low-bits and removes all metadata from the exported file."
+			},
+			{
+				"h": "No tracking, no third parties",
+				"p": "PrivyMark contains no analytics, no advertising SDKs and no third-party tracking of any kind. It sends no telemetry. There are no crash reports containing your images or recognized text."
+			},
+			{
+				"h": "Nothing is retained",
+				"p": "PrivyMark keeps no history and no copies of your images. Photos handed to PrivyMark through the share sheet are stored briefly in the app's private container and deleted immediately after they are read."
+			},
+			{
+				"h": "Children",
+				"p": "PrivyMark does not collect personal information from anyone, including children."
+			},
+			{
+				"h": "Changes to this policy",
+				"p": "If this policy changes, the updated version will be posted on this page with a new date. Since the app collects nothing, changes are expected to be rare and editorial."
+			},
+			{
+				"h": "Contact",
+				"p": "Questions about privacy? Email appstore@hz.do."
+			}
+		]
+	},
+	"terms": {
+		"title": "Terms of Use",
+		"updated": "Last updated: July 8, 2026",
+		"sections": [
+			{
+				"h": "Acceptance",
+				"p": "By downloading or using PrivyMark, you agree to these terms. If you do not agree, please do not use the app."
+			},
+			{
+				"h": "The service",
+				"p": "PrivyMark is a free iOS app that scans photos on-device for potentially private details and helps you cover them before sharing. All features are free; there are no purchases or subscriptions."
+			},
+			{
+				"h": "Review before you share",
+				"p": "Detection is best-effort assistance, not a guarantee. PrivyMark may miss private details or flag things that aren't private. You are responsible for reviewing every image before sharing it. Note that pixelation and blur applied to text can in some cases be reversed — the solid block style is the safe default — and the hidden-watermark scrub cannot remove robust forensic watermarking."
+			},
+			{
+				"h": "Acceptable use",
+				"p": "You may not use PrivyMark for unlawful purposes. You are responsible for the images you edit and share and for respecting the rights of people who appear in them."
+			},
+			{
+				"h": "Intellectual property",
+				"p": "PrivyMark, its design and its branding belong to the developer. Your photos remain entirely yours — the app claims no rights over your content."
+			},
+			{
+				"h": "Disclaimer of warranties",
+				"p": "PrivyMark is provided “as is”, without warranties of any kind, express or implied, including fitness for a particular purpose. To the maximum extent permitted by law, the developer is not liable for damages arising from the use of, or inability to use, the app — including consequences of shared images."
+			},
+			{
+				"h": "Changes",
+				"p": "These terms may be updated from time to time; the current version is always available on this page. Continued use after changes constitutes acceptance."
+			},
+			{
+				"h": "Contact",
+				"p": "Questions about these terms? Email appstore@hz.do."
+			}
+		]
+	},
+	"support": {
+		"title": "Support",
+		"sub": "Answers to the most common questions. Still stuck? Email us — a human reads every message.",
+		"faq": [
+			{
+				"q": "Are my photos uploaded anywhere?",
+				"a": "No. Scanning, covering and exporting all happen on your device. PrivyMark works in Airplane Mode — try it."
+			},
+			{
+				"q": "The scan missed something. What do I do?",
+				"a": "Long-press the line of text to explode it into word chips and cover exactly what you need, drag a box around any region, or use the Marker to paint over it freehand."
+			},
+			{
+				"q": "It covered something that isn't private.",
+				"a": "Tap any cover on the canvas to toggle it off, or open the risk list to review every suggestion by type."
+			},
+			{
+				"q": "Can PrivyMark remove hidden watermarks?",
+				"a": "It can detect and clear simple pixel-level (LSB) marks and strips all metadata on export. It cannot detect or remove robust forensic watermarks designed to survive edits — no tool honestly can."
+			},
+			{
+				"q": "Which languages does detection understand?",
+				"a": "Detection rules cover English, Chinese, Spanish, Portuguese, French, German and Italian. On iOS 26+ the system's document reader extends coverage further."
+			},
+			{
+				"q": "Why does export ask to delete the original?",
+				"a": "Only if you choose “Share & Delete Original” or “Save (Overwrite Original)”. The safe default — “Save a Copy” — never touches your original photo."
+			}
+		],
+		"contactTitle": "Contact",
+		"contactBody": "Email appstore@hz.do and include your iOS version and, if possible, a description of the photo type (not the photo itself — we don't want your private images)."
+	}
+}

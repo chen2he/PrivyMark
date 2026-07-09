@@ -1,0 +1,41 @@
+# Node / pnpm
+node_modules/
+.turbo/
+.next/
+.open-next/
+
+# iOS / Xcode
+DerivedData/
+xcuserdata/
+*.xcuserstate
+build/
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars
+!.dev.vars.example
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+
+# Local-only design docs + PRD (kept out of the public repo)
+docs/
+CLAUDE.md
+
+# App Store release tooling (store metadata, screenshots, reviewer info,
+# and the screenshot render pipeline) — contains personal review contact
+# details and large generated assets; released via fastlane locally, not here.
+apps/iOS/fastlane/
+apps/iOS/appstore/
+
+# StoreKit config
+*.storekit
+
+# Agent / editor local config
+.claude/
+.agents/

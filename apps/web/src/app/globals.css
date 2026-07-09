@@ -1,0 +1,342 @@
+@import "tailwindcss";
+
+/* ============================================================
+   PrivyMark · 落地页「打码纸感」设计语言
+   与 App Store 截图流水线 apps/iOS/appstore/ 同源（方向 C，用户选定）：
+   暖纸底 + 遮挡条（黑=风险 / 绿=已盖住）+ 标题关键词打码块。
+   整页叙事 = 从纸面（风险摊开）滚到墨面（全部盖住）。
+   ============================================================ */
+
+:root {
+	--pm-green: #21a653;
+	--pm-green-pressed: #18823f;
+	--pm-ink: #14130f;
+	--radius-card: 20px;
+	--radius-chip: 16px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family:
+		-apple-system, "SF Pro Text", system-ui, "PingFang SC", "PingFang TC",
+		"Hiragino Sans", "Noto Sans CJK SC", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	background: var(--pm-ink); /* 页尾墨色，过滚动边界时不露白 */
+	overscroll-behavior-y: none;
+}
+
+::selection {
+	background: rgba(33, 166, 83, 0.28);
+}
+
+.f-display {
+	font-family: -apple-system, "SF Pro Display", system-ui, sans-serif;
+	letter-spacing: -0.5px;
+}
+/* 中文标题只在空格 / 标点处断行，避免词被拆开 */
+.f-display:lang(zh) {
+	word-break: keep-all;
+	text-wrap: balance;
+}
+
+/* ---------- 主题文本色（亮 = 纸，暗 = 墨） ---------- */
+
+.theme-light {
+	--t-primary: #171511;
+	--t-secondary: rgba(64, 58, 46, 0.66);
+	--t-tertiary: rgba(64, 58, 46, 0.38);
+	--card-bg: rgba(255, 255, 255, 0.72);
+	--card-border: rgba(23, 21, 17, 0.07);
+	--card-shadow: 0 6px 18px rgba(23, 21, 17, 0.06);
+	--divider: rgba(23, 21, 17, 0.1);
+	color: var(--t-primary);
+}
+.theme-dark {
+	--t-primary: rgba(250, 250, 245, 0.94);
+	--t-secondary: rgba(226, 224, 214, 0.6);
+	--t-tertiary: rgba(226, 224, 214, 0.34);
+	--card-bg: rgba(255, 255, 255, 0.05);
+	--card-border: rgba(255, 255, 255, 0.09);
+	--card-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+	--divider: rgba(226, 224, 214, 0.13);
+	color: var(--t-primary);
+}
+
+.t-primary {
+	color: var(--t-primary);
+}
+.t-secondary {
+	color: var(--t-secondary);
+}
+.t-tertiary {
+	color: var(--t-tertiary);
+}
+
+/* ---------- 纸面卡片 ---------- */
+
+.card {
+	background: var(--card-bg);
+	border: 0.5px solid var(--card-border);
+	box-shadow: var(--card-shadow);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+.r-card {
+	border-radius: var(--radius-card);
+}
+.r-chip {
+	border-radius: var(--radius-chip);
+}
+
+/* ---------- 纸 → 墨（整页叙事） ----------
+   相邻区段首尾色一致，拼成一张连续的纸 */
+
+.band {
+	position: relative;
+}
+.band-paper {
+	background: linear-gradient(180deg, #fbf9f4 0%, #f7f4ec 100%);
+}
+.band-paper-2 {
+	background: linear-gradient(180deg, #f7f4ec 0%, #f4f1e9 100%);
+}
+.band-paper-3 {
+	background: linear-gradient(180deg, #f4f1e9 0%, #efece2 100%);
+}
+.band-seam {
+	/* 打码缝：纸面被一条发光的绿色遮挡带「盖」进墨面 */
+	background: linear-gradient(180deg, #efece2 0%, #efece2 34%, #14130f 66%, #14130f 100%);
+}
+.band-ink {
+	background: linear-gradient(180deg, #14130f 0%, #12110d 60%, #0f0e0c 100%);
+}
+.band-paper-2,
+.band-paper-3,
+.band-seam,
+.band-ink {
+	margin-top: -1px; /* 盖掉子像素渲染缝 */
+}
+
+/* 纸面纤维噪点（截图流水线 .grain 同源） */
+.grain::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	opacity: 0.5;
+	background-image:
+		radial-gradient(rgba(23, 21, 17, 0.045) 1px, transparent 1px),
+		radial-gradient(rgba(23, 21, 17, 0.03) 1px, transparent 1px);
+	background-size: 22px 22px, 34px 34px;
+	background-position: 0 0, 11px 17px;
+}
+
+/* 顶部绿晕（hero 光源） */
+.paper-glow::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: -12%;
+	width: min(980px, 150vw);
+	aspect-ratio: 1;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(33, 166, 83, 0.16) 0%, rgba(33, 166, 83, 0) 70%);
+	pointer-events: none;
+}
+
+/* ---------- 遮挡条（浮在纸面上的装饰） ---------- */
+
+.redbar {
+	position: absolute;
+	border-radius: 10px;
+	background: var(--pm-ink);
+	box-shadow: 0 4px 12px rgba(23, 21, 17, 0.18);
+	pointer-events: none;
+	z-index: 1;
+}
+.redbar.g {
+	background: var(--pm-green);
+	box-shadow: 0 4px 12px rgba(33, 166, 83, 0.3);
+}
+
+/* ---------- 标题关键词打码块（悬停偷看一眼） ---------- */
+
+.redacted {
+	display: inline-block;
+	background: var(--pm-green);
+	border-radius: 0.18em;
+	padding: 0 0.16em;
+	transform: rotate(-1.2deg);
+	box-shadow: 0 3px 10px rgba(33, 166, 83, 0.35);
+	cursor: help;
+}
+.redacted > span {
+	color: transparent;
+	transition: color 0.25s ease;
+}
+.redacted:hover > span {
+	color: #fff;
+}
+
+/* ---------- 错峰浮现 ---------- */
+
+.reveal {
+	opacity: 0;
+	transform: translateY(14px);
+	transition:
+		opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+		transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+	transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.shown {
+	opacity: 1;
+	transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+/* ---------- 截图画廊（横滑，复用商店成品图） ---------- */
+
+.gallery {
+	display: flex;
+	gap: 20px;
+	overflow-x: auto;
+	scroll-snap-type: x proximity;
+	padding: 8px max(calc((100vw - 1120px) / 2 + 24px), 24px) 28px;
+	scrollbar-width: none;
+}
+.gallery::-webkit-scrollbar {
+	display: none;
+}
+.gallery .shot {
+	flex: none;
+	scroll-snap-align: center;
+	width: 300px;
+	border-radius: 24px;
+	overflow: hidden;
+	box-shadow:
+		0 18px 44px rgba(23, 21, 17, 0.16),
+		inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.gallery .shot img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* ---------- 链接 / 按钮 ---------- */
+
+.cta-store {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 26px;
+	border-radius: 999px;
+	background: var(--pm-green);
+	color: #fff;
+	font-size: 17px;
+	font-weight: 600;
+	text-decoration: none;
+	box-shadow: 0 8px 22px rgba(33, 166, 83, 0.34);
+	transition:
+		background 0.2s ease,
+		transform 0.15s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.cta-store:hover {
+	background: var(--pm-green-pressed);
+}
+.cta-store:active {
+	transform: scale(0.97);
+}
+.cta-store[aria-disabled="true"] {
+	cursor: not-allowed;
+	opacity: 0.55;
+	box-shadow: none;
+}
+
+.link-quiet {
+	color: var(--t-secondary);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+.link-quiet:hover {
+	color: var(--t-primary);
+}
+
+/* 语言切换（胶囊 select） */
+.locale-select {
+	appearance: none;
+	-webkit-appearance: none;
+	background: var(--card-bg);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 0.5px solid var(--card-border);
+	border-radius: 999px;
+	color: var(--t-primary);
+	font-size: 13px;
+	font-weight: 500;
+	padding: 7px 30px 7px 14px;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+}
+
+/* ---------- 手机演示框（截图流水线设备框的 web 版，内嵌真截图） ---------- */
+
+.demo-device {
+	position: relative;
+	width: 316px;
+	height: 662px;
+	border-radius: 51px;
+	background: #000;
+	padding: 10px;
+	box-shadow:
+		0 0 0 3px #4a4a4e,
+		0 0 0 3.5px rgba(255, 255, 255, 0.28),
+		0 30px 70px rgba(23, 21, 17, 0.3);
+}
+.demo-device .screen {
+	position: relative;
+	overflow: hidden;
+	width: 296px;
+	height: 642px;
+	border-radius: 41px;
+	background: #000;
+}
+.demo-device .screen img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+.demo-device .dynamic-island {
+	position: absolute;
+	left: 50%;
+	top: 9px;
+	transform: translateX(-50%);
+	width: 92px;
+	height: 27px;
+	border-radius: 14px;
+	background: #000;
+	z-index: 60;
+}

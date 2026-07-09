@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>jiamin.chen.PrivyMark</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>privymark</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>PrivyMark saves your redacted image to your photo library. The original is never modified.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PrivyMark shows your photos so you can pick one to scan. Everything is processed on your device and nothing is uploaded.</string>
+</dict>
+</plist>
