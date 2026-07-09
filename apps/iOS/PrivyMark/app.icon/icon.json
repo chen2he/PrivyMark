@@ -1,69 +1,59 @@
 {
-  "color-space-for-untagged-svg-colors" : "display-p3",
-  "features" : [
-    "refractivity"
-  ],
-  "fill" : {
-    "solid" : "display-p3:0.19176,0.51810,0.38069,1.00000"
+  "fill": {
+    "solid": "display-p3:0.19176,0.51810,0.38069,1.00000"
   },
-  "groups" : [
+  "groups": [
     {
-      "blend-mode" : "normal",
-      "blur-material" : null,
-      "layers" : [
+      "blend-mode": "normal",
+      "layers": [
         {
-          "glass" : false,
-          "image-name" : "privymark-icon-v2-03-card-content.png",
-          "name" : "privymark-icon-v2-03-card-content"
+          "glass": false,
+          "image-name": "privymark-icon-v2-03-card-content.png",
+          "name": "privymark-icon-v2-03-card-content"
         },
         {
-          "blend-mode" : "plus-darker",
-          "glass" : true,
-          "image-name" : "privymark-icon-v2-04-redaction-bars.png",
-          "name" : "privymark-icon-v2-04-redaction-bars"
+          "blend-mode": "plus-darker",
+          "glass": true,
+          "image-name": "privymark-icon-v2-04-redaction-bars.png",
+          "name": "privymark-icon-v2-04-redaction-bars"
         },
         {
-          "fill" : "none",
-          "glass" : false,
-          "image-name" : "privymark-icon-v2-05-risk-marker.png",
-          "name" : "privymark-icon-v2-05-risk-marker"
+          "fill": "none",
+          "glass": false,
+          "image-name": "privymark-icon-v2-05-risk-marker.png",
+          "name": "privymark-icon-v2-05-risk-marker"
         },
         {
-          "hidden" : false,
-          "image-name" : "privymark-icon-v2-02-card.png",
-          "name" : "privymark-icon-v2-02-card"
+          "hidden": false,
+          "image-name": "privymark-icon-v2-02-card.png",
+          "name": "privymark-icon-v2-02-card"
         }
       ],
-      "lighting" : "individual",
-      "name" : "Group",
-      "opacity" : 1,
-      "position" : {
-        "scale" : 1.2,
-        "translation-in-points" : [
+      "lighting": "individual",
+      "name": "Group",
+      "opacity": 1,
+      "position": {
+        "scale": 1.2,
+        "translation-in-points": [
           0,
           0
         ]
       },
-      "refractivity" : {
-        "depth" : 0,
-        "enabled" : true,
-        "strength" : 0.5
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.6
       },
-      "shadow" : {
-        "kind" : "neutral",
-        "opacity" : 0.6
-      },
-      "specular" : true,
-      "translucency" : {
-        "enabled" : true,
-        "value" : 0.2
+      "specular": true,
+      "translucency": {
+        "enabled": true,
+        "value": 0.2
       }
     }
   ],
-  "supported-platforms" : {
-    "circles" : [
+  "supported-platforms": {
+    "circles": [
       "watchOS"
     ],
-    "squares" : "shared"
+    "squares": "shared"
   }
 }
