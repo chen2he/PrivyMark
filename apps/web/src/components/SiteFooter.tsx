@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { GITHUB_URL } from "./SiteHeader";
 
 /** 页脚：纯内容、不带底色——颜色全部取自所在 theme 上下文 */
 export default async function SiteFooter() {
@@ -23,6 +24,14 @@ export default async function SiteFooter() {
 						<Link href="/support" className="link-quiet">
 							{t("support")}
 						</Link>
+						<a
+							href={GITHUB_URL}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="link-quiet"
+						>
+							GitHub
+						</a>
 					</nav>
 				</div>
 				<p className="mt-5 max-w-[64ch] text-[12px] leading-relaxed t-tertiary">{t("disclaimer")}</p>
