@@ -1,0 +1,262 @@
+{
+	"meta": {
+		"title": "PrivyMark — Encontre detalhes privados antes de partilhar",
+		"description": "O PrivyMark analisa as suas fotografias no dispositivo em busca de rostos, números de telefone, cartões, documentos e moradas, e cobre-os com um toque. Nada é enviado para lado nenhum. Grátis para sempre.",
+		"keywords": "ocultar,desfocar,mosaico,pixelizar,privacidade,captura de ecrã,exif,metadados,desfocar rosto,privacidade de fotografias"
+	},
+	"header": {
+		"language": "Idioma",
+		"download": "App Store",
+		"downloadComing": "Em breve"
+	},
+	"badge": {
+		"coming": "Brevemente na App Store",
+		"alt": "Descarregar na App Store"
+	},
+	"hero": {
+		"kicker": "100% no dispositivo · nada é enviado",
+		"line1": [{ "t": "Encontre detalhes " }, { "r": "privados" }, { "t": "" }],
+		"line2": "antes de partilhar",
+		"sub": "Uma captura de ecrã revela mais do que imagina — um número de telefone, um cartão, uma morada, um rosto ao fundo. O PrivyMark encontra-os e cobre-os com um toque, inteiramente no seu iPhone.",
+		"note": "iOS 17.6+ · Grátis para sempre, sem conta, sem marca de água",
+		"peek": "Passe o cursor sobre o bloco para espreitar — é essa a ideia."
+	},
+	"trust": {
+		"title": "Privado por arquitetura, não por promessa",
+		"sub": "O PrivyMark não tem servidores, nem contas, nem análises. Não há nada que possa vazar, porque nada sai.",
+		"cards": [
+			{
+				"t": "As fotografias nunca saem",
+				"b": "A análise, a cobertura e a exportação decorrem todas no seu dispositivo. Ative o Modo de Voo e tudo continua a funcionar."
+			},
+			{
+				"t": "Nada é recolhido",
+				"b": "Sem análises, sem SDK de anúncios, sem rastreio, sem registos de falhas com o seu conteúdo. A etiqueta de privacidade mantém-se mínima porque não há nada a declarar."
+			},
+			{
+				"t": "Nada é guardado",
+				"b": "Sem histórico, sem cópias das suas fotografias. As imagens entregues através da folha de partilha são eliminadas no momento em que são lidas."
+			}
+		]
+	},
+	"gallery": {
+		"title": "Um toque de arriscado a pronto",
+		"sub": "As mesmas imagens que enviamos para a App Store — deslize pela história: as barras pretas são riscos, o verde significa coberto.",
+		"alts": [
+			"Editor do PrivyMark com campos privados detetados cobertos numa fatura",
+			"Uma etiqueta de envio chinesa com telefone, morada e número de documento cobertos",
+			"Ecrã de boas-vindas a listar o que o PrivyMark deteta",
+			"Ecrã de acesso às fotografias — as suas fotografias nunca são enviadas"
+		]
+	},
+	"features": {
+		"title": "Feito para o momento antes de tocar em enviar",
+		"sub": "Da deteção aos estilos de cobertura e aos metadados, tudo serve um único fluxo: partilhar em segurança.",
+		"items": [
+			{
+				"t": "Analisa o que interessa",
+				"b": "Rostos, códigos QR, e-mails, números de telefone, URLs, moradas, números no formato de cartão, números de documento, números de encomenda e nomes."
+			},
+			{
+				"t": "Cobre à sua maneira",
+				"b": "Bloco sólido (irreversível, a predefinição para texto), pixelizar, desfocar — além de um seletor de cor para combinar com o seu estilo."
+			},
+			{
+				"t": "Ocultar texto",
+				"b": "Funde uma região de texto no fundo circundante para que simplesmente desapareça no lugar."
+			},
+			{
+				"t": "Explodir texto",
+				"b": "Mantenha premida qualquer linha para a espalhar em fichas de palavras — cubra exatamente as palavras que importam."
+			},
+			{
+				"t": "Marcador e marca de água",
+				"b": "Traços livres para tudo o que a análise não apanhou, e uma marca de água personalizada em mosaico para as fotografias que distribui."
+			},
+			{
+				"t": "Os rostos recebem emoji",
+				"b": "Os rostos detetados são cobertos com um emoji — toque para trocar, arraste para reposicionar. Fundido nos pixéis ao exportar."
+			},
+			{
+				"t": "Metadados limpos",
+				"b": "Veja o que está dentro do ficheiro — GPS, dispositivo, datas e horas. O GPS é removido por predefinição; o resto fica ao seu critério."
+			},
+			{
+				"t": "Diretamente na folha de partilha",
+				"b": "Envie uma fotografia para o PrivyMark a partir das Fotografias, das Mensagens ou de qualquer aplicação, cubra-a e volte a partilhá-la."
+			}
+		]
+	},
+	"honest": {
+		"title": "Honestos quanto aos limites",
+		"body": "Uma ferramenta de privacidade que promete demais é um risco de privacidade. Por isso, dizemos sem rodeios:",
+		"points": [
+			{
+				"t": "Sugestões, não garantias",
+				"b": "A deteção é um assistente inteligente, não uma promessa. Cada correspondência é uma sugestão que revê — verifique sempre antes de partilhar."
+			},
+			{
+				"t": "O desfoque pode ser revertido",
+				"b": "A pixelização e o desfoque sobre texto podem por vezes ser desfeitos. É por isso que o texto usa por predefinição um bloco sólido e irreversível."
+			},
+			{
+				"t": "Marcas de água ocultas: melhor esforço",
+				"b": "A limpeza opcional remove marcas simples ao nível dos pixéis e todos os metadados. Não consegue remover marcas de água forenses robustas."
+			}
+		]
+	},
+	"free": {
+		"title": "Grátis. Grátis a sério.",
+		"sub": "Sem subscrição, sem ferramentas atrás de paywall, sem selo na exportação, sem conta. Cobrir uma fotografia em segurança nunca deveria ser uma funcionalidade premium.",
+		"items": [
+			"Todos os tipos de deteção",
+			"Todos os estilos e ferramentas de cobertura",
+			"Extensão de partilha",
+			"Limpeza de metadados",
+			"Melhorias de IA no dispositivo (iOS 26+)",
+			"Sem marca de água nas suas exportações"
+		]
+	},
+	"family": {
+		"title": "Do mesmo criador",
+		"sub": "O PrivyMark mantém tudo no seu dispositivo. Estes dois põem-no no comando da sua própria infraestrutura.",
+		"items": [
+			{
+				"name": "Orange Cloud",
+				"desc": "A sua Cloudflare, num relance — um cliente nativo para iPhone, iPad e Android com domínios, DNS, análises e armazenamento na periferia.",
+				"domain": "o-c.do",
+				"url": "https://o-c.do"
+			},
+			{
+				"name": "Yield",
+				"desc": "Uma consola de encomendas da App Store alojada por si, alimentada inteiramente pelas notificações de servidor da Apple — código aberto, na sua própria conta Cloudflare.",
+				"domain": "yield.o-c.do",
+				"url": "https://yield.o-c.do"
+			}
+		]
+	},
+	"cta": {
+		"title": "Cubra-a antes de ela viajar",
+		"sub": "O PrivyMark está a caminho da App Store.",
+		"requirement": "Requer iOS 17.6 ou posterior · iPhone e iPad"
+	},
+	"footer": {
+		"copyright": "© 2026 JIAMIN CHEN. Todos os direitos reservados.",
+		"privacy": "Privacidade",
+		"terms": "Termos",
+		"support": "Apoio",
+		"disclaimer": "A deteção do PrivyMark é uma assistência de melhor esforço e não garante que todos os detalhes privados sejam encontrados. Reveja as imagens antes de partilhar."
+	},
+	"privacy": {
+		"title": "Política de Privacidade",
+		"updated": "Última atualização: 8 de julho de 2026",
+		"sections": [
+			{
+				"h": "A versão curta",
+				"p": "O PrivyMark não recolhe nada. As suas fotografias são processadas inteiramente no seu dispositivo, nunca são enviadas para lado nenhum e não guardamos cópias. A aplicação não tem sistema de contas, nem análises, nem anúncios, nem rastreio de qualquer tipo."
+			},
+			{
+				"h": "Como as suas fotografias são tratadas",
+				"p": "A análise, a ocultação e a exportação decorrem todas localmente através das frameworks no dispositivo da Apple (Vision, Core Image e, em dispositivos capazes, os modelos fundacionais no dispositivo da Apple). As fotografias nunca saem do seu dispositivo através do PrivyMark. Se uma fotografia que escolhe estiver guardada apenas no iCloud, o iOS descarrega-a para o seu dispositivo através do próprio sistema da Apple — não passa por nenhum servidor nosso; não operamos nenhum."
+			},
+			{
+				"h": "Permissões",
+				"p": "O PrivyMark pede acesso à biblioteca de fotografias apenas para mostrar a sua grelha de fotografias e para guardar resultados; o acesso Limitado é totalmente suportado e também pode usar a aplicação sem qualquer acesso através da imagem de exemplo incorporada. A aplicação não usa a câmara, o microfone nem a localização."
+			},
+			{
+				"h": "Metadados nas suas exportações",
+				"p": "Quando exporta, o PrivyMark remove a localização GPS por predefinição e deixa-o decidir sobre os restantes metadados (modelo do dispositivo, datas e horas, e por aí adiante). A limpeza opcional de marcas ocultas apaga adicionalmente os bits menos significativos dos pixéis e remove todos os metadados do ficheiro exportado."
+			},
+			{
+				"h": "Sem rastreio, sem terceiros",
+				"p": "O PrivyMark não contém análises, nem SDK de publicidade, nem rastreio de terceiros de qualquer tipo. Não envia qualquer telemetria. Não existem relatórios de falhas que contenham as suas imagens ou texto reconhecido."
+			},
+			{
+				"h": "Nada é retido",
+				"p": "O PrivyMark não guarda histórico nem cópias das suas imagens. As fotografias entregues ao PrivyMark através da folha de partilha são guardadas brevemente no contentor privado da aplicação e eliminadas imediatamente após serem lidas."
+			},
+			{
+				"h": "Crianças",
+				"p": "O PrivyMark não recolhe informações pessoais de ninguém, incluindo crianças."
+			},
+			{
+				"h": "Alterações a esta política",
+				"p": "Se esta política mudar, a versão atualizada será publicada nesta página com uma nova data. Uma vez que a aplicação não recolhe nada, espera-se que as alterações sejam raras e editoriais."
+			},
+			{
+				"h": "Contacto",
+				"p": "Questões sobre privacidade? Envie um e-mail para appstore@hz.do."
+			}
+		]
+	},
+	"terms": {
+		"title": "Termos de Utilização",
+		"updated": "Última atualização: 8 de julho de 2026",
+		"sections": [
+			{
+				"h": "Aceitação",
+				"p": "Ao descarregar ou utilizar o PrivyMark, aceita estes termos. Se não concordar, não utilize a aplicação."
+			},
+			{
+				"h": "O serviço",
+				"p": "O PrivyMark é uma aplicação iOS gratuita que analisa fotografias no dispositivo em busca de detalhes potencialmente privados e o ajuda a cobri-los antes de partilhar. Todas as funcionalidades são gratuitas; não há compras nem subscrições."
+			},
+			{
+				"h": "Reveja antes de partilhar",
+				"p": "A deteção é uma assistência de melhor esforço, não uma garantia. O PrivyMark pode não apanhar detalhes privados ou assinalar coisas que não são privadas. É responsável por rever cada imagem antes de a partilhar. Note que a pixelização e o desfoque aplicados a texto podem, em alguns casos, ser revertidos — o estilo de bloco sólido é a predefinição segura — e a limpeza de marcas de água ocultas não consegue remover marcas de água forenses robustas."
+			},
+			{
+				"h": "Utilização aceitável",
+				"p": "Não pode utilizar o PrivyMark para fins ilícitos. É responsável pelas imagens que edita e partilha e por respeitar os direitos das pessoas que nelas aparecem."
+			},
+			{
+				"h": "Propriedade intelectual",
+				"p": "O PrivyMark, o seu design e a sua marca pertencem ao programador. As suas fotografias continuam inteiramente suas — a aplicação não reivindica quaisquer direitos sobre o seu conteúdo."
+			},
+			{
+				"h": "Exclusão de garantias",
+				"p": "O PrivyMark é fornecido “tal como está”, sem garantias de qualquer tipo, expressas ou implícitas, incluindo adequação a um fim específico. Na máxima medida permitida por lei, o programador não é responsável por danos decorrentes da utilização, ou impossibilidade de utilização, da aplicação — incluindo consequências de imagens partilhadas."
+			},
+			{
+				"h": "Alterações",
+				"p": "Estes termos podem ser atualizados periodicamente; a versão atual está sempre disponível nesta página. A utilização continuada após as alterações constitui aceitação."
+			},
+			{
+				"h": "Contacto",
+				"p": "Questões sobre estes termos? Envie um e-mail para appstore@hz.do."
+			}
+		]
+	},
+	"support": {
+		"title": "Apoio",
+		"sub": "Respostas às perguntas mais comuns. Ainda com dúvidas? Envie-nos um e-mail — uma pessoa lê cada mensagem.",
+		"faq": [
+			{
+				"q": "As minhas fotografias são enviadas para algum lado?",
+				"a": "Não. A análise, a cobertura e a exportação acontecem todas no seu dispositivo. O PrivyMark funciona em Modo de Voo — experimente."
+			},
+			{
+				"q": "A análise não apanhou uma coisa. O que faço?",
+				"a": "Mantenha premida a linha de texto para a explodir em fichas de palavras e cobrir exatamente o que precisa, arraste uma caixa à volta de qualquer região, ou use o Marcador para pintar por cima à mão livre."
+			},
+			{
+				"q": "Cobriu uma coisa que não é privada.",
+				"a": "Toque em qualquer cobertura na tela para a desativar, ou abra a lista de riscos para rever cada sugestão por tipo."
+			},
+			{
+				"q": "O PrivyMark consegue remover marcas de água ocultas?",
+				"a": "Consegue detetar e limpar marcas simples ao nível dos pixéis (LSB) e remove todos os metadados ao exportar. Não consegue detetar nem remover marcas de água forenses robustas, concebidas para sobreviver a edições — nenhuma ferramenta o consegue honestamente."
+			},
+			{
+				"q": "Que idiomas é que a deteção entende?",
+				"a": "As regras de deteção cobrem inglês, chinês, espanhol, português, francês, alemão e italiano. No iOS 26+, o leitor de documentos do sistema alarga ainda mais a cobertura."
+			},
+			{
+				"q": "Porque é que a exportação pede para eliminar o original?",
+				"a": "Só se escolher “Partilhar e eliminar original” ou “Guardar (substituir original)”. A predefinição segura — “Guardar uma cópia” — nunca toca na sua fotografia original."
+			}
+		],
+		"contactTitle": "Contacto",
+		"contactBody": "Envie um e-mail para appstore@hz.do e inclua a sua versão do iOS e, se possível, uma descrição do tipo de fotografia (não a fotografia em si — não queremos as suas imagens privadas)."
+	}
+}

@@ -9,6 +9,13 @@ const LOCALE_NAMES: Record<AppLocale, string> = {
 	"zh-Hans": "简体中文",
 	"zh-Hant": "繁體中文（台灣）",
 	"zh-HK": "繁體中文（香港）",
+	"es-ES": "Español (España)",
+	"es-MX": "Español (México)",
+	"pt-PT": "Português (Portugal)",
+	"pt-BR": "Português (Brasil)",
+	fr: "Français",
+	de: "Deutsch",
+	it: "Italiano",
 };
 
 export default function LocaleSwitcher({ label }: { label: string }) {

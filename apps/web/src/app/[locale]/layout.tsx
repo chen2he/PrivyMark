@@ -13,15 +13,29 @@ const OG_LOCALES: Record<string, string> = {
 	"zh-Hans": "zh_CN",
 	"zh-Hant": "zh_TW",
 	"zh-HK": "zh_HK",
+	"es-ES": "es_ES",
+	"es-MX": "es_MX",
+	"pt-PT": "pt_PT",
+	"pt-BR": "pt_BR",
+	fr: "fr_FR",
+	de: "de_DE",
+	it: "it_IT",
 };
 
 // 各语言社交分享图（打码纸感横幅 1280×640）。生成：apps/iOS/appstore/render/og.mjs
-// 繁体地区复用中文横幅。
+// 中文用中文横幅；拉丁字母语言暂复用英文横幅（本地化横幅为后续优化项）。
 const OG_IMAGES: Record<string, string> = {
 	en: "/og/en.jpg",
 	"zh-Hans": "/og/zh-Hans.jpg",
 	"zh-Hant": "/og/zh-Hans.jpg",
 	"zh-HK": "/og/zh-Hans.jpg",
+	"es-ES": "/og/en.jpg",
+	"es-MX": "/og/en.jpg",
+	"pt-PT": "/og/en.jpg",
+	"pt-BR": "/og/en.jpg",
+	fr: "/og/en.jpg",
+	de: "/og/en.jpg",
+	it: "/og/en.jpg",
 };
 
 // hreflang：语言-脚本码 + 地区码（地理定向），指向对应本地化路由。
@@ -32,6 +46,17 @@ const HREFLANG_ALTERNATES: Record<string, string> = {
 	"zh-Hant": "/zh-Hant",
 	"zh-TW": "/zh-Hant",
 	"zh-HK": "/zh-HK",
+	"es-ES": "/es-ES",
+	"es-MX": "/es-MX",
+	"es-419": "/es-MX",
+	"pt-PT": "/pt-PT",
+	"pt-BR": "/pt-BR",
+	fr: "/fr",
+	"fr-FR": "/fr",
+	de: "/de",
+	"de-DE": "/de",
+	it: "/it",
+	"it-IT": "/it",
 	"x-default": "/",
 };
 
