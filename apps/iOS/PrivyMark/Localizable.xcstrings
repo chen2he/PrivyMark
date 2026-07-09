@@ -32,6 +32,12 @@
             "state": "translated",
             "value": ""
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ""
+          }
         }
       }
     },
@@ -78,6 +84,12 @@
             "state": "translated",
             "value": "%1$@ (%2$lld)"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (%2$lld)"
+          }
         }
       }
     },
@@ -117,6 +129,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Rilevamento potenziato dall'IA"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI 增強辨識"
           }
         }
       }
@@ -158,6 +176,12 @@
             "state": "translated",
             "value": "Accesso negato"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取用遭拒"
+          }
         }
       }
     },
@@ -197,6 +221,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Metadati aggiuntivi presenti"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含其他中繼資料"
           }
         }
       }
@@ -238,6 +268,12 @@
             "state": "translated",
             "value": "Indirizzo"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "地址"
+          }
         }
       }
     },
@@ -277,6 +313,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tutti"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部"
           }
         }
       }
@@ -318,6 +360,12 @@
             "state": "translated",
             "value": "Tutte le foto"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有照片"
+          }
         }
       }
     },
@@ -357,6 +405,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Consenti accesso"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "允許取用"
           }
         }
       }
@@ -398,6 +452,12 @@
             "state": "translated",
             "value": "Consenti a PrivyMark di accedere a Foto in Impostazioni per salvare l'immagine coperta."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請在「設定」中允許 PrivyMark 取用照片，以儲存打碼後的圖片。"
+          }
         }
       }
     },
@@ -437,6 +497,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld suggerimenti applicati"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已套用 %lld 處建議"
           }
         }
       }
@@ -478,6 +544,12 @@
             "state": "translated",
             "value": "Applica"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "套用"
+          }
         }
       }
     },
@@ -517,6 +589,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Auto"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動"
           }
         }
       }
@@ -558,6 +636,12 @@
             "state": "translated",
             "value": "Modifica automatica della foto più recente"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動編輯最新照片"
+          }
         }
       }
     },
@@ -597,6 +681,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Indietro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "返回"
           }
         }
       }
@@ -638,6 +728,12 @@
             "state": "translated",
             "value": "Si fonde con uno sfondo uniforme."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "融入純色背景。"
+          }
         }
       }
     },
@@ -677,6 +773,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Blocco"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "色塊"
           }
         }
       }
@@ -718,6 +820,12 @@
             "state": "translated",
             "value": "Colore blocco"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "色塊顏色"
+          }
         }
       }
     },
@@ -757,6 +865,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sfoca"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模糊"
           }
         }
       }
@@ -798,6 +912,12 @@
             "state": "translated",
             "value": "Colore pennello"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "畫筆顏色"
+          }
         }
       }
     },
@@ -837,6 +957,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Marca, modello e software della fotocamera"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相機品牌、型號、軟體"
           }
         }
       }
@@ -878,6 +1004,12 @@
             "state": "translated",
             "value": "Annulla"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
+          }
         }
       }
     },
@@ -917,6 +1049,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Info scatto"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拍攝資訊"
           }
         }
       }
@@ -958,6 +1096,12 @@
             "state": "translated",
             "value": "Numero carta"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卡號"
+          }
         }
       }
     },
@@ -998,6 +1142,12 @@
             "state": "translated",
             "value": "Cancella i bit meno significativi dei pixel e tutti i metadati. Non rimuove le filigrane forensi robuste."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除像素低位 + 全部中繼資料。無法去除專業級鑑識浮水印。"
+          }
         }
       }
     },
@@ -1037,6 +1187,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comprimi colori simili"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "壓縮相近顏色"
           }
         }
       }
@@ -1084,6 +1240,12 @@
             "state": "translated",
             "value": "Coordinate %1$@, %2$@"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "座標 %1$@, %2$@"
+          }
         }
       }
     },
@@ -1123,6 +1285,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Impossibile aprire la foto"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法開啟照片"
           }
         }
       }
@@ -1164,6 +1332,12 @@
             "state": "translated",
             "value": "Impossibile preparare l'immagine"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法準備圖片"
+          }
         }
       }
     },
@@ -1203,6 +1377,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Coperto"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已覆蓋"
           }
         }
       }
@@ -1244,6 +1424,12 @@
             "state": "translated",
             "value": "Data, esposizione, impostazioni obiettivo"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期、曝光、鏡頭設定"
+          }
         }
       }
     },
@@ -1283,6 +1469,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Strumento predefinito"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "預設工具"
           }
         }
       }
@@ -1324,6 +1516,12 @@
             "state": "translated",
             "value": "Predefiniti"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "預設設定"
+          }
         }
       }
     },
@@ -1363,6 +1561,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Rischi rilevati"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辨識到的風險"
           }
         }
       }
@@ -1404,6 +1608,12 @@
             "state": "translated",
             "value": "Info dispositivo"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "裝置資訊"
+          }
         }
       }
     },
@@ -1443,6 +1653,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dati del dispositivo presenti"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含裝置資訊"
           }
         }
       }
@@ -1484,6 +1700,12 @@
             "state": "translated",
             "value": "Documentazione"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文件"
+          }
         }
       }
     },
@@ -1523,6 +1745,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fine"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
           }
         }
       }
@@ -1564,6 +1792,12 @@
             "state": "translated",
             "value": "Scaricamento da iCloud, %lld percento"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在從 iCloud 下載，百分之 %lld"
+          }
         }
       }
     },
@@ -1603,6 +1837,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Scaricamento da iCloud… %lld%%"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在從 iCloud 下載… %lld%%"
           }
         }
       }
@@ -1644,6 +1884,12 @@
             "state": "translated",
             "value": "Trascina su un punto qualsiasi dell'immagine per coprire un'area personalizzata."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在圖片任意位置拖曳，即可打碼自訂區域。"
+          }
         }
       }
     },
@@ -1683,6 +1929,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Trascina sull'immagine per aggiungere manualmente un riquadro di copertura."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在圖片上拖曳即可手動加入打碼框。"
           }
         }
       }
@@ -1724,6 +1976,12 @@
             "state": "translated",
             "value": "Trascina per disegnare. Pizzica per ingrandire."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拖曳繪製。雙指縮放。"
+          }
         }
       }
     },
@@ -1763,6 +2021,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dati EXIF presenti"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含 EXIF 資訊"
           }
         }
       }
@@ -1804,6 +2068,12 @@
             "state": "translated",
             "value": "I dati EXIF vengono rimossi all'esportazione"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "匯出時清除 EXIF"
+          }
         }
       }
     },
@@ -1843,6 +2113,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Email"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "電子郵件"
           }
         }
       }
@@ -1884,6 +2160,12 @@
             "state": "translated",
             "value": "Copertura emoji, trascina per spostare, tocca per cambiare"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "emoji 覆蓋，拖曳移動，點一下更換"
+          }
         }
       }
     },
@@ -1923,6 +2205,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abilita l'accesso a Foto per PrivyMark in Impostazioni oppure prova un'immagine di esempio."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請在「設定」中開啟 PrivyMark 的照片取用權限，或試用範例圖片。"
           }
         }
       }
@@ -1964,6 +2252,12 @@
             "state": "translated",
             "value": "Esporta"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "匯出"
+          }
         }
       }
     },
@@ -2003,6 +2297,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Volto"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人臉"
           }
         }
       }
@@ -2044,6 +2344,12 @@
             "state": "translated",
             "value": "Copri volto"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人臉覆蓋"
+          }
         }
       }
     },
@@ -2083,6 +2389,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Trova i dettagli privati\nnelle tue immagini"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找出圖片裡的\n隱私資訊"
           }
         }
       }
@@ -2124,6 +2436,12 @@
             "state": "translated",
             "value": "Gratis, per sempre. Ogni scansione viene eseguita sul tuo dispositivo: nulla viene mai caricato."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永久免費。每次掃描都在你的裝置上完成——絕不上傳。"
+          }
         }
       }
     },
@@ -2163,6 +2481,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Disegno libero; scegli un colore qualsiasi o prelevalo dall'immagine."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自由繪製；可選任意顏色，或從圖片吸色。"
           }
         }
       }
@@ -2204,6 +2528,12 @@
             "state": "translated",
             "value": "Dati GPS presenti"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含 GPS 資訊"
+          }
         }
       }
     },
@@ -2243,6 +2573,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sfocatura gaussiana (può essere reversibile sul testo)."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高斯模糊（文字上可能被還原）。"
           }
         }
       }
@@ -2284,6 +2620,12 @@
             "state": "translated",
             "value": "Inizia"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開始使用"
+          }
         }
       }
     },
@@ -2323,6 +2665,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Inizia"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開始使用"
           }
         }
       }
@@ -2364,6 +2712,12 @@
             "state": "translated",
             "value": "Nascondi %@"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱藏%@"
+          }
         }
       }
     },
@@ -2403,6 +2757,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nascondi testo"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱藏文字"
           }
         }
       }
@@ -2444,6 +2804,12 @@
             "state": "translated",
             "value": "Nascondi testo funziona meglio su uno sfondo uniforme."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「隱藏文字」在純色背景上效果最佳。"
+          }
         }
       }
     },
@@ -2483,6 +2849,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Alta"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高"
           }
         }
       }
@@ -2524,6 +2896,12 @@
             "state": "translated",
             "value": "Come si usa"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用方法"
+          }
         }
       }
     },
@@ -2563,6 +2941,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Come si usa"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用方法"
           }
         }
       }
@@ -2604,6 +2988,12 @@
             "state": "translated",
             "value": "Numero documento"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "證件號碼"
+          }
         }
       }
     },
@@ -2643,6 +3033,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "IPTC, note sul profilo colore, ecc."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IPTC、色彩描述檔備註等。"
           }
         }
       }
@@ -2684,6 +3080,12 @@
             "state": "translated",
             "value": "Importa un'immagine o prova un esempio per iniziare."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "匯入圖片或試用範例，即可開始。"
+          }
         }
       }
     },
@@ -2723,6 +3125,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Importa immagine da File"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從「檔案」匯入圖片"
           }
         }
       }
@@ -2764,6 +3172,12 @@
             "state": "translated",
             "value": "Mantieni %@ nell'immagine esportata"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在匯出圖片中保留%@"
+          }
         }
       }
     },
@@ -2803,6 +3217,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mantieni nell'immagine esportata"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在匯出圖片中保留"
           }
         }
       }
@@ -2844,6 +3264,12 @@
             "state": "translated",
             "value": "Targa"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "車牌"
+          }
         }
       }
     },
@@ -2883,6 +3309,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Link"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連結"
           }
         }
       }
@@ -2924,6 +3356,12 @@
             "state": "translated",
             "value": "Caricamento foto"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在載入照片"
+          }
         }
       }
     },
@@ -2963,6 +3401,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Caricamento foto…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在載入照片…"
           }
         }
       }
@@ -3004,6 +3448,12 @@
             "state": "translated",
             "value": "Posizione (GPS)"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "位置（GPS）"
+          }
         }
       }
     },
@@ -3043,6 +3493,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "La posizione viene rimossa per impostazione predefinita. Tutto ciò che è disattivato viene eliminato dalla copia esportata; la foto originale non viene mai modificata."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "位置資訊預設移除。關閉的項目會從匯出副本中清除；原始照片始終不變。"
           }
         }
       }
@@ -3084,6 +3540,12 @@
             "state": "translated",
             "value": "Tieni premuto sul testo per scomporlo in parole: tocca una parola per coprirla oppure copri l'intera riga."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "長按文字將其炸成詞塊——點一下任意詞即可覆蓋，或覆蓋整行。"
+          }
         }
       }
     },
@@ -3123,6 +3585,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Area manuale"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手動區域"
           }
         }
       }
@@ -3164,6 +3632,12 @@
             "state": "translated",
             "value": "Pennarello"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "馬克筆"
+          }
         }
       }
     },
@@ -3203,6 +3677,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Forse"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可能"
           }
         }
       }
@@ -3244,6 +3724,12 @@
             "state": "translated",
             "value": "Media"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中"
+          }
         }
       }
     },
@@ -3283,6 +3769,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Metadati"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中繼資料"
           }
         }
       }
@@ -3324,6 +3816,12 @@
             "state": "translated",
             "value": "Altro"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更多"
+          }
         }
       }
     },
@@ -3363,6 +3861,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mosaico (può essere reversibile sul testo)."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "馬賽克（文字上可能被還原）。"
           }
         }
       }
@@ -3404,6 +3908,12 @@
             "state": "translated",
             "value": "Nome"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "姓名"
+          }
         }
       }
     },
@@ -3443,6 +3953,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nessun metadato trovato"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未發現中繼資料"
           }
         }
       }
@@ -3484,6 +4000,12 @@
             "state": "translated",
             "value": "Nessuna foto"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有照片"
+          }
         }
       }
     },
@@ -3523,6 +4045,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nessun rischio rilevato"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未辨識到風險"
           }
         }
       }
@@ -3564,6 +4092,12 @@
             "state": "translated",
             "value": "Nessuno"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無"
+          }
         }
       }
     },
@@ -3603,6 +4137,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Non ora"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暫不"
           }
         }
       }
@@ -3644,6 +4184,12 @@
             "state": "translated",
             "value": "Non coperto"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未覆蓋"
+          }
         }
       }
     },
@@ -3683,6 +4229,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "OK"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
           }
         }
       }
@@ -3724,6 +4276,12 @@
             "state": "translated",
             "value": "Apri Impostazioni"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟設定"
+          }
         }
       }
     },
@@ -3763,6 +4321,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Apre automaticamente una foto scattata nell'ultimo minuto."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動開啟一分鐘內拍攝的照片。"
           }
         }
       }
@@ -3804,6 +4368,12 @@
             "state": "translated",
             "value": "Apre le opzioni di esportazione per rimuovere i segni nascosti"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟匯出選項以清除隱藏標記"
+          }
         }
       }
     },
@@ -3843,6 +4413,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ordine / Tracciamento"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "訂單 / 貨態單號"
           }
         }
       }
@@ -3884,6 +4460,12 @@
             "state": "translated",
             "value": "Altri metadati"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "其他中繼資料"
+          }
         }
       }
     },
@@ -3923,6 +4505,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Telefono"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "電話"
           }
         }
       }
@@ -3964,6 +4552,12 @@
             "state": "translated",
             "value": "Accesso alle foto"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片取用"
+          }
         }
       }
     },
@@ -4003,6 +4597,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Anteprima della foto con le coperture applicate"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已套用打碼的照片預覽"
           }
         }
       }
@@ -4044,6 +4644,12 @@
             "state": "translated",
             "value": "Foto, tocca per scansionare"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片，點一下掃描"
+          }
         }
       }
     },
@@ -4083,6 +4689,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Scegli un emoji dalla tastiera oppure rimuovi la copertura."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從鍵盤選擇一個 emoji，或移除覆蓋。"
           }
         }
       }
@@ -4124,6 +4736,12 @@
             "state": "translated",
             "value": "Pizzica per ingrandire; trascina per spostarti quando è ingrandito."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "雙指縮放；放大後拖曳平移。"
+          }
         }
       }
     },
@@ -4163,6 +4781,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pixela"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "馬賽克"
           }
         }
       }
@@ -4204,6 +4828,12 @@
             "state": "translated",
             "value": "Pixela/sfoca sul testo può essere annullato. Il blocco è il più sicuro."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字上的馬賽克/模糊可能被還原。色塊最安全。"
+          }
         }
       }
     },
@@ -4243,6 +4873,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Possibile filigrana nascosta: verrà eliminata all'esportazione"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可能含隱藏浮水印——匯出時將清除"
           }
         }
       }
@@ -4284,6 +4920,12 @@
             "state": "translated",
             "value": "Informativa sulla privacy"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱私權政策"
+          }
         }
       }
     },
@@ -4314,6 +4956,12 @@
           }
         },
         "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "PrivyMark"
@@ -4358,6 +5006,12 @@
             "state": "translated",
             "value": "PrivyMark rileva le informazioni private in una foto — volti, numeri di telefono, email, nomi, numeri di carta, documenti, targhe — e le copre al posto tuo."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 辨識照片中的隱私資訊——人臉、電話、電子郵件、姓名、卡號、證件號碼、車牌——並幫你打碼。"
+          }
         }
       }
     },
@@ -4397,6 +5051,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "PrivyMark ha bisogno di accedere alle tue foto per permetterti di sceglierne una da coprire."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 需要取用你的照片，以便你選擇一張進行打碼。"
           }
         }
       }
@@ -4438,6 +5098,12 @@
             "state": "translated",
             "value": "QR / Codice a barre"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "QR Code / 條碼"
+          }
         }
       }
     },
@@ -4477,6 +5143,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Valutaci"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "給我們評分"
           }
         }
       }
@@ -4518,6 +5190,12 @@
             "state": "translated",
             "value": "Copri"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打碼"
+          }
         }
       }
     },
@@ -4557,6 +5235,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ripristina"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重做"
           }
         }
       }
@@ -4598,6 +5282,12 @@
             "state": "translated",
             "value": "Rimuovi"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除"
+          }
         }
       }
     },
@@ -4637,6 +5327,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Rimuovi tutti i metadati"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除全部中繼資料"
           }
         }
       }
@@ -4678,6 +5374,12 @@
             "state": "translated",
             "value": "Rimuovi copertura"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除覆蓋"
+          }
         }
       }
     },
@@ -4717,6 +5419,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Rimuovi segni nascosti"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除隱藏標記"
           }
         }
       }
@@ -4758,6 +5466,12 @@
             "state": "translated",
             "value": "Elenco rischi"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "風險清單"
+          }
         }
       }
     },
@@ -4797,6 +5511,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Salva (sovrascrivi originale)"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "儲存（覆蓋原圖）"
           }
         }
       }
@@ -4838,6 +5558,12 @@
             "state": "translated",
             "value": "Salva una copia"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "儲存副本"
+          }
         }
       }
     },
@@ -4877,6 +5603,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copia salvata"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已儲存副本"
           }
         }
       }
@@ -4918,6 +5650,12 @@
             "state": "translated",
             "value": "Salvato · originale aggiornato"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已儲存 · 原圖已更新"
+          }
         }
       }
     },
@@ -4957,6 +5695,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "La scansione avviene offline. Nulla di ciò che apri viene mai caricato."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "掃描離線進行。你開啟的任何內容都不會上傳。"
           }
         }
       }
@@ -4998,6 +5742,12 @@
             "state": "translated",
             "value": "Scansione sul dispositivo…"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在裝置上掃描…"
+          }
         }
       }
     },
@@ -5037,6 +5787,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Invia feedback"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "傳送意見回饋"
           }
         }
       }
@@ -5078,6 +5834,12 @@
             "state": "translated",
             "value": "Impostazioni"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定"
+          }
         }
       }
     },
@@ -5117,6 +5879,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Condividi ed elimina originale"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享並刪除原圖"
           }
         }
       }
@@ -5158,6 +5926,12 @@
             "state": "translated",
             "value": "Condividi PrivyMark"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享 PrivyMark"
+          }
         }
       }
     },
@@ -5197,6 +5971,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Condiviso · originale eliminato"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已分享 · 原圖已刪除"
           }
         }
       }
@@ -5238,6 +6018,12 @@
             "state": "translated",
             "value": "Condividi…"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享…"
+          }
         }
       }
     },
@@ -5277,6 +6063,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copertura piena e irreversibile. Tocca il selettore colore per cambiarne il colore."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不透明、不可逆的覆蓋。點一下色板可更改顏色。"
           }
         }
       }
@@ -5318,6 +6110,12 @@
             "state": "translated",
             "value": "Applica un tuo testo sull'immagine, ad es. \"Solo per uso interno\"."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在圖片上平鋪你自己的文字，例如「僅供內部使用」。"
+          }
         }
       }
     },
@@ -5357,6 +6155,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Applica un tuo testo sull'immagine."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在圖片上平鋪你自己的文字。"
           }
         }
       }
@@ -5398,6 +6202,12 @@
             "state": "translated",
             "value": "Sostienici"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支持我們"
+          }
         }
       }
     },
@@ -5437,6 +6247,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Scattata il %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拍攝於 %@"
           }
         }
       }
@@ -5478,6 +6294,12 @@
             "state": "translated",
             "value": "Tocca Auto per applicare tutti i suggerimenti rilevati in una volta."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "點一下「自動」即可一次套用所有辨識到的建議。"
+          }
         }
       }
     },
@@ -5517,6 +6339,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tocca una riga di testo per coprirla tutta. Tocca di nuovo per annullare."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "點一下一行文字即可打碼整行。再點一下還原。"
           }
         }
       }
@@ -5558,6 +6386,12 @@
             "state": "translated",
             "value": "Tocca le parole per coprirle. Le tue scelte vengono coperte sulla foto."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "點一下詞語即可覆蓋。所選內容會在照片上打碼。"
+          }
         }
       }
     },
@@ -5597,6 +6431,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Scomponi testo"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字大爆炸"
           }
         }
       }
@@ -5638,6 +6478,12 @@
             "state": "translated",
             "value": "Questa immagine non contiene metadati EXIF, GPS o del dispositivo."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此圖片不含 EXIF、GPS 或裝置中繼資料。"
+          }
         }
       }
     },
@@ -5677,6 +6523,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Questa foto non può essere modificata in loco. Prova \"Salva una copia\"."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此照片無法原地編輯。請嘗試「儲存副本」。"
           }
         }
       }
@@ -5718,6 +6570,12 @@
             "state": "translated",
             "value": "Impossibile scaricare questa foto. Controlla la connessione e riprova."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此照片無法下載。請檢查網路後重試。"
+          }
         }
       }
     },
@@ -5757,6 +6615,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Strumenti"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "工具"
           }
         }
       }
@@ -5798,6 +6662,12 @@
             "state": "translated",
             "value": "Prova un'immagine di esempio"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "試用範例圖片"
+          }
         }
       }
     },
@@ -5837,6 +6707,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Annulla"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "還原"
           }
         }
       }
@@ -5878,6 +6754,12 @@
             "state": "translated",
             "value": "Usa l'intelligenza sul dispositivo per individuare nomi e altro testo sensibile. Funziona al 100% sul tuo dispositivo: nulla viene caricato. Richiede un dispositivo supportato."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用裝置端智慧辨識姓名等敏感文字。100% 在你的裝置上執行——絕不上傳。需要支援的裝置。"
+          }
         }
       }
     },
@@ -5917,6 +6799,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mostra EXIF"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檢視 EXIF"
           }
         }
       }
@@ -5958,6 +6846,12 @@
             "state": "translated",
             "value": "Filigrana"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "浮水印"
+          }
         }
       }
     },
@@ -5997,6 +6891,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Testo filigrana"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "浮水印文字"
           }
         }
       }
@@ -6038,6 +6938,12 @@
             "state": "translated",
             "value": "Benvenuto"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "歡迎"
+          }
         }
       }
     },
@@ -6077,6 +6983,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dove è stata scattata la foto"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片的拍攝地點"
           }
         }
       }
@@ -6118,6 +7030,12 @@
             "state": "translated",
             "value": "Intera riga"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "整行"
+          }
         }
       }
     },
@@ -6158,6 +7076,12 @@
             "state": "translated",
             "value": "Hai consentito l'accesso alle foto selezionate. Tocca per gestire."
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你已允許取用所選照片。點一下管理。"
+          }
         }
       }
     },
@@ -6197,6 +7121,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Le tue foto non vengono mai caricate."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的照片絕不會被上傳。"
           }
         }
       }

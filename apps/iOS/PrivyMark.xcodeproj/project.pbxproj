@@ -243,6 +243,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
 				es,
 				pt,
 				fr,
