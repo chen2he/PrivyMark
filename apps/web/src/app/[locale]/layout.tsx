@@ -11,12 +11,28 @@ const APP_STORE_ID = "6782443539";
 const OG_LOCALES: Record<string, string> = {
 	en: "en_US",
 	"zh-Hans": "zh_CN",
+	"zh-Hant": "zh_TW",
+	"zh-HK": "zh_HK",
 };
 
 // 各语言社交分享图（打码纸感横幅 1280×640）。生成：apps/iOS/appstore/render/og.mjs
+// 繁体地区复用中文横幅。
 const OG_IMAGES: Record<string, string> = {
 	en: "/og/en.jpg",
 	"zh-Hans": "/og/zh-Hans.jpg",
+	"zh-Hant": "/og/zh-Hans.jpg",
+	"zh-HK": "/og/zh-Hans.jpg",
+};
+
+// hreflang：语言-脚本码 + 地区码（地理定向），指向对应本地化路由。
+const HREFLANG_ALTERNATES: Record<string, string> = {
+	en: "/",
+	"zh-Hans": "/zh-Hans",
+	"zh-CN": "/zh-Hans",
+	"zh-Hant": "/zh-Hant",
+	"zh-TW": "/zh-Hant",
+	"zh-HK": "/zh-HK",
+	"x-default": "/",
 };
 
 export function generateStaticParams() {
@@ -40,11 +56,7 @@ export async function generateMetadata({
 		description: t("description"),
 		alternates: {
 			canonical: path,
-			languages: {
-				en: "/",
-				"zh-Hans": "/zh-Hans",
-				"x-default": "/",
-			},
+			languages: HREFLANG_ALTERNATES,
 		},
 		icons: {
 			icon: [

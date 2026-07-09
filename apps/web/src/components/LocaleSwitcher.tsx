@@ -7,6 +7,8 @@ import { routing, type AppLocale } from "@/i18n/routing";
 const LOCALE_NAMES: Record<AppLocale, string> = {
 	en: "English",
 	"zh-Hans": "简体中文",
+	"zh-Hant": "繁體中文（台灣）",
+	"zh-HK": "繁體中文（香港）",
 };
 
 export default function LocaleSwitcher({ label }: { label: string }) {

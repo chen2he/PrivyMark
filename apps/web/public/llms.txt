@@ -1,0 +1,33 @@
+# PrivyMark
+
+> On-device privacy redaction for iOS. PrivyMark scans a photo for the private
+> details you might accidentally share — faces, phone numbers, emails, addresses,
+> card numbers, ID numbers — and helps you cover them before you post or send.
+> Everything runs on your device; nothing is ever uploaded. Free, no account.
+
+## Key facts
+
+- Platform: iOS 17.6+ (iPhone & iPad)
+- Price: Free — no subscription, no in-app purchases, no watermark on exports
+- Privacy: 100% on-device. No servers, no accounts, no analytics, no ad/tracking SDKs. Photos never leave the device; images shared in are deleted right after they're read.
+- Detection (on-device): faces, QR/barcodes, emails, phone numbers, URLs, street addresses, card-style numbers, ID/passport numbers (including Mainland China 身份证), order/tracking numbers, and names.
+- Cover styles: solid block (irreversible; the default for text), pixelate, blur, Hide Text, freehand marker, and an emoji cover for faces.
+- Metadata: strips GPS by default; optional best-effort scrub of simple pixel-level (LSB) hidden marks.
+- Honest limitation: detection is a suggestion, not a guarantee — always review before sharing. Pixelation/blur on text can sometimes be reversed (so text defaults to a solid block), and robust forensic watermarks cannot be removed.
+
+## Languages
+
+Website and App Store listing: English and Chinese (Simplified / Traditional — Taiwan and Hong Kong). On-device detection rules cover English, Chinese, Spanish, Portuguese, French, German, and Italian.
+
+## Links
+
+- Website: https://privymark.o-c.do
+- Privacy Policy: https://privymark.o-c.do/privacy
+- Terms of Use: https://privymark.o-c.do/terms
+- Support: https://privymark.o-c.do/support
+- Source code (MIT): https://github.com/chen2he/PrivyMark
+
+## Related projects
+
+- Orange Cloud (https://o-c.do): a native Cloudflare client for iPhone, iPad & Android.
+- Yield (https://yield.o-c.do): a self-hosted App Store order console, fed by Apple's server notifications.
