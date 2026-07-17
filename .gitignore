@@ -39,3 +39,22 @@ apps/iOS/appstore/
 # Agent / editor local config
 .claude/
 .agents/
+
+# HarmonyOS (apps/DAMA) — DevEco/hvigor local state and build output
+apps/DAMA/.hvigor/
+apps/DAMA/.idea/
+apps/DAMA/local.properties
+apps/DAMA/oh_modules/
+apps/DAMA/**/oh_modules/
+apps/DAMA/**/build/
+apps/DAMA/**/.preview/
+apps/DAMA/**/BuildProfile.ets
+
+# AppGallery 上架素材(截图/文案),照 iOS appstore/ 的惯例不入公共仓库
+apps/DAMA/appgallery/
+
+# HarmonyOS release signing material — keep private keys out of the repo
+apps/DAMA/cert/
+
+# DAMA build-profile carries signing passwords in the material block — keep it local
+apps/DAMA/build-profile.json5

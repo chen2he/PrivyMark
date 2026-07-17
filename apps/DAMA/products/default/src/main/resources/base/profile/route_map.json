@@ -1,0 +1,19 @@
+{
+  "routerMap": [
+    {
+      "name": "EditorPage",
+      "pageSourceFile": "src/main/ets/view/EditorView.ets",
+      "buildFunction": "EditorPageBuilder"
+    },
+    {
+      "name": "SettingsPage",
+      "pageSourceFile": "src/main/ets/view/SettingsView.ets",
+      "buildFunction": "SettingsPageBuilder"
+    },
+    {
+      "name": "PrivacyPolicyPage",
+      "pageSourceFile": "src/main/ets/view/PrivacyPolicyView.ets",
+      "buildFunction": "PrivacyPolicyPageBuilder"
+    }
+  ]
+}

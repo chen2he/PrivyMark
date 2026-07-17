@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "DAMA - 本机隐私打码工具"
+    },
+    {
+      "name": "ability_desc",
+      "value": "DAMA - 找出并遮盖图片里的隐私信息"
+    },
+    {
+      "name": "ability_label",
+      "value": "DAMA"
+    }
+  ]
+}

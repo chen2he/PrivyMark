@@ -1,0 +1,11 @@
+{
+  "app": {
+    "bundleName": "jiamin.chen.dama",
+    "vendor": "jiamin.chen",
+    "versionCode": 1000002,
+    "versionName": "1.0.2",
+    "buildVersion": "3",
+    "icon": "$media:layered_image",
+    "label": "$string:app_name"
+  }
+}

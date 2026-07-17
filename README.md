@@ -82,6 +82,9 @@ apps/
 ├── iOS/          # The app — SwiftUI, Vision, Core Image, share + photo-editing
 │   │             #   extensions, App Group handoff. iOS 17.6+.
 │   └── PrivyMark/
+├── DAMA/         # HarmonyOS app (打码) — ArkTS/ArkUI, Core Vision Kit
+│                 #   (OCR + face) + Scan Kit, offscreen-canvas renderer.
+│                 #   HarmonyOS 6.0+ (API 20).
 └── web/          # Landing page — Next.js + next-intl, deployed to
                   #   Cloudflare Workers via OpenNext (privymark.o-c.do).
 ```
@@ -90,6 +93,10 @@ apps/
 
 **iOS** — open `apps/iOS/PrivyMark.xcodeproj` in Xcode (26+) and run. The app
 icon uses Icon Composer (`PrivyMark/app.icon`); deployment target is iOS 17.6.
+
+**HarmonyOS** — open `apps/DAMA` in DevEco Studio (6.x) and run, or build from
+the CLI with hvigor (`assembleHap`). On-device AI (OCR / face detection) needs a
+real device or an emulator image that ships the AI models.
 
 **Web** —
 
