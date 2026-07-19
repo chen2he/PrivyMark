@@ -182,8 +182,8 @@ struct EditorView: View {
 
     private var exportMenu: some View {
         VStack(alignment: .leading, spacing: 0) {
-            menuRow("View EXIF", systemImage: "doc.text.magnifyingglass",
-                    subtitle: "EXIF is stripped on export") {
+            menuRow("Photo Metadata", systemImage: "doc.text.magnifyingglass",
+                    subtitle: "GPS, device model, timestamps — GPS removed by default") {
                 dismissPopoverThen { showMetadata = true }
             }
             Divider()

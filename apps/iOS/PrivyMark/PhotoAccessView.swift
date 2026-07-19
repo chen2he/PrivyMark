@@ -3,7 +3,11 @@
 //  PrivyMark
 //
 //  Shown before photo access is granted (PRD §7.1). Mirrors DAMA:
-//  illustration, reassurance that nothing is uploaded, Authorize + Try sample.
+//  illustration, reassurance that nothing is uploaded, Continue + Try sample.
+//
+//  App Review 5.1.1(iv): this screen precedes the system permission alert, so
+//  its button must NOT say "Allow"/"OK"/"Grant" — that reads as pre-answering
+//  the system prompt on the user's behalf. It says "Continue".
 //
 
 import SwiftUI
@@ -47,7 +51,7 @@ struct PhotoAccessView: View {
                 Button {
                     authorize()
                 } label: {
-                    Text("Allow Access")
+                    Text("Continue")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)

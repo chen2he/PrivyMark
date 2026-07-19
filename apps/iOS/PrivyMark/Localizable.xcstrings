@@ -369,52 +369,6 @@
         }
       }
     },
-    "Allow Access": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "允许访问"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Permitir acceso"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Permitir acesso"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autoriser l'accès"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zugriff erlauben"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consenti accesso"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "允許取用"
-          }
-        }
-      }
-    },
     "Allow PrivyMark to access Photos in Settings to save your redacted image.": {
       "localizations": {
         "zh-Hans": {
@@ -1193,6 +1147,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "壓縮相近顏色"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fortfahren"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuer"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continua"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "继续"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "繼續"
           }
         }
       }
@@ -2031,52 +2031,6 @@
         }
       }
     },
-    "EXIF is stripped on export": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "导出时清除 EXIF"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Los datos EXIF se eliminan al exportar"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O EXIF é removido ao exportar"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Les données EXIF sont supprimées à l'export"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "EXIF wird beim Export entfernt"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I dati EXIF vengono rimossi all'esportazione"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "匯出時清除 EXIF"
-          }
-        }
-      }
-    },
     "Email": {
       "localizations": {
         "zh-Hans": {
@@ -2533,6 +2487,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "含 GPS 資訊"
+          }
+        }
+      }
+    },
+    "GPS, device model, timestamps — GPS removed by default": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPS, Gerätemodell, Zeitstempel – GPS wird standardmäßig entfernt"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPS, modelo del dispositivo, fechas: el GPS se elimina por defecto"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPS, modèle d’appareil, horodatages — le GPS est supprimé par défaut"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPS, modello del dispositivo, date — il GPS viene rimosso per impostazione predefinita"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPS, modelo do dispositivo, datas — o GPS é removido por padrão"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPS、设备型号、时间戳 —— 默认移除 GPS"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPS、裝置型號、時間戳記 —— 預設移除 GPS"
           }
         }
       }
@@ -3135,6 +3135,52 @@
         }
       }
     },
+    "In the file itself": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In der Datei selbst"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En el propio archivo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dans le fichier lui-même"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nel file stesso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No próprio arquivo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文件本身"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檔案本身"
+          }
+        }
+      }
+    },
     "Keep %@ in exported image": {
       "localizations": {
         "zh-Hans": {
@@ -3733,52 +3779,6 @@
         }
       }
     },
-    "Metadata": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "元数据"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Metadatos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Metadados"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Métadonnées"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Metadaten"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Metadati"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "中繼資料"
-          }
-        }
-      }
-    },
     "More": {
       "localizations": {
         "zh-Hans": {
@@ -3917,48 +3917,94 @@
         }
       }
     },
-    "No Metadata Found": {
+    "No GPS, capture or device data": {
       "localizations": {
-        "zh-Hans": {
+        "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "未发现元数据"
+            "value": "Keine GPS-, Aufnahme- oder Gerätedaten"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "No se encontraron metadatos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhum metadado encontrado"
+            "value": "Sin datos de GPS, captura ni dispositivo"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aucune métadonnée trouvée"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Metadaten gefunden"
+            "value": "Aucune donnée GPS, de prise de vue ou d’appareil"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nessun metadato trovato"
+            "value": "Nessun dato GPS, di scatto o del dispositivo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem dados de GPS, captura ou dispositivo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无 GPS、拍摄或设备数据"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "未發現中繼資料"
+            "value": "無 GPS、拍攝或裝置資料"
+          }
+        }
+      }
+    },
+    "No Metadata in This File": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Metadaten in dieser Datei"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin metadatos en este archivo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucune métadonnée dans ce fichier"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun metadato in questo file"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem metadados neste arquivo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此文件不含元数据"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此檔案不含中繼資料"
           }
         }
       }
@@ -4557,6 +4603,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "照片取用"
+          }
+        }
+      }
+    },
+    "Photo Metadata": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto-Metadaten"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metadatos de la foto"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Métadonnées de la photo"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metadati della foto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metadados da foto"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片元数据"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片中繼資料"
           }
         }
       }
@@ -6441,48 +6533,48 @@
         }
       }
     },
-    "This image contains no EXIF, GPS, or device metadata.": {
+    "This image carries no GPS, capture or device data. Screenshots and images saved by other apps usually have none; a photo taken with the Camera app normally does.": {
       "localizations": {
-        "zh-Hans": {
+        "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "此图片不含 EXIF、GPS 或设备元数据。"
+            "value": "Dieses Bild enthält keine GPS-, Aufnahme- oder Gerätedaten. Screenshots und von anderen Apps gesicherte Bilder haben meist keine; ein mit der Kamera-App aufgenommenes Foto in der Regel schon."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Esta imagen no contiene metadatos EXIF, GPS ni del dispositivo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esta imagem não contém metadados EXIF, de GPS ou do dispositivo."
+            "value": "Esta imagen no contiene datos de GPS, captura ni dispositivo. Las capturas de pantalla y las imágenes guardadas por otras apps normalmente no los tienen; una foto hecha con la app Cámara sí suele tenerlos."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cette image ne contient aucune métadonnée EXIF, GPS ou d'appareil."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dieses Bild enthält keine EXIF-, GPS- oder Gerätemetadaten."
+            "value": "Cette image ne contient aucune donnée GPS, de prise de vue ou d’appareil. Les captures d’écran et les images enregistrées par d’autres apps n’en ont généralement pas ; une photo prise avec l’app Appareil photo, si."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Questa immagine non contiene metadati EXIF, GPS o del dispositivo."
+            "value": "Questa immagine non contiene dati GPS, di scatto o del dispositivo. Gli screenshot e le immagini salvate da altre app di solito non ne hanno; una foto scattata con l’app Fotocamera normalmente sì."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta imagem não contém dados de GPS, captura ou dispositivo. Capturas de tela e imagens salvas por outros apps geralmente não têm; uma foto feita com o app Câmera normalmente tem."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这张图片不含 GPS、拍摄或设备数据。截图和其他 App 保存的图片通常没有；用「相机」拍摄的照片通常有。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "此圖片不含 EXIF、GPS 或裝置中繼資料。"
+            "value": "這張圖片不含 GPS、拍攝或裝置資料。截圖和其他 App 儲存的圖片通常沒有；用「相機」拍攝的照片通常有。"
           }
         }
       }
@@ -6759,52 +6851,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "使用裝置端智慧辨識姓名等敏感文字。100% 在你的裝置上執行——絕不上傳。需要支援的裝置。"
-          }
-        }
-      }
-    },
-    "View EXIF": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "查看 EXIF"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver EXIF"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver EXIF"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher les EXIF"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "EXIF anzeigen"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostra EXIF"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "檢視 EXIF"
           }
         }
       }

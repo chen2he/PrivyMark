@@ -15,7 +15,17 @@
 	},
 	"hero": {
 		"kicker": "100% no dispositivo · nada é enviado",
-		"line1": [{ "t": "Encontre detalhes " }, { "r": "privados" }, { "t": "" }],
+		"line1": [
+			{
+				"t": "Encontre detalhes "
+			},
+			{
+				"r": "privados"
+			},
+			{
+				"t": ""
+			}
+		],
 		"line2": "antes de partilhar",
 		"sub": "Uma captura de ecrã revela mais do que imagina — um número de telefone, um cartão, uma morada, um rosto ao fundo. O PrivyMark encontra-os e cobre-os com um toque, inteiramente no seu iPhone.",
 		"note": "iOS 17.6+ · Grátis para sempre, sem conta, sem marca de água",
@@ -149,7 +159,7 @@
 	},
 	"privacy": {
 		"title": "Política de Privacidade",
-		"updated": "Última atualização: 8 de julho de 2026",
+		"updated": "Última atualização: 20 de julho de 2026",
 		"sections": [
 			{
 				"h": "A versão curta",
@@ -158,6 +168,14 @@
 			{
 				"h": "Como as suas fotografias são tratadas",
 				"p": "A análise, a ocultação e a exportação decorrem todas localmente através das frameworks no dispositivo da Apple (Vision, Core Image e, em dispositivos capazes, os modelos fundacionais no dispositivo da Apple). As fotografias nunca saem do seu dispositivo através do PrivyMark. Se uma fotografia que escolhe estiver guardada apenas no iCloud, o iOS descarrega-a para o seu dispositivo através do próprio sistema da Apple — não passa por nenhum servidor nosso; não operamos nenhum."
+			},
+			{
+				"h": "Dados faciais",
+				"p": "O PrivyMark deteta rostos apenas para desenhar um retângulo à volta deles, para que os possa cobrir. Usa o framework Vision da Apple, que funciona no dispositivo e não devolve nada além do retângulo que um rosto ocupa na imagem. O PrivyMark não cria, não usa e não armazena impressão facial, modelo facial ou qualquer outro identificador biométrico, e não é capaz de reconhecer ou identificar uma pessoa. Esses retângulos existem apenas na memória enquanto a fotografia está aberta no editor e são descartados ao fechá-la: nada sobre um rosto é gravado no armazenamento, incluído na imagem exportada, partilhado com terceiros ou transmitido para fora do seu dispositivo. Como nada disso é armazenado ou enviado para lado nenhum, o período de retenção é a duração dessa única sessão de edição."
+			},
+			{
+				"h": "IA no dispositivo, sem serviços de IA de terceiros",
+				"p": "Em dispositivos compatíveis, o PrivyMark faz uma passagem adicional sobre o texto encontrado na fotografia usando o modelo de fundação no dispositivo da Apple (Apple Intelligence), para encontrar nomes e números de documento que as regras não apanham. Esse modelo é executado inteiramente no seu dispositivo. O PrivyMark não usa o Private Cloud Compute e não envia as suas fotografias, o texto nelas encontrado nem qualquer outro dado pessoal para a OpenAI, a Google, a Anthropic ou qualquer outro serviço de IA, serviço na nuvem ou servidor de terceiros. A app não tem servidor próprio."
 			},
 			{
 				"h": "Permissões",

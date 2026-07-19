@@ -15,7 +15,17 @@
 	},
 	"hero": {
 		"kicker": "100 % sur l'appareil · rien n'est envoyé",
-		"line1": [{ "t": "Repérez les détails " }, { "r": "privés" }, { "t": "" }],
+		"line1": [
+			{
+				"t": "Repérez les détails "
+			},
+			{
+				"r": "privés"
+			},
+			{
+				"t": ""
+			}
+		],
 		"line2": "avant de partager",
 		"sub": "Une capture d'écran en dit plus long qu'on ne le croit — un numéro de téléphone, une carte, une adresse, un visage en arrière-plan. PrivyMark les repère et les masque en un geste, entièrement sur votre iPhone.",
 		"note": "iOS 17.6+ · Gratuit pour toujours, sans compte, sans filigrane",
@@ -149,7 +159,7 @@
 	},
 	"privacy": {
 		"title": "Politique de confidentialité",
-		"updated": "Dernière mise à jour : 8 juillet 2026",
+		"updated": "Dernière mise à jour : 20 juillet 2026",
 		"sections": [
 			{
 				"h": "En bref",
@@ -158,6 +168,14 @@
 			{
 				"h": "Comment vos photos sont traitées",
 				"p": "L'analyse, le caviardage et l'export s'exécutent tous localement à l'aide des frameworks sur l'appareil d'Apple (Vision, Core Image, et sur les appareils compatibles les modèles de fondation sur l'appareil d'Apple). Vos photos ne quittent jamais votre appareil via PrivyMark. Si une photo que vous choisissez n'est stockée que dans iCloud, iOS la télécharge sur votre appareil via le système d'Apple — elle ne passe par aucun de nos serveurs ; nous n'en exploitons aucun."
+			},
+			{
+				"h": "Données faciales",
+				"p": "PrivyMark détecte les visages uniquement pour tracer un cadre autour d'eux afin que vous puissiez les masquer. L'app utilise le framework Vision d'Apple, qui s'exécute sur l'appareil et ne renvoie rien de plus que le rectangle occupé par un visage dans l'image. PrivyMark ne crée, n'utilise et ne conserve aucune empreinte faciale, aucun gabarit facial ni aucun autre identifiant biométrique, et ne peut pas reconnaître ni identifier une personne. Ces rectangles n'existent qu'en mémoire tant que la photo est ouverte dans l'éditeur et sont supprimés à sa fermeture : rien concernant un visage n'est écrit dans le stockage, inclus dans l'image exportée, partagé avec un tiers ou transmis hors de votre appareil. Rien n'étant conservé ni envoyé où que ce soit, la durée de conservation correspond à celle de cette seule session d'édition."
+			},
+			{
+				"h": "IA sur l'appareil, aucun service d'IA tiers",
+				"p": "Sur les appareils compatibles, PrivyMark effectue une passe supplémentaire sur le texte trouvé dans la photo à l'aide du modèle de fondation sur appareil d'Apple (Apple Intelligence), afin de repérer les noms et numéros de pièce d'identité que les règles manquent. Ce modèle s'exécute entièrement sur votre appareil. PrivyMark n'utilise pas Private Cloud Compute et n'envoie ni vos photos, ni le texte qu'elles contiennent, ni aucune autre donnée personnelle à OpenAI, Google, Anthropic ou tout autre service d'IA, service cloud ou serveur tiers. L'app ne dispose d'aucun serveur propre."
 			},
 			{
 				"h": "Autorisations",

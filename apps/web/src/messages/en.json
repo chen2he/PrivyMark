@@ -15,7 +15,17 @@
 	},
 	"hero": {
 		"kicker": "100% on-device · nothing uploaded",
-		"line1": [{ "t": "Find " }, { "r": "private" }, { "t": " details" }],
+		"line1": [
+			{
+				"t": "Find "
+			},
+			{
+				"r": "private"
+			},
+			{
+				"t": " details"
+			}
+		],
 		"line2": "before you share",
 		"sub": "A screenshot holds more than you think — a phone number, a card, an address, a face in the background. PrivyMark finds them and covers them in one tap, entirely on your iPhone.",
 		"note": "iOS 17.6+ · Free forever, no account, no watermark",
@@ -149,7 +159,7 @@
 	},
 	"privacy": {
 		"title": "Privacy Policy",
-		"updated": "Last updated: July 8, 2026",
+		"updated": "Last updated: July 20, 2026",
 		"sections": [
 			{
 				"h": "The short version",
@@ -158,6 +168,14 @@
 			{
 				"h": "How your photos are handled",
 				"p": "Scanning, redaction and export all run locally using Apple's on-device frameworks (Vision, Core Image, and on capable devices Apple's on-device foundation models). Photos never leave your device through PrivyMark. If a photo you pick is stored only in iCloud, iOS downloads it to your device through Apple's own system — it does not pass through any server of ours; we don't operate any."
+			},
+			{
+				"h": "Face data",
+				"p": "PrivyMark detects faces only to draw a box around them so you can cover them. It uses Apple's on-device Vision framework, which returns nothing more than the rectangle a face occupies in the image. PrivyMark does not create, use, or store a faceprint, face template, or any other biometric identifier, and it cannot recognise or identify who a person is. Those rectangles exist only in memory while the photo is open in the editor and are discarded when you close it — nothing about a face is written to disk, included in an exported image, shared with any third party, or transmitted off your device. Because none of it is stored or sent anywhere, the retention period is the length of that one editing session."
+			},
+			{
+				"h": "On-device AI, no third-party AI services",
+				"p": "On devices that support it, PrivyMark makes an extra pass over the text found in your photo using Apple's on-device foundation model (Apple Intelligence), to catch names and ID numbers the pattern rules miss. That model runs entirely on your device. PrivyMark does not use Private Cloud Compute, and it does not send your photos, the text found in them, or any other personal data to OpenAI, Google, Anthropic, or any other third-party AI service, cloud service, or server. The app has no backend of its own."
 			},
 			{
 				"h": "Permissions",

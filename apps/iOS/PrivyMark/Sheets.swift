@@ -15,12 +15,32 @@ struct MetadataSheet: View {
 
     var body: some View {
         NavigationStack {
+            MetadataList(editor: editor)
+                .navigationTitle("Photo Metadata")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Done") { dismiss() }
+                    }
+                }
+        }
+        .presentationDetents([.medium, .large])
+    }
+}
+
+/// The metadata screen itself — shown as a sheet from the export menu and
+/// pushed from the Detected Risks list, so the feature is reachable from both
+/// the "what did you find" surface and the "what am I about to send" surface.
+struct MetadataList: View {
+    @ObservedObject var editor: EditorModel
+
+    var body: some View {
             List {
                 if editor.metadata.isEmpty {
                     ContentUnavailableView(
-                        "No Metadata Found",
+                        "No Metadata in This File",
                         systemImage: "checkmark.shield",
-                        description: Text("This image contains no EXIF, GPS, or device metadata."))
+                        description: Text("This image carries no GPS, capture or device data. Screenshots and images saved by other apps usually have none; a photo taken with the Camera app normally does."))
                 } else {
                     Section {
                         ForEach(MetadataCategory.allCases) { category in
@@ -50,15 +70,6 @@ struct MetadataSheet: View {
                     }
                 }
             }
-            .navigationTitle("Metadata")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
-                }
-            }
-        }
-        .presentationDetents([.medium, .large])
     }
 
     private func binding(for category: MetadataCategory) -> Binding<Bool> {
@@ -80,6 +91,30 @@ struct RiskListSheet: View {
     var body: some View {
         NavigationStack {
             List {
+                // Metadata is a risk the scan found too, so it belongs in this
+                // list — not only behind the export menu (App Review 2.3).
+                Section {
+                    NavigationLink {
+                        MetadataList(editor: editor)
+                            .navigationTitle("Photo Metadata")
+                            .navigationBarTitleDisplayMode(.inline)
+                    } label: {
+                        Label {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Photo Metadata")
+                                Text(metadataSummary)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                    .lineLimit(1)
+                            }
+                        } icon: {
+                            Image(systemName: "doc.text.magnifyingglass")
+                        }
+                    }
+                } header: {
+                    Text("In the file itself")
+                }
+
                 if editor.regions.isEmpty {
                     ContentUnavailableView(
                         "No Risks Detected",
@@ -115,6 +150,14 @@ struct RiskListSheet: View {
             }
         }
         .presentationDetents([.medium, .large])
+    }
+
+    /// One line naming what the file actually carries, so the entry point reads
+    /// as a finding rather than a settings link.
+    private var metadataSummary: String {
+        let present = MetadataCategory.allCases.filter { editor.metadata.present[$0] != nil }
+        guard !present.isEmpty else { return String(localized: "No GPS, capture or device data") }
+        return present.map(\.displayName).joined(separator: ", ")
     }
 
     private func row(_ region: RiskRegion) -> some View {
