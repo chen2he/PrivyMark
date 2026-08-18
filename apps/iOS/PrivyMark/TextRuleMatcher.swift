@@ -8,19 +8,12 @@
 
 import Foundation
 
+/// One sensitive span found in an OCR line. `range` is the exact text to cover —
+/// geometry is always derived from it, so no rule can force a whole-line box.
 nonisolated struct RuleMatch: Equatable, Sendable {
     let range: Range<String.Index>
     let type: RiskType
     let level: RiskLevel
-    /// True when the match should cover the whole OCR line (e.g. addresses).
-    let coversWholeLine: Bool
-
-    init(range: Range<String.Index>, type: RiskType, level: RiskLevel, coversWholeLine: Bool = false) {
-        self.range = range
-        self.type = type
-        self.level = level
-        self.coversWholeLine = coversWholeLine
-    }
 }
 
 nonisolated enum TextRuleMatcher {
@@ -137,6 +130,12 @@ nonisolated enum TextRuleMatcher {
         #"\b(order|tracking|address|phone|tel|email|ship(?:ping)? to|deliver(?:y)? to)\b"#,
         caseInsensitive: true)
 
+    /// A leading address label ("Address:", "Addr.", "地址：", "收件地址") — skipped
+    /// so the cover starts at the address itself instead of the field name.
+    private static let addressLabelRegex = regex(
+        #"^\s*(?:shipping address|billing address|delivery address|address|addr\.?|ship to|deliver to|地\s*址|住\s*址|收货地址|收件地址|通讯地址)\s*[:：]?\s*"#,
+        caseInsensitive: true)
+
     private static func regex(_ pattern: String, caseInsensitive: Bool) -> NSRegularExpression {
         // Patterns are compile-time constants; a failure is a programmer error.
         try! NSRegularExpression(
@@ -249,14 +248,20 @@ nonisolated enum TextRuleMatcher {
 
         // 7. Address: an address keyword (Latin / "Main St" suffix / Chinese
         //    marker) plus either a digit OR a comma (a street name + city +
-        //    country with no house number still reads as an address) → whole line.
+        //    country with no house number still reads as an address). The right
+        //    edge of an address is unknowable, so the match runs to the end of
+        //    the line — but a leading "Address:" label is left readable.
         let hasKeyword = addressRegex.firstMatch(in: line, range: full) != nil
             || addressSuffixRegex.firstMatch(in: line, range: full) != nil
             || chineseAddressRegex.firstMatch(in: line, range: full) != nil
         if hasKeyword, line.contains(where: \.isNumber) || line.contains(",") || line.contains("，"),
            let whole = Range(full, in: line) {
-            results.append(RuleMatch(
-                range: whole, type: .address, level: boost(.medium), coversWholeLine: true))
+            let start = addressLabelRegex.firstMatch(in: line, range: full)
+                .flatMap { Range($0.range, in: line)?.upperBound } ?? whole.lowerBound
+            if start < whole.upperBound {
+                results.append(RuleMatch(
+                    range: start..<whole.upperBound, type: .address, level: boost(.medium)))
+            }
         }
 
         return results

@@ -87,6 +87,8 @@ struct MetadataList: View {
 struct RiskListSheet: View {
     @ObservedObject var editor: EditorModel
     @Environment(\.dismiss) private var dismiss
+    /// Detection being trimmed word by word in the Text Explode picker.
+    @State private var refineTarget: ExplodeTarget?
 
     var body: some View {
         NavigationStack {
@@ -148,6 +150,9 @@ struct RiskListSheet: View {
                     Button("Done") { dismiss() }
                 }
             }
+            .sheet(item: $refineTarget) { target in
+                TextExplodeSheet(target: target, editor: editor)
+            }
         }
         .presentationDetents([.medium, .large])
     }
@@ -176,6 +181,23 @@ struct RiskListSheet: View {
                 .truncationMode(.middle)
 
             Spacer()
+
+            // A detection that sits on OCR text can be trimmed to single words,
+            // so toggling an address or a long line no longer means blacking out
+            // everything next to it.
+            let refinable = editor.refinableLines(for: region)
+            if !refinable.isEmpty {
+                // A word (not an icon): SF Symbol glyphs for text all read as
+                // something else in a CJK locale, and this affordance is the one
+                // users were missing.
+                Button("Words") {
+                    refineTarget = ExplodeTarget(region: region, lines: refinable)
+                }
+                .font(.caption.weight(.medium))
+                .foregroundStyle(region.isRefined ? Color.accentColor : Color.secondary)
+                .buttonStyle(.borderless)
+                .accessibilityLabel("Refine to words")
+            }
 
             if region.origin == .manual {
                 Button(role: .destructive) {

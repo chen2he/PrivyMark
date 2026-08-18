@@ -48,8 +48,10 @@ struct EditorView: View {
     @State private var watermarkText = ""
     @State private var sharePayload: SharePayload?
     @State private var toast: String?
-    /// OCR line being fanned out in the "Text Explode" picker.
-    @State private var explodeLine: TextLine?
+    /// Text currently fanned out in the "Text Explode" picker — either a plain
+    /// OCR line (long-press on unflagged text) or a detected region being
+    /// refined word by word.
+    @State private var explodeTarget: ExplodeTarget?
 
     private let appName = "PrivyMark"
 
@@ -85,8 +87,8 @@ struct EditorView: View {
                     onPick: { editor.setEmoji($0, forRegion: target.id) },
                     onRemove: { editor.removeEmojiCover(target.id) })
             }
-            .sheet(item: $explodeLine) { line in
-                TextExplodeSheet(line: line, editor: editor)
+            .sheet(item: $explodeTarget) { target in
+                TextExplodeSheet(target: target, editor: editor)
             }
             .alert("Watermark", isPresented: $showWatermarkInput) {
                 TextField("Watermark text", text: $watermarkText)
@@ -310,17 +312,20 @@ struct EditorView: View {
     private func regionOverlay(_ region: RiskRegion, fitted: CGRect) -> some View {
         // Selected emoji covers show the emoji itself instead of a border.
         if !(region.isSelected && region.emoji != nil) {
-            let rect = viewRect(for: region.boundingBox, fitted: fitted)
             let color = color(for: region.riskLevel)
             let isHighlighted = editor.highlightedRegionID == region.id
-            Rectangle()
-                .strokeBorder(
-                    region.isSelected ? color : Color.gray,
-                    style: StrokeStyle(lineWidth: isHighlighted ? 4 : 2,
-                                       dash: region.isSelected ? [] : [5]))
-                .frame(width: rect.width, height: rect.height)
-                .position(x: rect.midX, y: rect.midY)
-                .allowsHitTesting(false)
+            // A refined region outlines each kept word instead of one box.
+            ForEach(Array(region.coverRects.enumerated()), id: \.offset) { _, box in
+                let rect = viewRect(for: box, fitted: fitted)
+                Rectangle()
+                    .strokeBorder(
+                        region.isSelected ? color : Color.gray,
+                        style: StrokeStyle(lineWidth: isHighlighted ? 4 : 2,
+                                           dash: region.isSelected ? [] : [5]))
+                    .frame(width: rect.width, height: rect.height)
+                    .position(x: rect.midX, y: rect.midY)
+                    .allowsHitTesting(false)
+            }
         }
     }
 
@@ -636,12 +641,27 @@ struct EditorView: View {
                       draggingEmojiID == nil,
                       emojiRegion(at: touchLocation, fitted: fitted) == nil else { return }
                 longPressFired = true
-                // Fan the OCR line under the finger into tappable word chips
-                // (Text Explode) so plain text the detectors missed can be covered.
-                if let line = editor.line(atNormalizedPoint: normalizedPoint(touchLocation, in: fitted)) {
-                    explodeLine = line
+                // Fan the text under the finger into tappable word chips (Text
+                // Explode). On a detected region that means refining it word by
+                // word; elsewhere it covers plain text the detectors missed.
+                let point = normalizedPoint(touchLocation, in: fitted)
+                if let region = refinableRegion(at: point) {
+                    explodeTarget = ExplodeTarget(region: region,
+                                                  lines: editor.refinableLines(for: region))
+                } else if let line = editor.line(atNormalizedPoint: point) {
+                    explodeTarget = ExplodeTarget(line: line)
                 }
             }
+    }
+
+    /// The smallest detected text region under a normalized point that can be
+    /// refined to words — long-pressing it opens the word picker for it.
+    private func refinableRegion(at point: CGPoint) -> RiskRegion? {
+        editor.regions
+            .filter { $0.emoji == nil && $0.boundingBox.contains(point)
+                        && !editor.refinableLines(for: $0).isEmpty }
+            .min { ($0.boundingBox.width * $0.boundingBox.height)
+                 < ($1.boundingBox.width * $1.boundingBox.height) }
     }
 
     /// The selected emoji cover under a canvas point, if any.
@@ -779,7 +799,8 @@ struct HelpSheet: View {
                 Section("Redact") {
                     step("1", "Tap a text line to redact the whole line. Tap again to undo.")
                     step("2", "Long-press text to explode it into words — tap any word to cover it, or cover the whole line.")
-                    step("3", "Drag anywhere on the image to redact a custom area.")
+                    step("3", "Long-press a detected risk to trim it word by word, or use the text button in the risk list.")
+                    step("4", "Drag anywhere on the image to redact a custom area.")
                     step("✦", "Tap Auto to apply all detected suggestions at once.")
                     step("⌕", "Pinch to zoom; drag to pan when zoomed in.")
                 }
@@ -820,37 +841,82 @@ struct HelpSheet: View {
     }
 }
 
-/// "Text Explode" (文字大爆炸): long-press an OCR line to fan its words out as
-/// tappable chips. Tap chips to cover individual words the risk detectors
-/// didn't flag, or cover the whole line at once (PRD §7.5).
+/// What the Text Explode sheet operates on: a plain OCR line (cover text the
+/// detectors missed) or a detected region being trimmed word by word.
+struct ExplodeTarget: Identifiable {
+    let id: UUID
+    let lines: [TextLine]
+    /// nil in freeform mode — chips create standalone manual covers instead.
+    let region: RiskRegion?
+
+    init(line: TextLine) {
+        self.id = line.id
+        self.lines = [line]
+        self.region = nil
+    }
+
+    init(region: RiskRegion, lines: [TextLine]) {
+        self.id = region.id
+        self.lines = lines
+        self.region = region
+    }
+}
+
+/// "Text Explode" (文字大爆炸): fans OCR text out as tappable word chips so a
+/// redaction can stop at word boundaries instead of swallowing a whole line
+/// (PRD §7.5). Long-pressing plain text covers the words picked here; opening
+/// it on a detected risk trims that detection down to the words it should keep.
 struct TextExplodeSheet: View {
-    let line: TextLine
+    let target: ExplodeTarget
     @ObservedObject var editor: EditorModel
     @Environment(\.dismiss) private var dismiss
+
+    /// Every word across the target's lines — the universe a refinement works in.
+    private var allWords: [TextWord] { target.lines.flatMap(\.words) }
+
+    // Explicitly typed so both literals stay localizable keys rather than
+    // collapsing to a plain String (which SwiftUI would render verbatim).
+    private var title: LocalizedStringKey {
+        target.region == nil ? "Text Explode" : "Refine to Words"
+    }
+
+    private var hint: LocalizedStringKey {
+        target.region == nil
+            ? "Tap words to cover them. Your picks are redacted on the photo."
+            : "Tap a word to cover or reveal it. Only the highlighted words stay redacted."
+    }
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Tap words to cover them. Your picks are redacted on the photo.")
+                    Text(hint)
                         .font(.footnote).foregroundStyle(.secondary)
-                    FlowLayout(spacing: 8) {
-                        ForEach(Array(line.words.enumerated()), id: \.offset) { _, word in
-                            chip(word)
+                    ForEach(target.lines) { line in
+                        FlowLayout(spacing: 8) {
+                            ForEach(Array(line.words.enumerated()), id: \.offset) { _, word in
+                                chip(word)
+                            }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding()
             }
-            .navigationTitle("Text Explode")
+            .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        editor.coverWholeLine(line)
-                        dismiss()
-                    } label: { Label("Whole Line", systemImage: "text.redaction") }
+                    if let region = target.region {
+                        Button {
+                            editor.resetRefinement(forRegion: region.id)
+                        } label: { Label("Whole Match", systemImage: "text.redaction") }
+                    } else if let line = target.lines.first {
+                        Button {
+                            editor.coverWholeLine(line)
+                            dismiss()
+                        } label: { Label("Whole Line", systemImage: "text.redaction") }
+                    }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -860,16 +926,29 @@ struct TextExplodeSheet: View {
         .presentationDetents([.medium, .large])
     }
 
+    private func isCovered(_ word: TextWord) -> Bool {
+        guard let region = target.region else { return editor.isWordCovered(word) }
+        return editor.isWordCovered(word, inRegion: region.id, allWords: allWords)
+    }
+
+    private func toggle(_ word: TextWord) {
+        guard let region = target.region else {
+            editor.toggleWordCover(word)
+            return
+        }
+        editor.toggleRefinedWord(word, inRegion: region.id, allWords: allWords)
+    }
+
     @ViewBuilder
     private func chip(_ word: TextWord) -> some View {
-        let covered = editor.isWordCovered(word)
+        let covered = isCovered(word)
         Text(word.text)
             .font(.body)
             .padding(.horizontal, 12).padding(.vertical, 8)
             .background(covered ? Color.accentColor : Color(.secondarySystemFill), in: Capsule())
             .foregroundStyle(covered ? Color.white : Color.primary)
             .contentShape(Capsule())
-            .onTapGesture { editor.toggleWordCover(word) }
+            .onTapGesture { toggle(word) }
             .accessibilityLabel(word.text)
             .accessibilityValue(covered ? "Covered" : "Not covered")
             .accessibilityAddTraits(.isButton)

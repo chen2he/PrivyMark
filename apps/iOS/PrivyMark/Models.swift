@@ -187,6 +187,11 @@ nonisolated struct RiskRegion: Identifiable, Equatable, Sendable {
     var isSelected: Bool
     var origin: RegionOrigin
     var emoji: String?
+    /// Word-level refinement (PRD §7.5): when non-nil these normalized boxes are
+    /// redacted instead of the full `boundingBox`, so a detection that landed on
+    /// a whole OCR line can be trimmed down to the words that actually matter.
+    /// `boundingBox` stays the hit target and the list row's identity.
+    var wordBoxes: [CGRect]?
 
     init(
         id: UUID = UUID(),
@@ -210,6 +215,13 @@ nonisolated struct RiskRegion: Identifiable, Equatable, Sendable {
         self.origin = origin
         self.emoji = emoji
     }
+
+    /// The rects actually redacted: the refined word boxes when the user has
+    /// trimmed this detection, otherwise the whole detection box.
+    var coverRects: [CGRect] { wordBoxes ?? [boundingBox] }
+
+    /// True when the user has trimmed this detection below its detected box.
+    var isRefined: Bool { wordBoxes != nil }
 }
 
 /// An emoji cover baked into the export (faces). Rect is normalized, top-left.

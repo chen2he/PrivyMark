@@ -112,7 +112,24 @@ nonisolated enum ScanService {
                     end += 1
                 }
             }
-            if matchKey(line.text).contains(target) { return line.boundingBox }
+            // The window walk fails when OCR split words differently than the
+            // model wrote them. Fall back to the target's character span inside
+            // the line key, mapped back onto words by cumulative key length —
+            // still a tight box. Whole line only if even that misses.
+            let lineKey = matchKey(line.text)
+            guard let span = lineKey.range(of: target) else { continue }
+            let lower = lineKey.distance(from: lineKey.startIndex, to: span.lowerBound)
+            let upper = lineKey.distance(from: lineKey.startIndex, to: span.upperBound)
+            var cursor = 0
+            var hits: [CGRect] = []
+            for word in line.words {
+                let length = matchKey(word.text).count
+                let start = cursor
+                cursor += length
+                guard length > 0, start < upper, cursor > lower else { continue }
+                hits.append(word.boundingBox)
+            }
+            return union(hits) ?? line.boundingBox
         }
         return nil
     }
@@ -191,10 +208,10 @@ nonisolated enum ScanService {
 
             // Detected sensitive patterns → suggested regions.
             for match in TextRuleMatcher.matches(in: line, sceneHint: sceneHint) {
+                // Geometry always comes from the matched span; the whole-line
+                // observation box is only the fallback when Vision can't map it.
                 let visionBox: CGRect
-                if match.coversWholeLine {
-                    visionBox = observation.boundingBox
-                } else if let rect = try? candidate.boundingBox(for: match.range) {
+                if let rect = try? candidate.boundingBox(for: match.range) {
                     visionBox = rect.boundingBox
                 } else {
                     visionBox = observation.boundingBox
@@ -384,8 +401,12 @@ nonisolated enum ScanService {
     }
 
     /// Small padding so redaction fully covers glyph ascenders/descenders.
+    /// Breathing room around a text box. Horizontal padding is deliberately
+    /// smaller than vertical: dx is measured in LINE HEIGHT, so on a short word
+    /// the old 18% bled visibly onto its neighbours — the thing that made a
+    /// word-level cover look like a line-level one.
     private static func padTextBox(_ rect: CGRect) -> CGRect {
-        rect.insetBy(dx: -rect.height * 0.18, dy: -rect.height * 0.18)
+        rect.insetBy(dx: -rect.height * 0.08, dy: -rect.height * 0.18)
     }
 
     private static func clamp(_ rect: CGRect) -> CGRect {

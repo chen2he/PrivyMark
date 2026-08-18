@@ -328,6 +328,85 @@ final class EditorModel: ObservableObject {
         renderPreview()
     }
 
+    // MARK: Refine a detection to words
+
+    /// The OCR lines a detected region sits on, in reading order — the chips
+    /// shown when refining that detection word by word. Empty when nothing
+    /// textual underlies the region (faces, barcodes), which is the signal to
+    /// hide the Refine affordance entirely.
+    func refinableLines(for region: RiskRegion) -> [TextLine] {
+        lines
+            .filter { line in
+                line.boundingBox.intersects(region.boundingBox)
+                    && line.words.contains { Self.overlapFraction($0.boundingBox, region.boundingBox) > 0.3 }
+            }
+            .sorted { lhs, rhs in
+                // Reading order; same visual row (within half a line height) reads left→right.
+                if abs(lhs.boundingBox.midY - rhs.boundingBox.midY) > lhs.boundingBox.height / 2 {
+                    return lhs.boundingBox.midY < rhs.boundingBox.midY
+                }
+                return lhs.boundingBox.minX < rhs.boundingBox.minX
+            }
+    }
+
+    /// Whether `word` is currently redacted as part of `regionID`. Before the
+    /// first edit the region has no explicit word list, so the answer is derived
+    /// from which words its detected box already swallows.
+    func isWordCovered(_ word: TextWord, inRegion regionID: UUID, allWords: [TextWord]) -> Bool {
+        guard let region = regions.first(where: { $0.id == regionID }), region.isSelected else { return false }
+        return Self.currentWordBoxes(of: region, in: allWords).contains(word.boundingBox)
+    }
+
+    /// Toggles one word inside a detected region. Deselecting the last word
+    /// switches the whole detection off rather than leaving an empty cover.
+    func toggleRefinedWord(_ word: TextWord, inRegion regionID: UUID, allWords: [TextWord]) {
+        guard let index = regions.firstIndex(where: { $0.id == regionID }) else { return }
+        pushUndo()
+        var boxes = regions[index].isSelected
+            ? Self.currentWordBoxes(of: regions[index], in: allWords)
+            : []
+        if let hit = boxes.firstIndex(of: word.boundingBox) {
+            boxes.remove(at: hit)
+        } else {
+            boxes.append(word.boundingBox)
+        }
+        if boxes.isEmpty {
+            regions[index].wordBoxes = nil
+            regions[index].isSelected = false
+        } else {
+            regions[index].wordBoxes = boxes
+            regions[index].isSelected = true
+        }
+        renderPreview()
+    }
+
+    /// Drops a word-level refinement: the region covers its detected box again.
+    func resetRefinement(forRegion regionID: UUID) {
+        guard let index = regions.firstIndex(where: { $0.id == regionID }) else { return }
+        pushUndo()
+        regions[index].wordBoxes = nil
+        regions[index].isSelected = true
+        renderPreview()
+    }
+
+    /// The word boxes a region currently redacts: its explicit refinement, or —
+    /// before any refinement — the words its detected box mostly swallows.
+    private static func currentWordBoxes(of region: RiskRegion, in words: [TextWord]) -> [CGRect] {
+        if let boxes = region.wordBoxes { return boxes }
+        return words
+            .filter { overlapFraction($0.boundingBox, region.boundingBox) >= 0.5 }
+            .map(\.boundingBox)
+    }
+
+    /// How much of `box` lies inside `other`, as a fraction of `box`'s own area.
+    private static func overlapFraction(_ box: CGRect, _ other: CGRect) -> CGFloat {
+        let area = box.width * box.height
+        guard area > 0 else { return 0 }
+        let hit = box.intersection(other)
+        guard !hit.isNull else { return 0 }
+        return (hit.width * hit.height) / area
+    }
+
     /// Covers an entire OCR line at once ("cover whole line" in Text Explode).
     func coverWholeLine(_ line: TextLine) {
         guard !regions.contains(where: {
@@ -431,7 +510,7 @@ final class EditorModel: ObservableObject {
     /// Selected regions covered by the fill style (emoji faces excluded —
     /// those draw as a live canvas overlay and bake only at export).
     var styleRects: [CGRect] {
-        selectedRegions.filter { $0.emoji == nil }.map(\.boundingBox)
+        selectedRegions.filter { $0.emoji == nil }.flatMap(\.coverRects)
     }
 
     /// Selected emoji covers (faces), for the canvas overlay and export bake.
