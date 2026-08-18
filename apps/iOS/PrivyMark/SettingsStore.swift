@@ -16,6 +16,9 @@ final class SettingsStore: ObservableObject {
     /// On-device AI-enhanced detection (iOS 26+ Foundation Models). Default on;
     /// no effect on devices without an available on-device model.
     @AppStorage("aiDetectionEnabled") var aiDetectionEnabled = true
+    /// Whether the user has ever left a tip. Changes the tip row's wording and
+    /// nothing else — no feature, limit or behaviour depends on it.
+    @AppStorage("hasTipped") var hasTipped = false
 
     var defaultTool: RedactionStyle {
         get { RedactionStyle(rawValue: defaultToolRaw) ?? .block }
