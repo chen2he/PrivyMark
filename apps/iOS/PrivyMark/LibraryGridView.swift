@@ -15,73 +15,90 @@ struct LibraryGridView: View {
     @ObservedObject var settings: SettingsStore
     var onPick: (PHAssetWrapper) -> Void
     var onImport: (Data) -> Void
+    /// False when the grid is the sidebar of a split view, which supplies the
+    /// navigation container itself.
+    var embedsNavigation = true
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var showSettings = false
     @State private var showImporter = false
 
-    private let columns = Array(repeating: GridItem(.flexible(), spacing: 3), count: 4)
+    /// Even column count, wider on the inner display: a partially folded device
+    /// splits the grid down the middle, and an even count divides cleanly on
+    /// either side of the fold instead of leaving a column straddling it.
+    private var columns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: 3),
+              count: horizontalSizeClass.evenGridColumns)
+    }
 
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                if library.isLimited {
-                    limitedBanner
-                }
-                LazyVGrid(columns: columns, spacing: 3) {
-                    ForEach(library.assets, id: \.localIdentifier) { asset in
-                        Button {
-                            onPick(PHAssetWrapper(asset: asset))
-                        } label: {
-                            ThumbnailCell(asset: asset, library: library)
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityLabel("Photo, tap to scan")
-                    }
-                }
-                .padding(.horizontal, 3)
-
-                if library.assets.isEmpty {
-                    ContentUnavailableView(
-                        "No Photos",
-                        systemImage: "photo.on.rectangle",
-                        description: Text("Import an image or try a sample to get started."))
-                        .padding(.top, 80)
-                }
-            }
-            .navigationTitle("")
-            .toolbarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        showImporter = true
-                    } label: {
-                        Image(systemName: "square.and.arrow.down.on.square")
-                    }
-                    .accessibilityLabel("Import image from Files")
-                }
-                ToolbarItem(placement: .principal) {
-                    Text("All Photos").font(.headline)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Image(systemName: "gearshape")
-                    }
-                    .accessibilityLabel("Settings")
-                }
-            }
-            .sheet(isPresented: $showSettings) {
-                SettingsView(settings: settings)
-            }
-            .fileImporter(isPresented: $showImporter,
-                          allowedContentTypes: [.image], allowsMultipleSelection: false) { result in
-                if case let .success(urls) = result, let url = urls.first {
-                    importFile(url)
-                }
-            }
-            .onAppear { library.fetchAssets() }
+        if embedsNavigation {
+            NavigationStack { grid }
+        } else {
+            grid
         }
+    }
+
+    private var grid: some View {
+        ScrollView {
+            if library.isLimited {
+                limitedBanner
+            }
+            LazyVGrid(columns: columns, spacing: 3) {
+                ForEach(library.assets, id: \.localIdentifier) { asset in
+                    Button {
+                        onPick(PHAssetWrapper(asset: asset))
+                    } label: {
+                        ThumbnailCell(asset: asset, library: library)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Photo, tap to scan")
+                }
+            }
+            .padding(.horizontal, 3)
+
+            if library.assets.isEmpty {
+                ContentUnavailableView(
+                    "No Photos",
+                    systemImage: "photo.on.rectangle",
+                    description: Text("Import an image or try a sample to get started."))
+                    .padding(.top, 80)
+            }
+        }
+        .navigationTitle("")
+        .toolbarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    showImporter = true
+                } label: {
+                    Label("Import image from Files",
+                          systemImage: "square.and.arrow.down.on.square")
+                }
+            }
+            .overflowPriority(.high)
+            ToolbarItem(placement: .principal) {
+                Text("All Photos").font(.headline)
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showSettings = true
+                } label: {
+                    Label("Settings", systemImage: "gearshape")
+                }
+            }
+            .overflowPriority(.low)
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView(settings: settings)
+        }
+        .fileImporter(isPresented: $showImporter,
+                      allowedContentTypes: [.image], allowsMultipleSelection: false) { result in
+            if case let .success(urls) = result, let url = urls.first {
+                importFile(url)
+            }
+        }
+        .onAppear { library.fetchAssets() }
     }
 
     private var limitedBanner: some View {

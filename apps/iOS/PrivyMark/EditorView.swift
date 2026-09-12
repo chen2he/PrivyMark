@@ -19,6 +19,14 @@ import SwiftUI
 struct EditorView: View {
     @ObservedObject var editor: EditorModel
     @ObservedObject var settings: SettingsStore
+    /// False when the editor is the detail column of a split view, where the
+    /// grid stays on screen beside it and there is nothing to go back to.
+    var showsBackButton = true
+
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    /// Size of the space the editor was actually handed — drives whether the
+    /// tool palette sits along the bottom or becomes a vertical rail.
+    @State private var contentSize: CGSize = .zero
 
     // Editing gesture state
     @State private var dragStart: CGPoint?
@@ -55,18 +63,14 @@ struct EditorView: View {
 
     private let appName = "PrivyMark"
 
+    /// Where the tool palette belongs for the space we were handed.
+    private var palettePlacement: PalettePlacement {
+        PalettePlacement.forContent(of: contentSize, horizontalSizeClass: horizontalSizeClass)
+    }
+
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .bottom) {
-                Color(.systemGroupedBackground).ignoresSafeArea()
-                if editor.hasImage {
-                    canvas
-                    bottomControls
-                } else {
-                    loadingView
-                }
-                if let toast { toastView(toast) }
-            }
+            editorSurface
             .navigationTitle("")
             .toolbar { toolbarContent }
             .sheet(isPresented: $showMetadata) { MetadataSheet(editor: editor) }
@@ -103,13 +107,72 @@ struct EditorView: View {
         }
     }
 
+    // MARK: Surface (canvas + palette in the safe area)
+
+    /// The canvas plus its chrome. The palette and the hint banners go into the
+    /// SAFE AREA instead of floating over a hard-coded strip of bottom padding,
+    /// so the canvas re-fits itself whenever the available space changes — a
+    /// fold, a rotation, or a Split View resize on Duo.
+    @ViewBuilder
+    private var editorSurface: some View {
+        switch palettePlacement {
+        case .rail:
+            // Wide-and-short: tools go to the side, matching the system bars,
+            // and the banners stay horizontal along the bottom.
+            canvasStack
+                .hintBar { banners }
+                .paletteBar(.rail) { paletteStrip(axis: .vertical) }
+        case .bottom:
+            canvasStack
+                .paletteBar(.bottom) {
+                    VStack(spacing: 8) {
+                        banners
+                        paletteStrip(axis: .horizontal)
+                    }
+                }
+        }
+    }
+
+    private var canvasStack: some View {
+        ZStack(alignment: .bottom) {
+            Color(.systemGroupedBackground).ignoresSafeArea()
+            if editor.hasImage {
+                canvas
+            } else {
+                loadingView
+            }
+            if let toast { toastView(toast) }
+        }
+        .measureContent(into: $contentSize)
+    }
+
+    @ViewBuilder
+    private var banners: some View {
+        VStack(spacing: 8) {
+            stegoBanner
+            hintBanner
+        }
+    }
+
     // MARK: Toolbar
 
+    /// Every item carries BOTH a title and a symbol via `Label`: the bar shows
+    /// the symbol, and the system needs the title for the overflow menu and for
+    /// expanded forms — which is where these items end up on Duo, whose bar runs
+    /// down the side and holds far fewer of them.
+    ///
+    /// Items overflow from the bottom of that vertical bar upwards by default,
+    /// so the priorities below say what to keep: Export (the primary action) and
+    /// the risk list (it carries the scan result) stay longest, Help goes first.
     @ToolbarContentBuilder
     private var toolbarContent: some ToolbarContent {
-        ToolbarItem(placement: .topBarLeading) {
-            Button { editor.reset() } label: { Image(systemName: "chevron.left") }
-                .accessibilityLabel("Back")
+        if showsBackButton {
+            // Primary navigation belongs at the top of the vertical axis, which
+            // is where the system puts a leading item on Duo.
+            ToolbarItem(placement: .topBarLeading) {
+                Button { editor.reset() } label: { Label("Back", systemImage: "chevron.left") }
+            }
+            .overflowPriority(.high)
         }
         // The editing controls only make sense once the image is loaded.
         // Individual ToolbarItems + ToolbarSpacer (iOS 26+) so Liquid Glass
@@ -117,34 +180,34 @@ struct EditorView: View {
         // setting the primary Export action apart at the trailing edge.
         if editor.hasImage {
             ToolbarItem(placement: .topBarTrailing) {
-                Button { editor.undo() } label: { Image(systemName: "arrow.uturn.backward") }
-                    .disabled(!editor.canUndo).accessibilityLabel("Undo")
+                Button { editor.undo() } label: { Label("Undo", systemImage: "arrow.uturn.backward") }
+                    .disabled(!editor.canUndo)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button { editor.redo() } label: { Image(systemName: "arrow.uturn.forward") }
-                    .disabled(!editor.canRedo).accessibilityLabel("Redo")
+                Button { editor.redo() } label: { Label("Redo", systemImage: "arrow.uturn.forward") }
+                    .disabled(!editor.canRedo)
             }
             if #available(iOS 26.0, *) {
                 ToolbarSpacer(.fixed, placement: .topBarTrailing)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button { showHelp = true } label: { Image(systemName: "questionmark.circle") }
-                    .accessibilityLabel("How to use")
+                Button { showHelp = true } label: { Label("How to use", systemImage: "questionmark.circle") }
             }
+            .overflowPriority(.low)
             ToolbarItem(placement: .topBarTrailing) {
-                Button { showRiskList = true } label: { Image(systemName: "list.bullet.rectangle") }
-                    .accessibilityLabel("Risk list")
+                Button { showRiskList = true } label: { Label("Risk list", systemImage: "list.bullet.rectangle") }
             }
+            .overflowPriority(.high)
             if #available(iOS 26.0, *) {
                 ToolbarSpacer(.fixed, placement: .topBarTrailing)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button { showExport = true } label: { Image(systemName: "square.and.arrow.up") }
-                    .accessibilityLabel("Export")
+                Button { showExport = true } label: { Label("Export", systemImage: "square.and.arrow.up") }
                     .popover(isPresented: $showExport) {
                         exportMenu.presentationCompactAdaptation(.popover)
                     }
             }
+            .overflowPriority(.high)
         }
     }
 
@@ -215,7 +278,9 @@ struct EditorView: View {
             }
             menuRow("Save a Copy", systemImage: "doc.on.doc") { saveCopy() }
         }
-        .frame(width: 310)
+        // Ideal rather than fixed, so the menu can compress on the narrow outer
+        // display instead of being clipped.
+        .frame(idealWidth: 310, maxWidth: 340)
         .tint(.accentColor)
     }
 
@@ -303,9 +368,10 @@ struct EditorView: View {
                 if showsColorControl { colorControl }
             }
         }
+        // No reservation for the palette: it lives in the safe area now, so the
+        // canvas already ends where the palette begins, on any display size.
         .padding(.horizontal, 12)
-        .padding(.top, 4)
-        .padding(.bottom, 140)
+        .padding(.vertical, 4)
     }
 
     @ViewBuilder
@@ -381,44 +447,46 @@ struct EditorView: View {
 
     // MARK: Tool palette (Auto pinned, rest scrolls, inset from edges)
 
-    private var bottomControls: some View {
-        VStack(spacing: 8) {
-            stegoBanner
-            hintBanner
-            HStack(spacing: 0) {
-                paletteButton("Auto", systemImage: "wand.and.stars", active: false) {
-                    editor.applyAllSuggestions()
-                    flash(String(localized: "Applied \(editor.selectedRegions.count) suggestions"))
-                }
-                .padding(.leading, 6)
-                divider
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 2) {
-                        styleButton(.block, "Block", "rectangle.fill")
-                        styleButton(.pixelate, "Pixelate", "squareshape.split.3x3")
-                        styleButton(.blur, "Blur", "drop.fill")
-                        styleButton(.hideText, "Hide Text", "character.textbox")
-                        divider
-                        paletteButton("Marker", systemImage: "scribble.variable",
-                                      active: editor.isMarkerMode) {
-                            editor.isMarkerMode = true
-                        }
-                        paletteButton("Watermark", systemImage: "signature",
-                                      active: editor.userWatermarkText != nil) {
-                            watermarkText = editor.userWatermarkText ?? appName
-                            showWatermarkInput = true
-                        }
-                    }
-                    .padding(.horizontal, 8)
-                }
+    /// The palette laid out along `axis`: a capsule under the photo in tall
+    /// layouts, a rail beside it in wide-and-short ones. The ORDER is identical
+    /// either way — Auto first, then the styles, then marker and watermark — so
+    /// that changing pose never makes the user relearn where a tool lives.
+    private func paletteStrip(axis: Axis) -> some View {
+        let strip = paletteLayout(axis, spacing: 0)
+        let tools = paletteLayout(axis, spacing: 2)
+        return strip {
+            paletteButton("Auto", systemImage: "wand.and.stars", active: false) {
+                editor.applyAllSuggestions()
+                flash(String(localized: "Applied \(editor.selectedRegions.count) suggestions"))
             }
-            .padding(.vertical, 8)
-            .padding(.trailing, 6)
-            .floatingGlass(in: Capsule())
-            .shadow(color: .black.opacity(0.12), radius: 12, y: 4)
-            .padding(.horizontal, 16)
+            .padding(axis == .horizontal ? .leading : .top, 6)
+            divider(axis: axis)
+            ScrollView(axis == .horizontal ? .horizontal : .vertical, showsIndicators: false) {
+                tools {
+                    styleButton(.block, "Block", "rectangle.fill")
+                    styleButton(.pixelate, "Pixelate", "squareshape.split.3x3")
+                    styleButton(.blur, "Blur", "drop.fill")
+                    styleButton(.hideText, "Hide Text", "character.textbox")
+                    divider(axis: axis)
+                    paletteButton("Marker", systemImage: "scribble.variable",
+                                  active: editor.isMarkerMode) {
+                        editor.isMarkerMode = true
+                    }
+                    paletteButton("Watermark", systemImage: "signature",
+                                  active: editor.userWatermarkText != nil) {
+                        watermarkText = editor.userWatermarkText ?? appName
+                        showWatermarkInput = true
+                    }
+                }
+                .padding(axis == .horizontal ? .horizontal : .vertical, 8)
+            }
         }
-        .padding(.bottom, 12)
+        .padding(axis == .horizontal ? .vertical : .horizontal, 8)
+        .padding(axis == .horizontal ? .trailing : .bottom, 6)
+        .floatingGlass(in: Capsule())
+        .shadow(color: .black.opacity(0.12), radius: 12, y: 4)
+        .padding(axis == .horizontal ? .horizontal : .vertical, 16)
+        .padding(axis == .horizontal ? .bottom : .trailing, 12)
     }
 
     /// Best-effort hidden-watermark warning. Tapping opens the export sheet,
@@ -459,9 +527,21 @@ struct EditorView: View {
             .background(.thinMaterial, in: Capsule())
     }
 
-    private var divider: some View {
-        Rectangle().fill(Color(.separator).opacity(0.4)).frame(width: 0.5, height: 34)
-            .padding(.horizontal, 3)
+    /// `AnyLayout` rather than a branch on HStack/VStack: the buttons keep their
+    /// identity when the palette swings between capsule and rail, so the change
+    /// animates instead of snapping — the small adjustment the HIG asks for as
+    /// the device folds.
+    private func paletteLayout(_ axis: Axis, spacing: CGFloat) -> AnyLayout {
+        axis == .horizontal
+            ? AnyLayout(HStackLayout(spacing: spacing))
+            : AnyLayout(VStackLayout(spacing: spacing))
+    }
+
+    private func divider(axis: Axis) -> some View {
+        Rectangle().fill(Color(.separator).opacity(0.4))
+            .frame(width: axis == .horizontal ? 0.5 : 34,
+                   height: axis == .horizontal ? 34 : 0.5)
+            .padding(axis == .horizontal ? .horizontal : .vertical, 3)
     }
 
     private func styleButton(_ style: RedactionStyle, _ title: LocalizedStringKey, _ symbol: String) -> some View {
@@ -537,7 +617,7 @@ struct EditorView: View {
             .padding(.horizontal, 16).padding(.vertical, 10)
             .floatingGlass(in: Capsule())
             .shadow(radius: 8)
-            .padding(.bottom, 110)
+            .padding(.bottom, 16)
             .transition(.move(edge: .bottom).combined(with: .opacity))
     }
 

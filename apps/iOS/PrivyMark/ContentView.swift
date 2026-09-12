@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject private var library = PhotoLibraryService()
     @StateObject private var editor = EditorModel()
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     @State private var loadFailed = false
 
@@ -19,6 +20,8 @@ struct ContentView: View {
         Group {
             if !settings.hasSeenWelcome {
                 WelcomeView { settings.hasSeenWelcome = true }
+            } else if horizontalSizeClass == .regular, library.isAuthorized {
+                splitInterface
             } else if editor.isActive {
                 EditorView(editor: editor, settings: settings)
             } else if library.isAuthorized {
@@ -46,6 +49,31 @@ struct ContentView: View {
         } message: {
             Text("This photo couldn't be downloaded. Check your connection and try again.")
         }
+    }
+
+    // MARK: Regular width — grid and editor side by side
+
+    /// The extra level of hierarchy the HIG asks for on the larger inner
+    /// display (and on iPad): the grid stays visible beside the photo being
+    /// edited, the way Mail keeps its list beside a message. In compact width —
+    /// the outer display, and every current iPhone — the `Group` above takes the
+    /// single-screen path instead, so nothing changes there.
+    private var splitInterface: some View {
+        NavigationSplitView {
+            LibraryGridView(library: library, settings: settings,
+                            onPick: loadFromAsset, onImport: loadData,
+                            embedsNavigation: false)
+        } detail: {
+            if editor.isActive {
+                EditorView(editor: editor, settings: settings, showsBackButton: false)
+            } else {
+                ContentUnavailableView(
+                    "Choose a Photo",
+                    systemImage: "photo.on.rectangle.angled",
+                    description: Text("Pick a photo to scan for faces, text, and hidden marks."))
+            }
+        }
+        .navigationSplitViewStyle(.balanced)
     }
 
     // MARK: Loading into the editor

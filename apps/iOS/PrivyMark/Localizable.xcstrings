@@ -1151,6 +1151,52 @@
         }
       }
     },
+    "Choose a Photo": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto auswählen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige una foto"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir une photo"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli una foto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolha uma foto"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選擇照片"
+          }
+        }
+      }
+    },
     "Clears pixel low-bits + all metadata. Can't remove robust forensic watermarks.": {
       "localizations": {
         "de": {
@@ -4879,6 +4925,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "照片，點一下掃描"
+          }
+        }
+      }
+    },
+    "Pick a photo to scan for faces, text, and hidden marks.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wähle ein Foto, um es nach Gesichtern, Text und versteckten Markierungen zu durchsuchen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige una foto para buscar caras, texto y marcas ocultas."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez une photo pour y détecter visages, texte et marques masquées."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli una foto per cercare volti, testo e marcature nascoste."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolha uma foto para detectar rostos, texto e marcas ocultas."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选一张照片，扫描人脸、文字和隐藏标记。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選一張照片，掃描人臉、文字和隱藏標記。"
           }
         }
       }
