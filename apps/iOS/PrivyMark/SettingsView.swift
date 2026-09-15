@@ -61,7 +61,7 @@ struct SettingsView: View {
                     } label: {
                         Label("Rate Us", systemImage: "star")
                     }
-                    Link(destination: URL(string: "mailto:feedback@privymark.app")!) {
+                    Link(destination: URL(string: "mailto:support@zhe.ltd")!) {
                         Label("Send Feedback", systemImage: "envelope")
                     }
                 }
