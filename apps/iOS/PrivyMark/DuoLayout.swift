@@ -111,6 +111,19 @@ extension View {
     }
 }
 
+extension View {
+    /// Caps a single column of text and controls at a comfortable measure and
+    /// centres it in whatever width it was given.
+    ///
+    /// Wide-and-short layouts — every landscape pose, the outer display, the
+    /// inner display, iPad — otherwise stretch one column of copy and full-bleed
+    /// buttons from edge to edge.
+    func readableColumn(maxWidth: CGFloat = 560, alignment: Alignment = .center) -> some View {
+        frame(maxWidth: maxWidth, alignment: alignment)
+            .frame(maxWidth: .infinity)
+    }
+}
+
 // MARK: - Toolbar overflow order
 
 /// How readily a toolbar item may overflow once the bar runs out of room.
@@ -130,16 +143,27 @@ enum ToolbarPriority {
 extension ToolbarContent {
     /// Applies `visibilityPriority` where the OS has it (iOS 27+); a no-op
     /// before, where bars are horizontal and overflow far less often.
+    ///
+    /// The `compiler` check is an SDK check, not a language one: Swift 6.4 is
+    /// the first toolchain (Xcode 27) whose SDK declares
+    /// `ToolbarItemVisibilityPriority` at all, and Xcode Cloud still builds this
+    /// app with the previous release. Drop the `#if` once every builder is on
+    /// Xcode 27 — the `#available` check is the one that matters at runtime.
     @ToolbarContentBuilder
     func overflowPriority(_ priority: ToolbarPriority) -> some ToolbarContent {
+        #if compiler(>=6.4)
         if #available(iOS 27.0, *) {
             visibilityPriority(priority.resolvedPriority)
         } else {
             self
         }
+        #else
+        self
+        #endif
     }
 }
 
+#if compiler(>=6.4)
 @available(iOS 27.0, *)
 extension ToolbarPriority {
     var resolvedPriority: ToolbarItemVisibilityPriority {
@@ -150,6 +174,7 @@ extension ToolbarPriority {
         }
     }
 }
+#endif
 
 // MARK: - Grids
 

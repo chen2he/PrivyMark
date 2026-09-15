@@ -20,8 +20,29 @@ struct PhotoAccessView: View {
     @State private var showDeniedAlert = false
 
     var body: some View {
+        // Centred when there's room, scrollable when there isn't — landscape and
+        // the Duo outer display are short enough to squeeze the buttons against
+        // the bottom edge otherwise.
+        ViewThatFits(in: .vertical) {
+            content(scrolls: false)
+            ScrollView { content(scrolls: true) }
+        }
+        .alert("Access Denied", isPresented: $showDeniedAlert) {
+            Button("Open Settings") {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            Button("Not Now", role: .cancel) {}
+        } message: {
+            Text("Enable Photos access for PrivyMark in Settings, or try a sample image.")
+        }
+    }
+
+    @ViewBuilder
+    private func content(scrolls: Bool) -> some View {
         VStack(spacing: 0) {
-            Spacer()
+            if !scrolls { Spacer() }
 
             Image(systemName: "photo.badge.checkmark")
                 .font(.system(size: 84))
@@ -45,7 +66,11 @@ struct PhotoAccessView: View {
                 .underline()
                 .padding(.top, 10)
 
-            Spacer()
+            if scrolls {
+                Color.clear.frame(height: 32)
+            } else {
+                Spacer()
+            }
 
             VStack(spacing: 12) {
                 Button {
@@ -73,16 +98,7 @@ struct PhotoAccessView: View {
             }
         }
         .padding(28)
-        .alert("Access Denied", isPresented: $showDeniedAlert) {
-            Button("Open Settings") {
-                if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url)
-                }
-            }
-            Button("Not Now", role: .cancel) {}
-        } message: {
-            Text("Enable Photos access for PrivyMark in Settings, or try a sample image.")
-        }
+        .readableColumn()
     }
 
     private func authorize() {

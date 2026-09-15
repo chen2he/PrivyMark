@@ -12,6 +12,17 @@ struct WelcomeView: View {
     var onStart: () -> Void
 
     var body: some View {
+        // Portrait fits the whole thing; a wide-and-short layout — landscape, or
+        // the Duo outer display — does not, and this screen holds the only way
+        // forward, so it scrolls rather than pushing the button off-screen.
+        ViewThatFits(in: .vertical) {
+            content(scrolls: false)
+            ScrollView { content(scrolls: true) }
+        }
+    }
+
+    @ViewBuilder
+    private func content(scrolls: Bool) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Welcome")
                 .font(.title3)
@@ -35,7 +46,11 @@ struct WelcomeView: View {
             .fixedSize(horizontal: false, vertical: true)
             .padding(.top, 28)
 
-            Spacer(minLength: 20)
+            if scrolls {
+                Color.clear.frame(height: 28)
+            } else {
+                Spacer(minLength: 20)
+            }
 
             Button(action: onStart) {
                 Text("Get Started")
@@ -48,6 +63,7 @@ struct WelcomeView: View {
             .accessibilityLabel("Get started")
         }
         .padding(28)
+        .readableColumn(alignment: .leading)
     }
 }
 
