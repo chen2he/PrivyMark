@@ -24,8 +24,9 @@ struct EditorView: View {
     var showsBackButton = true
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    /// Size of the space the editor was actually handed — drives whether the
-    /// tool palette sits along the bottom or becomes a vertical rail.
+    /// Size of the space the editor was actually handed, palette included —
+    /// drives whether the tool palette sits along the bottom or becomes a
+    /// vertical rail. Never measure it inside the palette's inset (see `body`).
     @State private var contentSize: CGSize = .zero
 
     // Editing gesture state
@@ -71,6 +72,12 @@ struct EditorView: View {
     var body: some View {
         NavigationStack {
             editorSurface
+            // Measured OUTSIDE the palette's safe-area bar, so the size doesn't
+            // depend on where the palette went. Measuring the canvas instead is
+            // a feedback loop: a bottom palette makes the canvas squarer (→ rail),
+            // a rail makes it taller (→ bottom), and the flip never settles —
+            // the main thread spins and the app hangs on opening a photo.
+            .measureContent(into: $contentSize)
             .navigationTitle("")
             .toolbar { toolbarContent }
             .sheet(isPresented: $showMetadata) { MetadataSheet(editor: editor) }
@@ -143,7 +150,6 @@ struct EditorView: View {
             }
             if let toast { toastView(toast) }
         }
-        .measureContent(into: $contentSize)
     }
 
     @ViewBuilder

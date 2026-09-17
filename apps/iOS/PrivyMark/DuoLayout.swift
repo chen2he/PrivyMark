@@ -35,7 +35,9 @@ enum PalettePlacement {
     private static let squarePortraitRatio: CGFloat = 0.68
 
     /// - Parameters:
-    ///   - size: the space actually available to the editor's content.
+    ///   - size: the whole space handed to the editor, INCLUDING the room the
+    ///     palette takes. It must not change with the result, or the placement
+    ///     oscillates forever.
     ///   - horizontalSizeClass: used only to keep iPad's squarer portrait out of
     ///     the rail case — the inner display and iPad are regular width and have
     ///     the height to spare.
