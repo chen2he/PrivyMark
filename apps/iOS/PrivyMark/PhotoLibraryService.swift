@@ -13,13 +13,52 @@ import PhotosUI
 import UIKit
 import Combine
 
+/// Which photos the grid home shows.
+enum LibraryFilter: String, CaseIterable, Identifiable {
+    case all
+    /// Screenshots — the thing people most often need to redact.
+    case screenshots
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .all: return String(localized: "All Photos")
+        case .screenshots: return String(localized: "Screenshots")
+        }
+    }
+}
+
 @MainActor
-final class PhotoLibraryService: ObservableObject {
+final class PhotoLibraryService: NSObject, ObservableObject, PHPhotoLibraryChangeObserver {
     @Published var status: PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus(for: .readWrite)
     @Published var assets: [PHAsset] = []
     @Published var isLoading = false
+    /// The grid's filter. Changing it refetches.
+    @Published var filter: LibraryFilter = .all {
+        didSet { if filter != oldValue { fetchAssets() } }
+    }
 
     private let imageManager = PHCachingImageManager()
+    private var isObservingChanges = false
+    private var refetchTask: Task<Void, Never>?
+
+    /// Keeps the grid current while the app is open — a screenshot taken a
+    /// moment ago is there when you switch back.
+    nonisolated func photoLibraryDidChange(_ changeInstance: PHChange) {
+        Task { @MainActor in self.scheduleRefetch() }
+    }
+
+    /// Changes arrive in bursts (an iCloud sync can send dozens); refetch once
+    /// the burst settles rather than re-enumerating the library for each one.
+    private func scheduleRefetch() {
+        refetchTask?.cancel()
+        refetchTask = Task {
+            try? await Task.sleep(for: .milliseconds(400))
+            guard !Task.isCancelled else { return }
+            fetchAssets()
+        }
+    }
 
     var isAuthorized: Bool { status == .authorized || status == .limited }
     var isLimited: Bool { status == .limited }
@@ -40,13 +79,35 @@ final class PhotoLibraryService: ObservableObject {
         isLoading = true
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
+        switch filter {
+        case .all:
+            options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
+        case .screenshots:
+            options.predicate = NSPredicate(
+                format: "mediaType == %d AND (mediaSubtypes & %d) != 0",
+                PHAssetMediaType.image.rawValue, PHAssetMediaSubtype.photoScreenshot.rawValue)
+        }
+        if !isObservingChanges {
+            PHPhotoLibrary.shared().register(self)
+            isObservingChanges = true
+        }
         let result = PHAsset.fetchAssets(with: options)
         var fetched: [PHAsset] = []
         fetched.reserveCapacity(result.count)
         result.enumerateObjects { asset, _, _ in fetched.append(asset) }
         assets = fetched
         isLoading = false
+    }
+
+    /// The newest image in the library, whatever the grid is filtered to —
+    /// for Settings' "Auto-edit newest photo".
+    func newestImage() -> PHAsset? {
+        guard isAuthorized else { return nil }
+        let options = PHFetchOptions()
+        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
+        options.fetchLimit = 1
+        return PHAsset.fetchAssets(with: options).firstObject
     }
 
     /// Presents the system "select more photos" UI in Limited mode.

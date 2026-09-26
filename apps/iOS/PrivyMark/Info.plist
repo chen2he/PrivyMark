@@ -17,5 +17,10 @@
 	<string>PrivyMark saves your redacted image to your photo library. The original is never modified.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>PrivyMark shows your photos so you can pick one to scan. Everything is processed on your device and nothing is uploaded.</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
 </dict>
 </plist>

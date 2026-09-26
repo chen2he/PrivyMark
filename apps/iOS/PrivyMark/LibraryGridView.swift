@@ -2,8 +2,8 @@
 //  LibraryGridView.swift
 //  PrivyMark
 //
-//  Photo grid home (PRD §10.1). Mirrors DAMA: import button, album title,
-//  settings gear, and a grid of the user's photos. Tap one to scan it.
+//  Photo grid home (PRD §10.1): the user's photos, newest first, with a
+//  Screenshots / All Photos switch floating at the bottom. Tap one to scan it.
 //
 
 import SwiftUI
@@ -15,21 +15,28 @@ struct LibraryGridView: View {
     @ObservedObject var settings: SettingsStore
     var onPick: (PHAssetWrapper) -> Void
     var onImport: (Data) -> Void
+    var onTrySample: () -> Void
     /// False when the grid is the sidebar of a split view, which supplies the
     /// navigation container itself.
     var embedsNavigation = true
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @AppStorage("libraryFilter") private var storedFilter = LibraryFilter.all.rawValue
     @State private var showSettings = false
     @State private var showImporter = false
+
+    private var filter: LibraryFilter { LibraryFilter(rawValue: storedFilter) ?? .all }
 
     /// Even column count, wider on the inner display: a partially folded device
     /// splits the grid down the middle, and an even count divides cleanly on
     /// either side of the fold instead of leaving a column straddling it.
     private var columns: [GridItem] {
-        Array(repeating: GridItem(.flexible(), spacing: 3),
+        Array(repeating: GridItem(.flexible(), spacing: 2),
               count: horizontalSizeClass.evenGridColumns)
     }
+
+    /// Screenshots are tall; show more of each one.
+    private var cellAspect: CGFloat { filter == .screenshots ? 0.75 : 1 }
 
     var body: some View {
         if embedsNavigation {
@@ -41,45 +48,45 @@ struct LibraryGridView: View {
 
     private var grid: some View {
         ScrollView {
+            header
             if library.isLimited {
-                limitedBanner
+                limitedCard
             }
-            LazyVGrid(columns: columns, spacing: 3) {
+            LazyVGrid(columns: columns, spacing: 2) {
                 ForEach(library.assets, id: \.localIdentifier) { asset in
                     Button {
                         onPick(PHAssetWrapper(asset: asset))
                     } label: {
-                        ThumbnailCell(asset: asset, library: library)
+                        ThumbnailCell(asset: asset, library: library, aspect: cellAspect)
                     }
-                    .buttonStyle(.plain)
-                    .accessibilityLabel("Photo, tap to scan")
+                    .buttonStyle(.pressable)
+                    .accessibilityLabel(accessibilityLabel(for: asset))
+                    .accessibilityHint("Scans this photo for private details")
                 }
             }
-            .padding(.horizontal, 3)
-
-            if library.assets.isEmpty {
-                ContentUnavailableView(
-                    "No Photos",
-                    systemImage: "photo.on.rectangle",
-                    description: Text("Import an image or try a sample to get started."))
-                    .padding(.top, 80)
+            if library.assets.isEmpty && !library.isLoading {
+                emptyState
             }
         }
-        .navigationTitle("")
-        .toolbarTitleDisplayMode(.inline)
+        .background(Theme.paper.ignoresSafeArea())
+        .navigationTitle(filter.title)
+        .toolbarTitleDisplayMode(.large)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    showImporter = true
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    Button {
+                        showImporter = true
+                    } label: {
+                        Label("Import from Files", systemImage: "folder")
+                    }
+                    Button(action: onTrySample) {
+                        Label("Try the Sample", systemImage: "doc.text.image")
+                    }
                 } label: {
-                    Label("Import image from Files",
-                          systemImage: "square.and.arrow.down.on.square")
+                    Label("Add", systemImage: "plus")
                 }
             }
             .overflowPriority(.high)
-            ToolbarItem(placement: .principal) {
-                Text("All Photos").font(.headline)
-            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showSettings = true
@@ -89,6 +96,7 @@ struct LibraryGridView: View {
             }
             .overflowPriority(.low)
         }
+        .bottomBar { FilterSwitch(selection: filterBinding) }
         .sheet(isPresented: $showSettings) {
             SettingsView(settings: settings)
         }
@@ -98,28 +106,104 @@ struct LibraryGridView: View {
                 importFile(url)
             }
         }
-        .onAppear { library.fetchAssets() }
+        .onAppear {
+            // Setting a different filter refetches on its own.
+            if library.filter != filter {
+                library.filter = filter
+            } else {
+                library.fetchAssets()
+            }
+        }
     }
 
-    private var limitedBanner: some View {
-        Button {
-            if let vc = UIApplication.shared.topViewController {
-                library.presentLimitedPicker(from: vc)
-            }
-        } label: {
-            HStack {
-                Image(systemName: "checkmark.circle")
-                Text("You've allowed access to selected photos. Tap to manage.")
-                    .font(.footnote)
-                Spacer()
-                Image(systemName: "chevron.right").font(.caption)
-            }
-            .padding(12)
-            .background(Color.accentColor.opacity(0.12), in: RoundedRectangle(cornerRadius: 12))
-            .foregroundStyle(Color.accentColor)
+    private var filterBinding: Binding<LibraryFilter> {
+        Binding(get: { filter }, set: { new in
+            storedFilter = new.rawValue
+            library.filter = new
+        })
+    }
+
+    // MARK: Pieces
+
+    private var header: some View {
+        Label {
+            Text("Tap a photo to check it. Nothing leaves this iPhone.")
+        } icon: {
+            Image(systemName: "lock.shield.fill")
+                .foregroundStyle(Theme.brand)
         }
-        .buttonStyle(.plain)
-        .padding([.horizontal, .top], 12)
+        .font(.footnote)
+        .foregroundStyle(Theme.inkSecondary)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 16)
+        .padding(.bottom, 12)
+    }
+
+    private var limitedCard: some View {
+        HStack(spacing: 12) {
+            IconTile(systemName: "photo.badge.checkmark", size: 34)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Showing the photos you picked")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(Theme.ink)
+                Text("PrivyMark can only see these. Add more anytime.")
+                    .font(.caption)
+                    .foregroundStyle(Theme.inkSecondary)
+            }
+            .fixedSize(horizontal: false, vertical: true)
+            Spacer(minLength: 4)
+            Button("Manage") {
+                if let vc = UIApplication.shared.topViewController {
+                    library.presentLimitedPicker(from: vc)
+                }
+            }
+            .font(.subheadline.weight(.semibold))
+            .buttonStyle(.bordered)
+            .buttonBorderShape(.capsule)
+            .controlSize(.small)
+        }
+        .padding(14)
+        .paperCard(cornerRadius: 18)
+        .padding(.horizontal, 12)
+        .padding(.bottom, 12)
+    }
+
+    @ViewBuilder
+    private var emptyState: some View {
+        VStack(spacing: 14) {
+            Image(systemName: filter == .screenshots ? "camera.viewfinder" : "photo.on.rectangle")
+                .font(.system(size: 44, weight: .light))
+                .foregroundStyle(Theme.inkSecondary)
+            Text(filter == .screenshots ? "No Screenshots" : "No Photos")
+                .font(.title3.bold())
+                .foregroundStyle(Theme.ink)
+            Text(filter == .screenshots
+                 ? "Screenshots you take show up here."
+                 : "Import an image from Files, or try the sample.")
+                .font(.subheadline)
+                .foregroundStyle(Theme.inkSecondary)
+                .multilineTextAlignment(.center)
+            Group {
+                if filter == .screenshots {
+                    Button("Show All Photos") { filterBinding.wrappedValue = .all }
+                } else {
+                    Button("Try the Sample", action: onTrySample)
+                }
+            }
+            .buttonStyle(.bordered)
+            .buttonBorderShape(.capsule)
+            .padding(.top, 4)
+        }
+        .padding(32)
+        .frame(maxWidth: .infinity)
+        .padding(.top, 60)
+    }
+
+    private func accessibilityLabel(for asset: PHAsset) -> Text {
+        let kind = asset.mediaSubtypes.contains(.photoScreenshot)
+            ? String(localized: "Screenshot") : String(localized: "Photo")
+        guard let date = asset.creationDate else { return Text(kind) }
+        return Text("\(kind), \(date.formatted(date: .abbreviated, time: .shortened))")
     }
 
     private func importFile(_ url: URL) {
@@ -131,31 +215,79 @@ struct LibraryGridView: View {
     }
 }
 
+// MARK: - Filter switch
+
+/// Screenshots / All Photos, as a floating capsule over the bottom of the grid.
+private struct FilterSwitch: View {
+    @Binding var selection: LibraryFilter
+    @Namespace private var namespace
+
+    private let order: [LibraryFilter] = [.screenshots, .all]
+
+    var body: some View {
+        HStack(spacing: 2) {
+            ForEach(order) { filter in
+                let isSelected = selection == filter
+                Button {
+                    withAnimation(.snappy(duration: 0.3)) { selection = filter }
+                } label: {
+                    Text(filter.title)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(isSelected ? Theme.ink : Theme.inkSecondary)
+                        .padding(.horizontal, 18)
+                        .frame(minHeight: 38)
+                        .background {
+                            if isSelected {
+                                Capsule()
+                                    .fill(Theme.card)
+                                    .shadow(color: .black.opacity(0.10), radius: 4, y: 1)
+                                    .matchedGeometryEffect(id: "selection", in: namespace)
+                            }
+                        }
+                        .contentShape(Capsule())
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(isSelected ? .isSelected : [])
+            }
+        }
+        .padding(4)
+        .floatingGlass(in: Capsule())
+        .shadow(color: .black.opacity(0.10), radius: 14, y: 6)
+        .padding(.bottom, 8)
+        .sensoryFeedback(.selection, trigger: selection)
+    }
+}
+
+// MARK: - Cell
+
 /// One grid cell with an async-loaded thumbnail.
-/// Square via aspectRatio + center-cropped via overlay/clipped — no
+/// Sized via aspectRatio + center-cropped via overlay/clipped — no
 /// GeometryReader and no fixed-size stack, so the cell's visual content
 /// always coincides with its hit area on every OS version (the older
 /// GeometryReader + fixed-frame ZStack spilled outside the cell on iOS 27).
 private struct ThumbnailCell: View {
     let asset: PHAsset
     @ObservedObject var library: PhotoLibraryService
+    var aspect: CGFloat = 1
     @State private var image: UIImage?
 
     var body: some View {
-        Color(.secondarySystemBackground)
-            .aspectRatio(1, contentMode: .fit)
+        Theme.inkFaint
+            .aspectRatio(aspect, contentMode: .fit)
             .overlay {
                 if let image {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
+                        .transition(.opacity)
                 }
             }
             .clipped()
             .contentShape(Rectangle())
             .task(id: asset.localIdentifier) {
-                image = await library.requestThumbnail(
-                    for: asset, targetSize: CGSize(width: 300, height: 300))
+                let loaded = await library.requestThumbnail(
+                    for: asset, targetSize: CGSize(width: 300, height: 300 / aspect))
+                withAnimation(.easeOut(duration: 0.2)) { image = loaded }
             }
     }
 }

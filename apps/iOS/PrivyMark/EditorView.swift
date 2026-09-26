@@ -2,9 +2,10 @@
 //  EditorView.swift
 //  PrivyMark
 //
-//  Scan + edit screen (PRD §10.4). DAMA-style: a pinch-zoomable canvas, a
-//  floating tool palette (Auto pinned, the rest scrolls), an export popover
-//  with four save/share options, and a marker with a system color picker.
+//  Scan + edit screen (PRD §10.4): a pinch-zoomable photo on a dotted mat,
+//  a findings pill that reports what the scan found, a floating tool palette
+//  (Auto pinned, the rest scrolls if it must), and one tinted primary action —
+//  Export — that opens the export sheet.
 //
 //  Canvas layout invariant: every canvas child is placed with `.position()`
 //  (a flexible wrapper), so the ZStack always fills the canvas and gesture
@@ -24,6 +25,7 @@ struct EditorView: View {
     var showsBackButton = true
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     /// Size of the space the editor was actually handed, palette included —
     /// drives whether the tool palette sits along the bottom or becomes a
     /// vertical rail. Never measure it inside the palette's inset (see `body`).
@@ -47,20 +49,20 @@ struct EditorView: View {
     @State private var pinchSession: (zoom: CGFloat, pan: CGSize, anchor: CGPoint)?
     @State private var panDragOrigin: CGSize?
 
-    // Sheets / popovers
+    // Sheets
     @State private var showExport = false
     @State private var showMetadata = false
     @State private var showRiskList = false
     @State private var showHelp = false
     @State private var showWatermarkInput = false
-    // (Pro/paywall removed — the app is fully free.)
     @State private var watermarkText = ""
-    @State private var sharePayload: SharePayload?
-    @State private var toast: String?
+    @State private var toast: Toast?
     /// Text currently fanned out in the "Text Explode" picker — either a plain
     /// OCR line (long-press on unflagged text) or a detected region being
     /// refined word by word.
     @State private var explodeTarget: ExplodeTarget?
+    /// Bumped when a scan finishes with findings, for a success haptic.
+    @State private var scanCompletions = 0
 
     private let appName = "PrivyMark"
 
@@ -79,20 +81,16 @@ struct EditorView: View {
             // the main thread spins and the app hangs on opening a photo.
             .measureContent(into: $contentSize)
             .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar { toolbarContent }
+            .sheet(isPresented: $showExport) {
+                ExportSheet(editor: editor) { message in
+                    if let message { flash(message, systemImage: "checkmark.circle.fill") }
+                }
+            }
             .sheet(isPresented: $showMetadata) { MetadataSheet(editor: editor) }
             .sheet(isPresented: $showRiskList) { RiskListSheet(editor: editor) }
             .sheet(isPresented: $showHelp) { HelpSheet() }
-            .sheet(item: $sharePayload) { payload in
-                ShareSheet(url: payload.url) {
-                    if payload.deleteAfter {
-                        Task {
-                            do { try await editor.deleteOriginal(); flash(String(localized: "Shared · original deleted")) }
-                            catch { flash(error.localizedDescription) }
-                        }
-                    }
-                }
-            }
             .sheet(item: $emojiPickTarget) { target in
                 EmojiPickerSheet(
                     onPick: { editor.setEmoji($0, forRegion: target.id) },
@@ -111,6 +109,10 @@ struct EditorView: View {
             } message: {
                 Text("Stamp your own text across the image, e.g. \"Internal use only\".")
             }
+            .onChange(of: editor.isScanning) { wasScanning, isScanning in
+                if wasScanning, !isScanning, !editor.regions.isEmpty { scanCompletions += 1 }
+            }
+            .sensoryFeedback(.success, trigger: scanCompletions)
         }
     }
 
@@ -142,7 +144,8 @@ struct EditorView: View {
 
     private var canvasStack: some View {
         ZStack(alignment: .bottom) {
-            Color(.systemGroupedBackground).ignoresSafeArea()
+            Theme.canvas.ignoresSafeArea()
+            DotGrid().ignoresSafeArea()
             if editor.hasImage {
                 canvas
             } else {
@@ -150,14 +153,26 @@ struct EditorView: View {
             }
             if let toast { toastView(toast) }
         }
+        // Scan status rides along the top edge, clear of the photo's corner
+        // where the color well lives.
+        .safeAreaInset(edge: .top, spacing: 0) {
+            if editor.hasImage || editor.isScanning {
+                VStack(spacing: 8) {
+                    findingsPill
+                    stegoBanner
+                }
+                .padding(.top, 6)
+                .padding(.bottom, 4)
+                .animation(.snappy, value: editor.isScanning)
+            }
+        }
     }
 
     @ViewBuilder
     private var banners: some View {
-        VStack(spacing: 8) {
-            stegoBanner
-            hintBanner
-        }
+        hintBanner
+            .animation(.snappy, value: editor.isMarkerMode)
+            .animation(.snappy, value: editor.style)
     }
 
     // MARK: Toolbar
@@ -168,8 +183,9 @@ struct EditorView: View {
     /// down the side and holds far fewer of them.
     ///
     /// Items overflow from the bottom of that vertical bar upwards by default,
-    /// so the priorities below say what to keep: Export (the primary action) and
-    /// the risk list (it carries the scan result) stay longest, Help goes first.
+    /// so the priorities below say what to keep: Export (the primary action)
+    /// stays longest; the More menu goes first. The scan result has its own
+    /// pill on the canvas, so it no longer needs a toolbar slot.
     @ToolbarContentBuilder
     private var toolbarContent: some ToolbarContent {
         if showsBackButton {
@@ -182,7 +198,7 @@ struct EditorView: View {
         }
         // The editing controls only make sense once the image is loaded.
         // Individual ToolbarItems + ToolbarSpacer (iOS 26+) so Liquid Glass
-        // groups them as [undo·redo] [help·risk] [export] instead of one blob,
+        // groups them as [undo·redo] [more] [export] instead of one blob,
         // setting the primary Export action apart at the trailing edge.
         if editor.hasImage {
             ToolbarItem(placement: .topBarTrailing) {
@@ -197,125 +213,175 @@ struct EditorView: View {
                 ToolbarSpacer(.fixed, placement: .topBarTrailing)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button { showHelp = true } label: { Label("How to use", systemImage: "questionmark.circle") }
+                moreMenu
             }
             .overflowPriority(.low)
-            ToolbarItem(placement: .topBarTrailing) {
-                Button { showRiskList = true } label: { Label("Risk list", systemImage: "list.bullet.rectangle") }
-            }
-            .overflowPriority(.high)
             if #available(iOS 26.0, *) {
                 ToolbarSpacer(.fixed, placement: .topBarTrailing)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button { showExport = true } label: { Label("Export", systemImage: "square.and.arrow.up") }
-                    .popover(isPresented: $showExport) {
-                        exportMenu.presentationCompactAdaptation(.popover)
-                    }
+                exportButton
             }
             .overflowPriority(.high)
         }
+    }
+
+    private var moreMenu: some View {
+        Menu {
+            Button { showRiskList = true } label: {
+                Label("Detected Risks", systemImage: "list.bullet.rectangle")
+            }
+            Button { showMetadata = true } label: {
+                Label("Photo Metadata", systemImage: "doc.text.magnifyingglass")
+            }
+            Button {
+                watermarkText = editor.userWatermarkText ?? appName
+                showWatermarkInput = true
+            } label: {
+                Label(editor.userWatermarkText == nil ? "Add Watermark…" : "Edit Watermark…",
+                      systemImage: "signature")
+            }
+            Divider()
+            Button { showHelp = true } label: {
+                Label("How to Use", systemImage: "questionmark.circle")
+            }
+        } label: {
+            Label("More", systemImage: "ellipsis")
+        }
+    }
+
+    /// The one tinted control on the screen — the thing you came here to do.
+    @ViewBuilder
+    private var exportButton: some View {
+        let button = Button { showExport = true } label: {
+            Label("Export", systemImage: "square.and.arrow.up")
+        }
+        if #available(iOS 26.0, *) {
+            button.buttonStyle(.glassProminent).tint(Theme.brand)
+        } else {
+            button
+        }
+    }
+
+    // MARK: Findings pill
+
+    /// What the scan found, in one line — and the way into the full list.
+    @ViewBuilder
+    private var findingsPill: some View {
+        let found = editor.regions.filter { $0.origin == .automatic }
+        let covered = found.filter(\.isSelected).count
+        if editor.isScanning {
+            HStack(spacing: 8) {
+                ProgressView().controlSize(.small)
+                Text("Scanning on device…")
+            }
+            .font(.subheadline.weight(.medium))
+            .foregroundStyle(Theme.ink)
+            .padding(.horizontal, 16)
+            .frame(minHeight: 40)
+            .floatingGlass(in: Capsule())
+            .transition(.opacity.combined(with: .scale(scale: 0.9)))
+            .accessibilityElement(children: .combine)
+        } else {
+            HStack(spacing: 0) {
+                Button { showRiskList = true } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: statusSymbol(found: found.count, covered: covered))
+                            .foregroundStyle(statusColor(found: found.count, covered: covered))
+                            .contentTransition(.symbolEffect(.replace))
+                        Group {
+                            if found.isEmpty {
+                                Text("Nothing private found")
+                            } else {
+                                Text("\(found.count) found · \(covered) covered")
+                                    .contentTransition(.numericText())
+                            }
+                        }
+                        .foregroundStyle(Theme.ink)
+                        Image(systemName: "chevron.right")
+                            .font(.caption.weight(.bold))
+                            .foregroundStyle(Theme.inkSecondary)
+                    }
+                    .font(.subheadline.weight(.semibold))
+                    .padding(.leading, 16)
+                    .padding(.trailing, covered < found.count ? 8 : 16)
+                    .frame(minHeight: 40)
+                    .contentShape(Capsule())
+                }
+                .buttonStyle(.plain)
+                .accessibilityHint("Shows every detected item")
+
+                if covered < found.count {
+                    Button {
+                        applyAll()
+                    } label: {
+                        Text("Cover All")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(Theme.onBrand)
+                            .padding(.horizontal, 12)
+                            .frame(minHeight: 30)
+                            .background(Capsule().fill(Theme.brand))
+                    }
+                    .buttonStyle(.pressable)
+                    .padding(.trailing, 5)
+                    .transition(.scale.combined(with: .opacity))
+                }
+            }
+            .floatingGlass(in: Capsule(), interactive: true)
+            .animation(.snappy, value: covered)
+            .transition(.opacity.combined(with: .scale(scale: 0.9)))
+        }
+    }
+
+    private func statusSymbol(found: Int, covered: Int) -> String {
+        if found == 0 { return "checkmark.shield" }
+        return covered == found ? "checkmark.shield.fill" : "exclamationmark.shield.fill"
+    }
+
+    private func statusColor(found: Int, covered: Int) -> Color {
+        if found == 0 { return Theme.inkSecondary }
+        return covered == found ? Theme.brand : .orange
+    }
+
+    private func applyAll() {
+        editor.applyAllSuggestions()
+        flash(String(localized: "Applied \(editor.selectedRegions.count) suggestions"),
+              systemImage: "wand.and.stars")
     }
 
     // MARK: Loading screen (immediate feedback + iCloud download progress)
 
     private var loadingView: some View {
-        VStack(spacing: 18) {
-            ZStack {
-                ProgressView()
-                    .controlSize(.large)
-                if editor.isDownloadingFromCloud {
-                    Image(systemName: "icloud.and.arrow.down")
-                        .font(.system(size: 18))
-                        .foregroundStyle(.secondary)
-                        .offset(y: 34)
-                }
-            }
+        VStack(spacing: 16) {
             if editor.isDownloadingFromCloud {
+                ZStack {
+                    Circle().stroke(Theme.inkFaint, lineWidth: 4)
+                    Circle()
+                        .trim(from: 0, to: editor.downloadProgress)
+                        .stroke(Theme.brand, style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                        .rotationEffect(.degrees(-90))
+                        .animation(.easeOut(duration: 0.2), value: editor.downloadProgress)
+                    Image(systemName: "icloud.and.arrow.down")
+                        .font(.system(size: 18, weight: .medium))
+                        .foregroundStyle(Theme.inkSecondary)
+                }
+                .frame(width: 52, height: 52)
                 Text("Downloading from iCloud… \(Int((editor.downloadProgress * 100).rounded()))%")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
                     .monospacedDigit()
             } else {
+                ProgressView()
+                    .controlSize(.large)
                 Text("Loading photo…")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
             }
         }
+        .font(.subheadline)
+        .foregroundStyle(Theme.inkSecondary)
+        .padding(28)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .accessibilityElement(children: .combine)
         .accessibilityLabel(editor.isDownloadingFromCloud
             ? "Downloading from iCloud, \(Int(editor.downloadProgress * 100)) percent"
             : "Loading photo")
-    }
-
-    // MARK: Export popover (four options)
-
-    private var exportMenu: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            menuRow("Photo Metadata", systemImage: "doc.text.magnifyingglass",
-                    subtitle: "GPS, device model, timestamps — GPS removed by default") {
-                dismissPopoverThen { showMetadata = true }
-            }
-            Divider()
-            Toggle(isOn: $editor.compress) {
-                Label("Compress similar colors", systemImage: "rectangle.compress.vertical")
-            }
-            .padding(.horizontal, 16).padding(.vertical, 10)
-            Toggle(isOn: $editor.scrubHiddenMarks) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Label("Remove hidden marks", systemImage: "eye.slash")
-                    Text("Clears pixel low-bits + all metadata. Can't remove robust forensic watermarks.")
-                        .font(.caption2).foregroundStyle(.secondary).padding(.leading, 28)
-                }
-            }
-            .padding(.horizontal, 16).padding(.vertical, 10)
-            Divider()
-            menuRow("Share…", systemImage: "square.and.arrow.up") { share(deleteAfter: false) }
-            if editor.hasSourceAsset {
-                menuRow("Share & Delete Original", systemImage: "square.and.arrow.up.trianglebadge.exclamationmark",
-                        role: .destructive) { share(deleteAfter: true) }
-            }
-            Divider()
-            if editor.hasSourceAsset {
-                menuRow("Save (Overwrite Original)", systemImage: "square.and.arrow.down.on.square") {
-                    saveOverwrite()
-                }
-            }
-            menuRow("Save a Copy", systemImage: "doc.on.doc") { saveCopy() }
-        }
-        // Ideal rather than fixed, so the menu can compress on the narrow outer
-        // display instead of being clipped.
-        .frame(idealWidth: 310, maxWidth: 340)
-        .tint(.accentColor)
-    }
-
-    private func menuRow(_ title: LocalizedStringKey, systemImage: String, subtitle: LocalizedStringKey? = nil,
-                         role: ButtonRole? = nil, action: @escaping () -> Void) -> some View {
-        Button(role: role, action: action) {
-            VStack(alignment: .leading, spacing: 2) {
-                Label(title, systemImage: systemImage)
-                    .foregroundStyle(role == .destructive ? Color.red : .primary)
-                if let subtitle {
-                    Text(subtitle).font(.caption).foregroundStyle(.secondary).padding(.leading, 28)
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 16).padding(.vertical, 12)
-            .contentShape(Rectangle())
-        }
-        .buttonStyle(.plain)
-    }
-
-    /// Dismisses the export popover, THEN runs `action` (typically presenting a
-    /// sheet) after the dismissal settles. On iOS 26+, flipping a sheet's binding
-    /// to `true` in the SAME runloop that hides the popover silently fails to
-    /// present and leaves the binding stuck `true` — which then blocks every
-    /// other sheet in the view (the "many buttons stop responding" bug). Deferring
-    /// past the popover's dismissal animation makes the sheet present reliably.
-    private func dismissPopoverThen(_ action: @escaping () -> Void) {
-        showExport = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45, execute: action)
     }
 
     // MARK: Canvas
@@ -332,6 +398,8 @@ struct EditorView: View {
                     Image(uiImage: preview)
                         .resizable()
                         .frame(width: fz.width, height: fz.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+                        .shadow(color: .black.opacity(0.14), radius: 16, y: 6)
                         .position(x: fz.midX, y: fz.midY)
                         .accessibilityLabel("Photo preview with redactions applied")
                 }
@@ -349,9 +417,10 @@ struct EditorView: View {
                         .accessibilityLabel("Emoji cover, drag to move, tap to change")
                 }
                 if !editor.isMarkerMode, let rect = activeDragRect(fitted: fz) {
-                    Rectangle()
-                        .strokeBorder(Color.accentColor, style: StrokeStyle(lineWidth: 2, dash: [6]))
-                        .background(Color.accentColor.opacity(0.15))
+                    RoundedRectangle(cornerRadius: 3, style: .continuous)
+                        .strokeBorder(Theme.brand, style: StrokeStyle(lineWidth: 2, dash: [6, 4]))
+                        .background(RoundedRectangle(cornerRadius: 3, style: .continuous)
+                            .fill(Theme.brand.opacity(0.15)))
                         .frame(width: rect.width, height: rect.height)
                         .position(x: rect.midX, y: rect.midY)
                 }
@@ -362,7 +431,14 @@ struct EditorView: View {
                                                    lineCap: .round, lineJoin: .round))
                         .allowsHitTesting(false)
                 }
-                if editor.isScanning { scanningOverlay(in: proxy.size) }
+                if editor.isScanning, !reduceMotion {
+                    ScanBeam()
+                        .frame(width: fz.width, height: fz.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+                        .position(x: fz.midX, y: fz.midY)
+                        .allowsHitTesting(false)
+                        .transition(.opacity)
+                }
             }
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
             .clipped()
@@ -373,42 +449,38 @@ struct EditorView: View {
             .overlay(alignment: .bottomTrailing) {
                 if showsColorControl { colorControl }
             }
+            .animation(.easeOut(duration: 0.25), value: editor.isScanning)
         }
         // No reservation for the palette: it lives in the safe area now, so the
         // canvas already ends where the palette begins, on any display size.
-        .padding(.horizontal, 12)
-        .padding(.vertical, 4)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 6)
     }
 
+    /// Covered regions get a thin solid outline (Hide Text and blur can make
+    /// a cover near-invisible otherwise); suggestions that are NOT covered get
+    /// a dashed outline over a faint green wash — "found, tap to cover".
     @ViewBuilder
     private func regionOverlay(_ region: RiskRegion, fitted: CGRect) -> some View {
-        // Selected emoji covers show the emoji itself instead of a border.
+        // Selected emoji covers show the emoji itself instead of an outline.
         if !(region.isSelected && region.emoji != nil) {
-            let color = color(for: region.riskLevel)
             let isHighlighted = editor.highlightedRegionID == region.id
             // A refined region outlines each kept word instead of one box.
             ForEach(Array(region.coverRects.enumerated()), id: \.offset) { _, box in
-                let rect = viewRect(for: box, fitted: fitted)
-                Rectangle()
-                    .strokeBorder(
-                        region.isSelected ? color : Color.gray,
-                        style: StrokeStyle(lineWidth: isHighlighted ? 4 : 2,
-                                           dash: region.isSelected ? [] : [5]))
+                let rect = viewRect(for: box, fitted: fitted).insetBy(dx: -1.5, dy: -1.5)
+                let shape = RoundedRectangle(cornerRadius: 3, style: .continuous)
+                shape
+                    .fill(region.isSelected ? Color.clear : Theme.brand.opacity(0.14))
+                    .overlay(
+                        shape.strokeBorder(
+                            Theme.brand.opacity(region.isSelected ? 0.85 : 1),
+                            style: StrokeStyle(lineWidth: isHighlighted ? 3 : 1.5,
+                                               dash: region.isSelected ? [] : [5, 3])))
                     .frame(width: rect.width, height: rect.height)
                     .position(x: rect.midX, y: rect.midY)
                     .allowsHitTesting(false)
             }
         }
-    }
-
-    private func scanningOverlay(in size: CGSize) -> some View {
-        VStack(spacing: 12) {
-            ProgressView()
-            Text("Scanning on device…").font(.subheadline).foregroundStyle(.secondary)
-        }
-        .padding(24)
-        .floatingGlass(in: RoundedRectangle(cornerRadius: 16))
-        .position(x: size.width / 2, y: size.height / 2)
     }
 
     // MARK: Color control (marker brush + Block fill)
@@ -423,12 +495,12 @@ struct EditorView: View {
     private var colorControl: some View {
         ColorPicker(colorControlTitle, selection: activeColorBinding, supportsOpacity: false)
             .labelsHidden()
-            .scaleEffect(1.35)
-            .frame(width: 48, height: 48)
+            .scaleEffect(1.2)
+            .frame(width: 44, height: 44)
             .floatingGlass(in: Circle(), interactive: true)
             .shadow(color: .black.opacity(0.15), radius: 6, y: 2)
-            .padding(.trailing, 16)
-            .padding(.bottom, 16)
+            .padding(.trailing, 12)
+            .padding(.bottom, 12)
             .accessibilityLabel(colorControlTitle)
     }
 
@@ -459,13 +531,9 @@ struct EditorView: View {
     /// that changing pose never makes the user relearn where a tool lives.
     private func paletteStrip(axis: Axis) -> some View {
         let strip = paletteLayout(axis, spacing: 0)
-        let tools = paletteLayout(axis, spacing: 2)
+        let tools = paletteLayout(axis, spacing: 0)
         return strip {
-            paletteButton("Auto", systemImage: "wand.and.stars", active: false) {
-                editor.applyAllSuggestions()
-                flash(String(localized: "Applied \(editor.selectedRegions.count) suggestions"))
-            }
-            .padding(axis == .horizontal ? .leading : .top, 6)
+            paletteButton("Auto", systemImage: "wand.and.stars", active: false, action: applyAll)
             divider(axis: axis)
             ScrollView(axis == .horizontal ? .horizontal : .vertical, showsIndicators: false) {
                 tools {
@@ -473,7 +541,6 @@ struct EditorView: View {
                     styleButton(.pixelate, "Pixelate", "squareshape.split.3x3")
                     styleButton(.blur, "Blur", "drop.fill")
                     styleButton(.hideText, "Hide Text", "character.textbox")
-                    divider(axis: axis)
                     paletteButton("Marker", systemImage: "scribble.variable",
                                   active: editor.isMarkerMode) {
                         editor.isMarkerMode = true
@@ -484,15 +551,18 @@ struct EditorView: View {
                         showWatermarkInput = true
                     }
                 }
-                .padding(axis == .horizontal ? .horizontal : .vertical, 8)
             }
+            .scrollBounceBehavior(.basedOnSize)
         }
-        .padding(axis == .horizontal ? .vertical : .horizontal, 8)
-        .padding(axis == .horizontal ? .trailing : .bottom, 6)
-        .floatingGlass(in: Capsule())
-        .shadow(color: .black.opacity(0.12), radius: 12, y: 4)
+        .padding(6)
+        .floatingGlass(in: axis == .horizontal
+                       ? AnyShape(Capsule())
+                       : AnyShape(RoundedRectangle(cornerRadius: 30, style: .continuous)))
+        .shadow(color: .black.opacity(0.10), radius: 14, y: 5)
         .padding(axis == .horizontal ? .horizontal : .vertical, 16)
-        .padding(axis == .horizontal ? .bottom : .trailing, 12)
+        .padding(axis == .horizontal ? .bottom : .trailing, 10)
+        .sensoryFeedback(.selection, trigger: editor.style)
+        .sensoryFeedback(.selection, trigger: editor.isMarkerMode)
     }
 
     /// Best-effort hidden-watermark warning. Tapping opens the export sheet,
@@ -500,16 +570,18 @@ struct EditorView: View {
     /// possibility, and removal can't guarantee robust forensic watermarks.
     @ViewBuilder
     private var stegoBanner: some View {
-        if editor.stegoFinding.isSuspicious {
+        if editor.stegoFinding.isSuspicious, !editor.isScanning {
             Button { showExport = true } label: {
                 Label("Possible hidden watermark — will be scrubbed on export",
                       systemImage: "eye.trianglebadge.exclamationmark")
-                    .font(.caption2.weight(.medium)).foregroundStyle(.white)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.white)
                     .padding(.horizontal, 12).padding(.vertical, 7)
-                    .background(Color.orange, in: Capsule())
-                    .shadow(color: .black.opacity(0.15), radius: 4, y: 1)
+                    .background(Capsule().fill(Color.orange.gradient))
+                    .shadow(color: .orange.opacity(0.3), radius: 6, y: 2)
             }
-            .buttonStyle(.plain)
+            .buttonStyle(.pressable)
+            .padding(.horizontal, 16)
             .accessibilityHint("Opens export options to remove hidden marks")
         }
     }
@@ -517,20 +589,26 @@ struct EditorView: View {
     @ViewBuilder
     private var hintBanner: some View {
         if editor.isMarkerMode {
-            banner("Drag to draw. Pinch to zoom.", systemImage: "scribble.variable", color: .accentColor)
+            banner("Drag to draw. Pinch to zoom.", systemImage: "scribble.variable", color: Theme.brand)
         } else if editor.style == .hideText {
-            banner("Hide Text works best on a solid background.", systemImage: "info.circle", color: .secondary)
+            banner("Hide Text works best on a solid background.", systemImage: "info.circle",
+                   color: Theme.inkSecondary)
         } else if editor.style.isReversibleOnText, hasTextSelected {
             banner("Pixelate/blur on text can be reversed. Block is safest.",
-                   systemImage: "exclamationmark.triangle", color: .orange)
+                   systemImage: "exclamationmark.triangle.fill", color: .orange)
         }
     }
 
     private func banner(_ text: LocalizedStringKey, systemImage: String, color: Color) -> some View {
-        Label(text, systemImage: systemImage)
-            .font(.caption2).foregroundStyle(color)
-            .padding(.horizontal, 10).padding(.vertical, 6)
-            .background(.thinMaterial, in: Capsule())
+        Label {
+            Text(text).foregroundStyle(Theme.ink)
+        } icon: {
+            Image(systemName: systemImage).foregroundStyle(color)
+        }
+        .font(.caption.weight(.medium))
+        .padding(.horizontal, 12).padding(.vertical, 7)
+        .floatingGlass(in: Capsule())
+        .transition(.move(edge: .bottom).combined(with: .opacity))
     }
 
     /// `AnyLayout` rather than a branch on HStack/VStack: the buttons keep their
@@ -544,9 +622,9 @@ struct EditorView: View {
     }
 
     private func divider(axis: Axis) -> some View {
-        Rectangle().fill(Color(.separator).opacity(0.4))
-            .frame(width: axis == .horizontal ? 0.5 : 34,
-                   height: axis == .horizontal ? 34 : 0.5)
+        Rectangle().fill(Theme.hairline)
+            .frame(width: axis == .horizontal ? 1 : 30,
+                   height: axis == .horizontal ? 30 : 1)
             .padding(axis == .horizontal ? .horizontal : .vertical, 3)
     }
 
@@ -560,71 +638,61 @@ struct EditorView: View {
     private func paletteButton(_ title: LocalizedStringKey, systemImage: String, active: Bool,
                                action: @escaping () -> Void) -> some View {
         Button(action: action) {
-            VStack(spacing: 4) {
-                Image(systemName: systemImage).font(.system(size: 20))
-                Text(title).font(.caption2)
+            VStack(spacing: 3) {
+                Image(systemName: systemImage)
+                    .font(.system(size: 19, weight: active ? .semibold : .regular))
+                    .frame(height: 22)
+                Text(title)
+                    .font(.system(size: 10.5, weight: active ? .semibold : .medium))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
             }
-            .frame(width: 60, height: 52)
-            .foregroundStyle(active ? Color.accentColor : Color.primary)
-            .background(active ? Color.accentColor.opacity(0.15) : Color.clear,
-                        in: RoundedRectangle(cornerRadius: 12))
+            .frame(width: 50, height: 50)
+            .foregroundStyle(active ? Theme.brand : Theme.ink)
+            .background(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(active ? Theme.brand.opacity(0.14) : Color.clear))
+            .contentShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.pressable)
         .accessibilityLabel(title)
         .accessibilityAddTraits(active ? [.isSelected, .isButton] : .isButton)
+        .animation(.snappy(duration: 0.2), value: active)
     }
 
     private var hasTextSelected: Bool {
         editor.selectedRegions.contains { $0.type != .face }
     }
 
-    // MARK: Actions
+    // MARK: Toast
 
-    private func share(deleteAfter: Bool) {
-        showExport = false
-        Task {
-            guard let export = await editor.makeExport(),
-                  let url = editor.shareURL(for: export) else {
-                flash(String(localized: "Couldn't prepare image")); return
-            }
-            sharePayload = SharePayload(url: url, deleteAfter: deleteAfter)
-        }
+    private struct Toast: Equatable {
+        let message: String
+        let systemImage: String
     }
 
-    private func saveCopy() {
-        showExport = false
-        Task {
-            guard let export = await editor.makeExport() else { flash(String(localized: "Couldn't prepare image")); return }
-            do { try await editor.saveToPhotos(export); flash(String(localized: "Saved a copy")) }
-            catch { flash(error.localizedDescription) }
-        }
-    }
-
-    private func saveOverwrite() {
-        showExport = false
-        Task {
-            guard let export = await editor.makeExport() else { flash(String(localized: "Couldn't prepare image")); return }
-            do { try await editor.overwriteOriginal(export); flash(String(localized: "Saved · original updated")) }
-            catch { flash(error.localizedDescription) }
-        }
-    }
-
-    private func flash(_ message: String) {
-        withAnimation { toast = message }
+    private func flash(_ message: String, systemImage: String = "info.circle.fill") {
+        let new = Toast(message: message, systemImage: systemImage)
+        withAnimation(.snappy) { toast = new }
         Task {
             try? await Task.sleep(for: .seconds(2))
-            withAnimation { if toast == message { toast = nil } }
+            withAnimation(.easeOut) { if toast == new { toast = nil } }
         }
     }
 
-    private func toastView(_ message: String) -> some View {
-        Text(message)
-            .font(.subheadline.weight(.medium))
-            .padding(.horizontal, 16).padding(.vertical, 10)
-            .floatingGlass(in: Capsule())
-            .shadow(radius: 8)
-            .padding(.bottom, 16)
-            .transition(.move(edge: .bottom).combined(with: .opacity))
+    private func toastView(_ toast: Toast) -> some View {
+        Label {
+            Text(toast.message).foregroundStyle(Theme.ink)
+        } icon: {
+            Image(systemName: toast.systemImage).foregroundStyle(Theme.brand)
+        }
+        .font(.subheadline.weight(.semibold))
+        .padding(.horizontal, 16).padding(.vertical, 11)
+        .floatingGlass(in: Capsule())
+        .shadow(color: .black.opacity(0.12), radius: 10, y: 4)
+        .padding(.bottom, 16)
+        .transition(.move(edge: .bottom).combined(with: .opacity))
+        .accessibilityAddTraits(.updatesFrequently)
     }
 
     // MARK: Gestures
@@ -838,14 +906,6 @@ struct EditorView: View {
                y: fitted.minY + normalized.minY * fitted.height,
                width: normalized.width * fitted.width, height: normalized.height * fitted.height)
     }
-
-    private func color(for level: RiskLevel) -> Color {
-        switch level {
-        case .high: return .red
-        case .medium: return .orange
-        case .low: return .blue
-        }
-    }
 }
 
 extension View {
@@ -875,7 +935,37 @@ extension Color {
     }
 }
 
-/// In-app usage guide (the ? button) mirroring DAMA's how-to.
+/// A green line sweeping down the photo while the on-device scan runs.
+struct ScanBeam: View {
+    var body: some View {
+        TimelineView(.animation) { context in
+            let period = 1.8
+            let raw = context.date.timeIntervalSinceReferenceDate
+                .truncatingRemainder(dividingBy: period) / period
+            // Ease in and out, so the beam lingers at the edges like a scanner.
+            let t = (1 - cos(raw * .pi)) / 2
+            GeometryReader { proxy in
+                let y = proxy.size.height * t
+                ZStack(alignment: .top) {
+                    Color.black.opacity(0.06)
+                    LinearGradient(colors: [Theme.brand.opacity(0), Theme.brand.opacity(0.28)],
+                                   startPoint: .top, endPoint: .bottom)
+                        .frame(height: 90)
+                        .offset(y: y - 90)
+                    Rectangle()
+                        .fill(Theme.brand)
+                        .frame(height: 2)
+                        .shadow(color: Theme.brand, radius: 6)
+                        .offset(y: y - 1)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            }
+        }
+        .accessibilityHidden(true)
+    }
+}
+
+/// In-app usage guide (More → How to Use).
 struct HelpSheet: View {
     @Environment(\.dismiss) private var dismiss
 
@@ -883,13 +973,14 @@ struct HelpSheet: View {
         NavigationStack {
             List {
                 Section("Redact") {
-                    step("1", "Tap a text line to redact the whole line. Tap again to undo.")
-                    step("2", "Long-press text to explode it into words — tap any word to cover it, or cover the whole line.")
-                    step("3", "Long-press a detected risk to trim it word by word, or use the text button in the risk list.")
-                    step("4", "Drag anywhere on the image to redact a custom area.")
-                    step("✦", "Tap Auto to apply all detected suggestions at once.")
-                    step("⌕", "Pinch to zoom; drag to pan when zoomed in.")
+                    step("hand.tap.fill", .blue, "Tap a text line to redact the whole line. Tap again to undo.")
+                    step("hand.point.up.left.and.text.fill", .purple, "Long-press text to explode it into words — tap any word to cover it, or cover the whole line.")
+                    step("text.word.spacing", .indigo, "Long-press a detected risk to trim it word by word, or use the text button in the risk list.")
+                    step("rectangle.dashed", .teal, "Drag anywhere on the image to redact a custom area.")
+                    step("wand.and.stars", Theme.brand, "Tap Auto to apply all detected suggestions at once.")
+                    step("arrow.up.left.and.arrow.down.right", .gray, "Pinch to zoom; drag to pan when zoomed in.")
                 }
+                .listRowBackground(Theme.card)
                 Section("Tools") {
                     tool("Block", "Solid, irreversible cover. Tap the color well to recolor it.", "rectangle.fill")
                     tool("Pixelate", "Mosaic (can be reversible on text).", "squareshape.split.3x3")
@@ -898,30 +989,37 @@ struct HelpSheet: View {
                     tool("Marker", "Free-draw; pick any color or eyedrop from the image.", "scribble.variable")
                     tool("Watermark", "Stamp your own text across the image.", "signature")
                 }
+                .listRowBackground(Theme.card)
             }
+            .paperBackground()
             .navigationTitle("How to Use")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
         }
         .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
     }
 
-    private func step(_ n: String, _ text: LocalizedStringKey) -> some View {
-        HStack(alignment: .top, spacing: 12) {
-            Text(n).font(.caption.bold())
-                .frame(width: 24, height: 24)
-                .background(Color.accentColor.opacity(0.18), in: RoundedRectangle(cornerRadius: 6))
-                .foregroundStyle(Color.accentColor)
+    private func step(_ symbol: String, _ color: Color, _ text: LocalizedStringKey) -> some View {
+        HStack(alignment: .top, spacing: 14) {
+            IconTile(systemName: symbol, color: color)
             Text(text)
+                .foregroundStyle(Theme.ink)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.top, 4)
         }
     }
 
     private func tool(_ name: LocalizedStringKey, _ desc: LocalizedStringKey, _ symbol: String) -> some View {
-        HStack(spacing: 12) {
-            Image(systemName: symbol).foregroundStyle(Color.accentColor).frame(width: 26)
+        HStack(spacing: 14) {
+            Image(systemName: symbol)
+                .font(.system(size: 17, weight: .medium))
+                .foregroundStyle(Theme.brand)
+                .frame(width: 30, height: 30)
+                .background(Theme.brand.opacity(0.12), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
             VStack(alignment: .leading, spacing: 2) {
-                Text(name).font(.subheadline.weight(.medium))
-                Text(desc).font(.caption).foregroundStyle(.secondary)
+                Text(name).font(.subheadline.weight(.semibold)).foregroundStyle(Theme.ink)
+                Text(desc).font(.caption).foregroundStyle(Theme.inkSecondary)
             }
         }
     }
@@ -989,6 +1087,7 @@ struct TextExplodeSheet: View {
                 }
                 .padding()
             }
+            .background(Theme.paper.ignoresSafeArea())
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -1031,8 +1130,8 @@ struct TextExplodeSheet: View {
         Text(word.text)
             .font(.body)
             .padding(.horizontal, 12).padding(.vertical, 8)
-            .background(covered ? Color.accentColor : Color(.secondarySystemFill), in: Capsule())
-            .foregroundStyle(covered ? Color.white : Color.primary)
+            .background(covered ? Theme.brand : Theme.inkFaint, in: Capsule())
+            .foregroundStyle(covered ? Theme.onBrand : Theme.ink)
             .contentShape(Capsule())
             .onTapGesture { toggle(word) }
             .accessibilityLabel(word.text)
@@ -1181,11 +1280,12 @@ extension Character {
 /// UIActivityViewController wrapper; `onFinish` runs after the sheet dismisses.
 struct ShareSheet: UIViewControllerRepresentable {
     let url: URL
-    var onFinish: (() -> Void)?
+    /// Called with whether something was actually shared (false = cancelled).
+    var onFinish: ((Bool) -> Void)?
 
     func makeUIViewController(context: Context) -> UIActivityViewController {
         let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-        vc.completionWithItemsHandler = { _, _, _, _ in onFinish?() }
+        vc.completionWithItemsHandler = { _, completed, _, _ in onFinish?(completed) }
         return vc
     }
     func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}

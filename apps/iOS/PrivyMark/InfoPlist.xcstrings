@@ -1,0 +1,114 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "NSPhotoLibraryUsageDescription": {
+      "comment": "Photos permission purpose string",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark zeigt deine Fotos, damit du eins zum Scannen auswählen kannst. Alles wird auf deinem Gerät verarbeitet, nichts wird hochgeladen."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark shows your photos so you can pick one to scan. Everything is processed on your device and nothing is uploaded."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark muestra tus fotos para que elijas una y la analices. Todo se procesa en tu dispositivo y no se sube nada."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark affiche vos photos pour que vous puissiez en choisir une à analyser. Tout est traité sur votre appareil et rien n'est envoyé."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark mostra le tue foto per farti scegliere quella da analizzare. Tutto viene elaborato sul dispositivo e nulla viene caricato."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O PrivyMark mostra suas fotos para você escolher uma e analisar. Tudo é processado no seu dispositivo e nada é enviado."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 会显示你的照片，方便你选择一张进行扫描。所有处理都在你的设备上完成，不会上传任何内容。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 會顯示你的照片，方便你選取一張進行掃描。所有處理都在你的裝置上完成，不會上傳任何內容。"
+          }
+        }
+      }
+    },
+    "NSPhotoLibraryAddUsageDescription": {
+      "comment": "Photos permission purpose string",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark sichert dein abgedecktes Bild in deiner Mediathek. Das Original wird nicht verändert."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark saves your redacted image to your photo library. The original is never modified."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark guarda tu imagen tapada en tu fototeca. La original no se modifica."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark enregistre votre image masquée dans votre photothèque. L'original n'est jamais modifié."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark salva l'immagine coperta nella tua libreria. L'originale non viene mai modificato."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O PrivyMark salva sua imagem oculta na sua fototeca. A original nunca é alterada."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 会把打码后的图片保存到你的图库。原图不会被修改。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 會把打碼後的圖片儲存到你的圖庫。原圖不會被修改。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

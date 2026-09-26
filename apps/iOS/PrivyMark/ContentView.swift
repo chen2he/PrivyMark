@@ -2,10 +2,12 @@
 //  ContentView.swift
 //  PrivyMark
 //
-//  Top-level router (PRD §10): welcome → photo access → library grid → editor.
+//  Top-level router (PRD §10): onboarding → library grid (or the no-access
+//  home) → editor.
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ContentView: View {
     @StateObject private var settings = SettingsStore()
@@ -18,19 +20,23 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if !settings.hasSeenWelcome {
-                WelcomeView { settings.hasSeenWelcome = true }
-            } else if horizontalSizeClass == .regular, library.isAuthorized {
+            switch route {
+            case .onboarding:
+                OnboardingView(library: library) { settings.hasSeenWelcome = true }
+            case .split:
                 splitInterface
-            } else if editor.isActive {
+            case .editor:
                 EditorView(editor: editor, settings: settings)
-            } else if library.isAuthorized {
+            case .library:
                 LibraryGridView(library: library, settings: settings,
-                                onPick: loadFromAsset, onImport: loadData)
-            } else {
-                PhotoAccessView(library: library, onTrySample: loadSample)
+                                onPick: loadFromAsset, onImport: loadData,
+                                onTrySample: loadSample)
+            case .noAccess:
+                PhotoAccessView(library: library, settings: settings,
+                                onPickItem: loadPickerItem, onTrySample: loadSample)
             }
         }
+        .animation(.easeInOut(duration: 0.25), value: route)
         .tint(.accentColor)
         .task {
             library.refreshStatus()
@@ -51,6 +57,17 @@ struct ContentView: View {
         }
     }
 
+    private enum Route: Hashable {
+        case onboarding, split, editor, library, noAccess
+    }
+
+    private var route: Route {
+        if !settings.hasSeenWelcome { return .onboarding }
+        if horizontalSizeClass == .regular, library.isAuthorized { return .split }
+        if editor.isActive { return .editor }
+        return library.isAuthorized ? .library : .noAccess
+    }
+
     // MARK: Regular width — grid and editor side by side
 
     /// The extra level of hierarchy the HIG asks for on the larger inner
@@ -62,7 +79,7 @@ struct ContentView: View {
         NavigationSplitView {
             LibraryGridView(library: library, settings: settings,
                             onPick: loadFromAsset, onImport: loadData,
-                            embedsNavigation: false)
+                            onTrySample: loadSample, embedsNavigation: false)
         } detail: {
             if editor.isActive {
                 EditorView(editor: editor, settings: settings, showsBackButton: false)
@@ -71,6 +88,11 @@ struct ContentView: View {
                     "Choose a Photo",
                     systemImage: "photo.on.rectangle.angled",
                     description: Text("Pick a photo to scan for faces, text, and hidden marks."))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    // The editor's mat, waiting for a photo.
+                    .background {
+                        ZStack { Theme.canvas; DotGrid() }.ignoresSafeArea()
+                    }
             }
         }
         .navigationSplitViewStyle(.balanced)
@@ -102,6 +124,24 @@ struct ContentView: View {
         }
     }
 
+    /// A photo from the system picker — the no-library-access path. The
+    /// picker hands over only what was picked, so there is no asset to
+    /// overwrite or delete afterwards.
+    private func loadPickerItem(_ item: PhotosPickerItem) {
+        prepareEditor()
+        editor.beginLoading()
+        Task {
+            let data = try? await item.loadTransferable(type: Data.self)
+            guard editor.isPreparing else { return }
+            guard let data else {
+                editor.failLoading()
+                loadFailed = true
+                return
+            }
+            editor.load(data: data)
+        }
+    }
+
     private func loadSample() {
         guard let data = SampleImage.makeData() else { return }
         prepareEditor()
@@ -123,8 +163,7 @@ struct ContentView: View {
     /// Settings "自动编辑最新的图片": open the newest photo if it's < 60s old.
     private func maybeAutoEdit() {
         guard settings.autoEditLatest, library.isAuthorized, !editor.isActive else { return }
-        library.fetchAssets()
-        guard let newest = library.assets.first,
+        guard let newest = library.newestImage(),
               let created = newest.creationDate,
               Date().timeIntervalSince(created) < 60 else { return }
         loadFromAsset(PHAssetWrapper(asset: newest))
