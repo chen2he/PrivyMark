@@ -93,6 +93,512 @@
         }
       }
     },
+    "%@ Emoji cover": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Emoji-Abdeckung"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Tapado con emoji"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Masque emoji"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Copertura emoji"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Cobertura com emoji"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 表情遮挡"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 表情符號遮擋"
+          }
+        }
+      }
+    },
+    "%@, %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@，%2$@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@，%2$@"
+          }
+        }
+      }
+    },
+    "%lld covered": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld abgedeckt"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tapados"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld masqués"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld coperti"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ocultos"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已盖住 %lld 处"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已蓋住 %lld 處"
+          }
+        }
+      }
+    },
+    "%lld covered · flattened into the pixels": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld abgedeckt · fest in die Pixel eingerechnet"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tapados · integrados en los píxeles"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld masqués · fusionnés dans les pixels"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld coperti · fusi nei pixel"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ocultos · fundidos aos pixels"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已盖住 %lld 处 · 已写入像素"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已蓋住 %lld 處 · 已寫入像素"
+          }
+        }
+      }
+    },
+    "%lld found": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld gefunden"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld encontrados"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld trouvés"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld trovati"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld encontrados"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "发现 %lld 处"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "發現 %lld 處"
+          }
+        }
+      }
+    },
+    "%lld found · %lld covered": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld gefunden · %2$lld abgedeckt"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld encontrados · %2$lld tapados"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld trouvés · %2$lld masqués"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld trovati · %2$lld coperti"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld encontrados · %2$lld ocultos"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "发现 %1$lld 处 · 已盖住 %2$lld 处"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "發現 %1$lld 處 · 已蓋住 %2$lld 處"
+          }
+        }
+      }
+    },
+    "+1 415 555 0134": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+49 151 2345 6789"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+34 612 345 678"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+33 6 12 34 56 78"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+39 312 345 6789"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+55 11 91234-5678"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "138 0013 8000"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0912 345 678"
+          }
+        }
+      }
+    },
+    "1.2 kg": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1,2 kg"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1,2 kg"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1,2 kg"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1,2 kg"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1,2 kg"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.2 kg"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.2 kg"
+          }
+        }
+      }
+    },
+    "42 Willow Ave, Riverton": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lindenstr. 42, Berlin"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calle Mayor 42, Madrid"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "42 rue des Lilas, Lyon"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Via Roma 42, Milano"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rua Augusta 42, SP"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "朝阳区建国路 88 号"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "信義區松仁路 100 號"
+          }
+        }
+      }
+    },
+    "A delivery label being scanned. The name, face, phone number, address, tracking number and QR code are found.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein Versandetikett wird gescannt. Name, Gesicht, Telefonnummer, Adresse, Sendungsnummer und QR-Code werden gefunden."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se analiza una etiqueta de envío. Se encuentran el nombre, la cara, el teléfono, la dirección, el número de seguimiento y el código QR."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une étiquette de livraison est analysée. Le nom, le visage, le numéro de téléphone, l'adresse, le numéro de suivi et le code QR sont détectés."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un'etichetta di spedizione viene analizzata. Vengono trovati nome, volto, numero di telefono, indirizzo, numero di tracciamento e codice QR."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma etiqueta de entrega é analisada. O nome, o rosto, o telefone, o endereço, o código de rastreio e o QR code são encontrados."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在扫描一张快递面单。找到了姓名、人脸、电话、地址、运单号和二维码。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在掃描一張宅配單。找到了姓名、人臉、電話、地址、貨態單號和 QR Code。"
+          }
+        }
+      }
+    },
+    "A delivery label with the name, face, phone number, address, tracking number and QR code covered in green.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein Versandetikett, auf dem Name, Gesicht, Telefonnummer, Adresse, Sendungsnummer und QR-Code grün abgedeckt sind."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una etiqueta de envío con el nombre, la cara, el teléfono, la dirección, el número de seguimiento y el código QR tapados en verde."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une étiquette de livraison dont le nom, le visage, le numéro de téléphone, l'adresse, le numéro de suivi et le code QR sont masqués en vert."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un'etichetta di spedizione con nome, volto, numero di telefono, indirizzo, numero di tracciamento e codice QR coperti in verde."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma etiqueta de entrega com o nome, o rosto, o telefone, o endereço, o código de rastreio e o QR code ocultos em verde."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一张快递面单，姓名、人脸、电话、地址、运单号和二维码都已用绿色盖住。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一張宅配單，姓名、人臉、電話、地址、貨態單號和 QR Code 都已用綠色蓋住。"
+          }
+        }
+      }
+    },
     "AI-enhanced detection": {
       "localizations": {
         "de": {
@@ -139,48 +645,94 @@
         }
       }
     },
-    "Access Denied": {
+    "Add": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zugriff verweigert"
+            "value": "Hinzufügen"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Acceso denegado"
+            "value": "Añadir"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Accès refusé"
+            "value": "Ajouter"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Accesso negato"
+            "value": "Aggiungi"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Acesso negado"
+            "value": "Adicionar"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "访问被拒绝"
+            "value": "添加"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "取用遭拒"
+            "value": "加入"
+          }
+        }
+      }
+    },
+    "Add Watermark…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wasserzeichen hinzufügen …"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añadir marca de agua…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un filigrane…"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiungi filigrana…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar marca d'água…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加水印…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "加入浮水印…"
           }
         }
       }
@@ -277,6 +829,144 @@
         }
       }
     },
+    "Airplane Mode": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flugmodus"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Avión"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode Avion"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso in aereo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Avião"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "飞行模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "飛航模式"
+          }
+        }
+      }
+    },
+    "Airplane Mode on, and PrivyMark still works. Scanned on this iPhone, never uploaded. No account, no ads, no tracking. Nothing is kept once you're done.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flugmodus an, und PrivyMark funktioniert trotzdem. Gescannt auf diesem iPhone, nie hochgeladen. Kein Konto, keine Werbung, kein Tracking. Nichts wird aufbewahrt, wenn du fertig bist."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Avión activado y PrivyMark sigue funcionando. Se analiza en este iPhone y nunca se sube. Sin cuenta, sin anuncios, sin rastreo. No se guarda nada cuando terminas."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode Avion activé, et PrivyMark fonctionne toujours. Analysé sur cet iPhone, jamais envoyé. Aucun compte, aucune publicité, aucun suivi. Rien n'est conservé une fois terminé."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso in aereo attivo, e PrivyMark funziona comunque. Analizzato su questo iPhone, mai caricato. Nessun account, nessuna pubblicità, nessun tracciamento. Non resta nulla quando hai finito."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Avião ativado, e o PrivyMark continua funcionando. Analisado neste iPhone, nunca enviado. Sem conta, sem anúncios, sem rastreamento. Nada fica guardado quando você termina."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "飞行模式已开启，PrivyMark 依然可用。在这台 iPhone 上扫描，绝不上传。无需账号，没有广告，没有追踪。用完不留任何记录。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "飛航模式已開啟，PrivyMark 依然可用。在這支 iPhone 上掃描，絕不上傳。無需帳號，沒有廣告，沒有追蹤。用完不留任何紀錄。"
+          }
+        }
+      }
+    },
+    "Alex Morgan": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lena Schmidt"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lucía Martín"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camille Dubois"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giulia Rossi"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ana Souza"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "李娜"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "陳怡君"
+          }
+        }
+      }
+    },
     "All": {
       "localizations": {
         "de": {
@@ -365,6 +1055,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "所有照片"
+          }
+        }
+      }
+    },
+    "All removed": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles entfernt"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo eliminado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout est retiré"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutto rimosso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo removido"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部移除"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部移除"
           }
         }
       }
@@ -1151,6 +1887,52 @@
         }
       }
     },
+    "Check any photo,": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prüf jedes Foto,"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisa cualquier foto,"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérifiez une photo,"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controlla qualsiasi foto,"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confira qualquer foto,"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "任何照片都能检查，"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "任何照片都能檢查，"
+          }
+        }
+      }
+    },
     "Choose a Photo": {
       "localizations": {
         "de": {
@@ -1387,6 +2169,52 @@
         }
       }
     },
+    "Couldn't Export": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export fehlgeschlagen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo exportar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible d'exporter"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile esportare"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível exportar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法导出"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法匯出"
+          }
+        }
+      }
+    },
     "Couldn't Open Photo": {
       "localizations": {
         "de": {
@@ -1475,6 +2303,98 @@
           "stringUnit": {
             "state": "translated",
             "value": "無法準備圖片"
+          }
+        }
+      }
+    },
+    "Cover All": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle abdecken"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tapar todo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout masquer"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copri tutto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ocultar tudo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部盖住"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部蓋住"
+          }
+        }
+      }
+    },
+    "Cover Them": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abdecken"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taparlos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les masquer"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coprili"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ocultar tudo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一键盖住"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一鍵蓋住"
           }
         }
       }
@@ -1663,6 +2583,52 @@
         }
       }
     },
+    "Delete": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Löschen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刪除"
+          }
+        }
+      }
+    },
     "Detected Risks": {
       "localizations": {
         "de": {
@@ -1705,6 +2671,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "辨識到的風險"
+          }
+        }
+      }
+    },
+    "Detected region": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erkannter Bereich"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Región detectada"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone détectée"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Area rilevata"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Região detectada"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "识别出的区域"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辨識出的區域"
           }
         }
       }
@@ -2169,6 +3181,52 @@
         }
       }
     },
+    "Edit Watermark…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wasserzeichen bearbeiten …"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar marca de agua…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifier le filigrane…"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifica filigrana…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar marca d'água…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "编辑水印…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "編輯浮水印…"
+          }
+        }
+      }
+    },
     "Email": {
       "localizations": {
         "de": {
@@ -2261,48 +3319,48 @@
         }
       }
     },
-    "Enable Photos access for PrivyMark in Settings, or try a sample image.": {
+    "Everything stays": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aktiviere den Fotozugriff für PrivyMark in den Einstellungen oder probiere ein Beispielbild."
+            "value": "Alles bleibt"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Activa el acceso a Fotos para PrivyMark en Ajustes o prueba una imagen de ejemplo."
+            "value": "Todo se queda"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Activez l'accès aux Photos pour PrivyMark dans Réglages, ou essayez un exemple d'image."
+            "value": "Tout reste"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abilita l'accesso a Foto per PrivyMark in Impostazioni oppure prova un'immagine di esempio."
+            "value": "Tutto resta"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ative o acesso às Fotos para o PrivyMark nos Ajustes, ou experimente uma imagem de exemplo."
+            "value": "Tudo fica"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "请在「设置」中开启 PrivyMark 的照片访问权限，或试用示例图片。"
+            "value": "所有处理"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "請在「設定」中開啟 PrivyMark 的照片取用權限，或試用範例圖片。"
+            "value": "所有處理"
           }
         }
       }
@@ -2349,6 +3407,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "匯出"
+          }
+        }
+      }
+    },
+    "Express Delivery": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expressversand"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Envío exprés"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Livraison express"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spedizione espressa"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entrega expressa"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "快递面单"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "宅配單"
           }
         }
       }
@@ -2445,48 +3549,48 @@
         }
       }
     },
-    "Find private details\nin your images": {
+    "Find private details": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Finde private Details\nin deinen Bildern"
+            "value": "Finde private Details,"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Encuentra datos privados\nen tus imágenes"
+            "value": "Encuentra datos privados"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Trouvez les informations privées\ndans vos images"
+            "value": "Repérez les infos privées"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Trova i dettagli privati\nnelle tue immagini"
+            "value": "Trova i dati privati"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Encontre detalhes privados\nnas suas imagens"
+            "value": "Encontre dados privados"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "找出图片里的\n隐私信息"
+            "value": "分享之前，"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "找出圖片裡的\n隱私資訊"
+            "value": "分享之前，"
           }
         }
       }
@@ -2629,52 +3733,6 @@
         }
       }
     },
-    "GPS, device model, timestamps — GPS removed by default": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GPS, Gerätemodell, Zeitstempel – GPS wird standardmäßig entfernt"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GPS, modelo del dispositivo, fechas: el GPS se elimina por defecto"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GPS, modèle d’appareil, horodatages — le GPS est supprimé par défaut"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GPS, modello del dispositivo, date — il GPS viene rimosso per impostazione predefinita"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GPS, modelo do dispositivo, datas — o GPS é removido por padrão"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GPS、设备型号、时间戳 —— 默认移除 GPS"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GPS、裝置型號、時間戳記 —— 預設移除 GPS"
-          }
-        }
-      }
-    },
     "Gaussian blur (can be reversible on text).": {
       "localizations": {
         "de": {
@@ -2717,98 +3775,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "高斯模糊（文字上可能被還原）。"
-          }
-        }
-      }
-    },
-    "Get Started": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Los geht’s"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empezar"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Commencer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inizia"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Começar"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "开始使用"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "開始使用"
-          }
-        }
-      }
-    },
-    "Get started": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Los geht’s"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empezar"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Commencer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inizia"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Começar"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "开始使用"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "開始使用"
           }
         }
       }
@@ -2997,53 +3963,53 @@
         }
       }
     },
-    "How to Use": {
+    "Highlights it on the photo": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Anleitung"
+            "value": "Hebt es auf dem Foto hervor"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cómo usar"
+            "value": "Lo resalta en la foto"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comment utiliser"
+            "value": "Le met en évidence sur la photo"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Come si usa"
+            "value": "Lo evidenzia nella foto"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Como usar"
+            "value": "Destaca na foto"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用方法"
+            "value": "在照片上高亮显示"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用方法"
+            "value": "在照片上醒目標示"
           }
         }
       }
     },
-    "How to use": {
+    "How to Use": {
       "localizations": {
         "de": {
           "stringUnit": {
@@ -3181,94 +4147,94 @@
         }
       }
     },
-    "Import an image or try a sample to get started.": {
+    "Import an image from Files, or try the sample.": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importiere ein Bild oder probiere ein Beispiel, um zu starten."
+            "value": "Importiere ein Bild aus „Dateien“ oder probiere das Beispiel aus."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importa una imagen o prueba un ejemplo para empezar."
+            "value": "Importa una imagen desde Archivos o prueba el ejemplo."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importez une image ou essayez un exemple pour commencer."
+            "value": "Importez une image depuis Fichiers ou essayez l'exemple."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importa un'immagine o prova un esempio per iniziare."
+            "value": "Importa un'immagine da File o prova l'esempio."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importe uma imagem ou experimente um exemplo para começar."
+            "value": "Importe uma imagem do Arquivos ou experimente o exemplo."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "导入图片或试用示例，即可开始。"
+            "value": "从“文件”导入图片，或试用示例。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "匯入圖片或試用範例，即可開始。"
+            "value": "從「檔案」匯入圖片，或試用範例。"
           }
         }
       }
     },
-    "Import image from Files": {
+    "Import from Files": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bild aus Dateien importieren"
+            "value": "Aus „Dateien“ importieren"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importar imagen desde Archivos"
+            "value": "Importar desde Archivos"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importer une image depuis Fichiers"
+            "value": "Importer depuis Fichiers"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importa immagine da File"
+            "value": "Importa da File"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Importar imagem dos Arquivos"
+            "value": "Importar do Arquivos"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "从「文件」导入图片"
+            "value": "从“文件”导入"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "從「檔案」匯入圖片"
+            "value": "從「檔案」匯入"
           }
         }
       }
@@ -3407,6 +4373,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "在匯出圖片中保留"
+          }
+        }
+      }
+    },
+    "Keeping %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Behält %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se mantiene: %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conservé : %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantiene: %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantém: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保留%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保留%@"
           }
         }
       }
@@ -3779,6 +4791,98 @@
         }
       }
     },
+    "Made for the moment before you hit send.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Für den Moment, bevor du auf „Senden“ tippst."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hecho para el momento antes de enviar."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pensé pour l'instant avant d'appuyer sur Envoyer."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pensato per il momento prima di premere Invia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feito para o momento antes de enviar."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为按下“发送”前的那一刻而做。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "為按下「傳送」前的那一刻而做。"
+          }
+        }
+      }
+    },
+    "Manage": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwalten"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestionar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gérer"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestisci"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gerenciar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "管理"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "管理"
+          }
+        }
+      }
+    },
     "Manual Area": {
       "localizations": {
         "de": {
@@ -3821,6 +4925,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "手動區域"
+          }
+        }
+      }
+    },
+    "Manual box": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manueller Bereich"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recuadro manual"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone manuelle"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riquadro manuale"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caixa manual"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手动框选"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手動框選"
           }
         }
       }
@@ -4285,6 +5435,144 @@
         }
       }
     },
+    "No Screenshots": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Bildschirmfotos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin capturas de pantalla"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucune capture d'écran"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuna istantanea schermo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma captura de tela"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有截屏"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有螢幕截圖"
+          }
+        }
+      }
+    },
+    "No account. No ads. No tracking.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kein Konto. Keine Werbung. Kein Tracking."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin cuenta. Sin anuncios. Sin rastreo."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun compte. Aucune pub. Aucun suivi."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun account. Nessuna pubblicità. Nessun tracciamento."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem conta. Sem anúncios. Sem rastreamento."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无需账号，没有广告，没有追踪"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無需帳號，沒有廣告，沒有追蹤"
+          }
+        }
+      }
+    },
+    "No uploads, no account, no tracking. Switch on Airplane Mode and it works just the same.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kein Upload, kein Konto, kein Tracking. Schalte den Flugmodus ein – alles funktioniert genauso."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin subidas, sin cuenta, sin rastreo. Activa el Modo Avión y funciona igual."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun envoi, aucun compte, aucun suivi. Activez le mode Avion : tout fonctionne pareil."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun caricamento, nessun account, nessun tracciamento. Attiva Uso in aereo e funziona allo stesso modo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem envios, sem conta, sem rastreamento. Ative o Modo Avião e tudo funciona do mesmo jeito."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不上传，无需账号，没有追踪。打开飞行模式也照样能用。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不上傳，無需帳號，沒有追蹤。打開飛航模式也照樣能用。"
+          }
+        }
+      }
+    },
     "None": {
       "localizations": {
         "de": {
@@ -4331,48 +5619,48 @@
         }
       }
     },
-    "Not Now": {
+    "None in this file": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jetzt nicht"
+            "value": "Keine in dieser Datei"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ahora no"
+            "value": "Ninguno en este archivo"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pas maintenant"
+            "value": "Aucune dans ce fichier"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Non ora"
+            "value": "Nessuno in questo file"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Agora não"
+            "value": "Nenhum neste arquivo"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "暂不"
+            "value": "此文件中没有"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "暫不"
+            "value": "此檔案中沒有"
           }
         }
       }
@@ -4423,6 +5711,144 @@
         }
       }
     },
+    "Nothing covered yet": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nichts abgedeckt"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no hay nada tapado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rien n'est encore masqué"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ancora nulla di coperto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada oculto ainda"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "还没有盖住任何内容"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "還沒有蓋住任何內容"
+          }
+        }
+      }
+    },
+    "Nothing is kept once you're done": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nichts wird aufbewahrt, wenn du fertig bist"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se guarda nada cuando terminas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rien n'est conservé une fois terminé"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non resta nulla quando hai finito"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada fica guardado quando você termina"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用完不留任何记录"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用完不留任何紀錄"
+          }
+        }
+      }
+    },
+    "Nothing private found": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nichts Privates gefunden"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontró nada privado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rien de privé trouvé"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun dato privato trovato"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada privado encontrado"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有发现隐私信息"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有發現隱私資訊"
+          }
+        }
+      }
+    },
     "OK": {
       "localizations": {
         "de": {
@@ -4465,6 +5891,190 @@
           "stringUnit": {
             "state": "translated",
             "value": "好"
+          }
+        }
+      }
+    },
+    "Off": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aus"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desactivado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Désactivé"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disattivato"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desativado"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關閉"
+          }
+        }
+      }
+    },
+    "On — still works": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An – funktioniert trotzdem"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activado: sigue funcionando"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activé — ça marche toujours"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attivo — funziona comunque"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ativado — continua funcionando"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已开启——照样能用"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已開啟——照樣能用"
+          }
+        }
+      }
+    },
+    "On-device": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auf dem Gerät"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En el dispositivo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sur l'appareil"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sul dispositivo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No dispositivo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本机处理"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本機處理"
+          }
+        }
+      }
+    },
+    "Only what you open is read": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur was du öffnest, wird gelesen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se lee lo que abres"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seul ce que vous ouvrez est lu"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viene letto solo ciò che apri"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Só o que você abre é lido"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "只读取你打开的照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "只讀取你打開的照片"
           }
         }
       }
@@ -4607,6 +6217,52 @@
         }
       }
     },
+    "Options": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optionen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opciones"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Options"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opzioni"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opções"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选项"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選項"
+          }
+        }
+      }
+    },
     "Order / Tracking": {
       "localizations": {
         "de": {
@@ -4699,6 +6355,52 @@
         }
       }
     },
+    "Page %lld of %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seite %1$lld von %2$lld"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Página %1$lld de %2$lld"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Page %1$lld sur %2$lld"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pagina %1$lld di %2$lld"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Página %1$lld de %2$lld"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第 %1$lld 页，共 %2$lld 页"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第 %1$lld 頁，共 %2$lld 頁"
+          }
+        }
+      }
+    },
     "Phone": {
       "localizations": {
         "de": {
@@ -4745,48 +6447,48 @@
         }
       }
     },
-    "Photo Access": {
+    "Photo": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fotozugriff"
+            "value": "Foto"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Acceso a fotos"
+            "value": "Foto"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Accès aux photos"
+            "value": "Photo"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Accesso alle foto"
+            "value": "Foto"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Acesso às fotos"
+            "value": "Foto"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "照片访问"
+            "value": "照片"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "照片取用"
+            "value": "照片"
           }
         }
       }
@@ -4883,48 +6585,94 @@
         }
       }
     },
-    "Photo, tap to scan": {
+    "Photos access is off": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Foto, tippen zum Scannen"
+            "value": "Fotozugriff ist aus"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Foto, toca para analizar"
+            "value": "El acceso a Fotos está desactivado"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Photo, touchez pour analyser"
+            "value": "L'accès aux photos est désactivé"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Foto, tocca per scansionare"
+            "value": "L'accesso a Foto è disattivato"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Foto, toque para analisar"
+            "value": "O acesso ao Fotos está desativado"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "照片，点按以扫描"
+            "value": "照片访问已关闭"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "照片，點一下掃描"
+            "value": "照片取用權限已關閉"
+          }
+        }
+      }
+    },
+    "Photos access is off, so PrivyMark sees only the photo you pick. Turn access on in Settings to browse your library here.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Fotozugriff ist aus, daher sieht PrivyMark nur das Foto, das du auswählst. Aktiviere den Zugriff in den Einstellungen, um deine Mediathek hier zu durchsuchen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El acceso a Fotos está desactivado, así que PrivyMark solo ve la foto que elijas. Actívalo en Ajustes para explorar tu fototeca aquí."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'accès aux photos est désactivé : PrivyMark ne voit que la photo que vous choisissez. Activez l'accès dans Réglages pour parcourir votre photothèque ici."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'accesso a Foto è disattivato, quindi PrivyMark vede solo la foto che scegli. Attiva l'accesso in Impostazioni per sfogliare qui la tua libreria."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O acesso ao Fotos está desativado, então o PrivyMark vê só a foto que você escolher. Ative o acesso em Ajustes para navegar pela sua fototeca aqui."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片访问已关闭，PrivyMark 只能看到你选中的那张照片。在“设置”中开启访问，就能在这里浏览图库。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片取用權限已關閉，PrivyMark 只能看到你選取的那張照片。在「設定」中開啟權限，就能在這裡瀏覽圖庫。"
           }
         }
       }
@@ -5251,134 +6999,140 @@
         }
       }
     },
-    "PrivyMark": {
+    "PrivyMark can only see these. Add more anytime.": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark"
+            "value": "PrivyMark sieht nur diese. Du kannst jederzeit weitere hinzufügen."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark"
+            "value": "PrivyMark solo ve estas. Añade más cuando quieras."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark"
+            "value": "PrivyMark ne voit que celles-ci. Ajoutez-en d'autres à tout moment."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark"
+            "value": "PrivyMark vede solo queste. Aggiungine altre quando vuoi."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PrivyMark"
-          }
-        }
-      }
-    },
-    "PrivyMark detects private info in a photo — faces, phone numbers, emails, names, card numbers, IDs, license plates — and redacts it for you.": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PrivyMark erkennt private Infos in einem Foto – Gesichter, Telefonnummern, E-Mails, Namen, Kartennummern, Ausweise, Kennzeichen – und deckt sie für dich ab."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PrivyMark detecta información privada en una foto — caras, números de teléfono, correos, nombres, números de tarjeta, documentos, matrículas — y la tapa por ti."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PrivyMark détecte les informations privées dans une photo — visages, numéros de téléphone, e-mails, noms, numéros de carte, pièces d'identité, plaques d'immatriculation — et les masque pour vous."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PrivyMark rileva le informazioni private in una foto — volti, numeri di telefono, email, nomi, numeri di carta, documenti, targhe — e le copre al posto tuo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O PrivyMark detecta informações privadas em uma foto — rostos, números de telefone, e-mails, nomes, números de cartão, documentos, placas de veículos — e as oculta para você."
+            "value": "O PrivyMark só vê estas. Adicione mais quando quiser."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark 识别照片中的隐私信息——人脸、电话、邮箱、姓名、卡号、证件号、车牌——并帮你打码。"
+            "value": "PrivyMark 只能看到这些，随时可以再添加。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark 辨識照片中的隱私資訊——人臉、電話、電子郵件、姓名、卡號、證件號碼、車牌——並幫你打碼。"
+            "value": "PrivyMark 只能看到這些，隨時可以再加入。"
           }
         }
       }
     },
-    "PrivyMark needs access to your photos so you can pick one to redact.": {
+    "PrivyMark only reads the photos you open. Share your whole library or just a few — you can change this anytime in Settings.": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark braucht Zugriff auf deine Fotos, damit du eines zum Abdecken auswählen kannst."
+            "value": "PrivyMark liest nur die Fotos, die du öffnest. Gib deine ganze Mediathek frei oder nur einige Fotos – das kannst du jederzeit in den Einstellungen ändern."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark necesita acceso a tus fotos para que elijas una y la tapes."
+            "value": "PrivyMark solo lee las fotos que abres. Comparte toda tu fototeca o solo algunas; puedes cambiarlo cuando quieras en Ajustes."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark a besoin d'accéder à vos photos pour que vous puissiez en choisir une à masquer."
+            "value": "PrivyMark ne lit que les photos que vous ouvrez. Partagez toute votre photothèque ou seulement quelques photos — modifiable à tout moment dans Réglages."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark ha bisogno di accedere alle tue foto per permetterti di sceglierne una da coprire."
+            "value": "PrivyMark legge solo le foto che apri. Condividi tutta la libreria o solo alcune foto: puoi cambiarlo quando vuoi in Impostazioni."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "O PrivyMark precisa de acesso às suas fotos para você escolher uma e ocultá-la."
+            "value": "O PrivyMark só lê as fotos que você abre. Compartilhe a fototeca inteira ou só algumas — dá para mudar quando quiser em Ajustes."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark 需要访问你的照片，以便你选择一张进行打码。"
+            "value": "PrivyMark 只读取你打开的照片。可以开放整个图库，也可以只选几张——随时都能在“设置”中更改。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "PrivyMark 需要取用你的照片，以便你選擇一張進行打碼。"
+            "value": "PrivyMark 只讀取你打開的照片。可以開放整個圖庫，也可以只選幾張——隨時都能在「設定」中更改。"
+          }
+        }
+      }
+    },
+    "PrivyMark spots faces, phone numbers, cards, IDs and addresses in a photo — and covers them in one tap.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark erkennt Gesichter, Telefonnummern, Karten, Ausweise und Adressen auf einem Foto – und deckt sie mit einem Tippen ab."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark detecta caras, teléfonos, tarjetas, documentos y direcciones en una foto, y los tapa con un toque."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark repère les visages, numéros de téléphone, cartes, pièces d'identité et adresses sur une photo — et les masque d'un toucher."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark individua volti, numeri di telefono, carte, documenti e indirizzi in una foto, e li copre con un tocco."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O PrivyMark encontra rostos, telefones, cartões, documentos e endereços em uma foto — e oculta tudo com um toque."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 能找出照片里的人脸、电话、卡号、证件号和地址，一键盖住。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PrivyMark 能找出照片裡的人臉、電話、卡號、證件號碼和地址，一鍵蓋住。"
           }
         }
       }
@@ -5517,6 +7271,98 @@
           "stringUnit": {
             "state": "translated",
             "value": "給我們評分"
+          }
+        }
+      }
+    },
+    "Ready to share": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bereit zum Teilen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo para compartir"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prêt à partager"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pronto da condividere"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pronto para compartilhar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可以分享了"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可以分享了"
+          }
+        }
+      }
+    },
+    "Recipient": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empfänger"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destinatario"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destinataire"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destinatario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destinatário"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收件人"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收件人"
           }
         }
       }
@@ -5889,140 +7735,232 @@
         }
       }
     },
-    "Risk list": {
+    "Replace Original": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Risikoliste"
+            "value": "Original ersetzen"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lista de riesgos"
+            "value": "Reemplazar original"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Liste des risques"
+            "value": "Remplacer l'original"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Elenco rischi"
+            "value": "Sostituisci originale"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lista de riscos"
+            "value": "Substituir original"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "风险列表"
+            "value": "替换原图"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "風險清單"
+            "value": "取代原圖"
           }
         }
       }
     },
-    "Save (Overwrite Original)": {
+    "Replace the original photo?": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sichern (Original ersetzen)"
+            "value": "Originalfoto ersetzen?"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Guardar (sobrescribir original)"
+            "value": "¿Reemplazar la foto original?"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Enregistrer (écraser l'original)"
+            "value": "Remplacer la photo originale ?"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Salva (sovrascrivi originale)"
+            "value": "Sostituire la foto originale?"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Salvar (substituir original)"
+            "value": "Substituir a foto original?"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "保存（覆盖原图）"
+            "value": "要替换原图吗？"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "儲存（覆蓋原圖）"
+            "value": "要取代原圖嗎？"
           }
         }
       }
     },
-    "Save a Copy": {
+    "Review each one before you share.": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kopie sichern"
+            "value": "Prüf jeden Treffer, bevor du teilst."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Guardar una copia"
+            "value": "Revisa cada uno antes de compartir."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Enregistrer une copie"
+            "value": "Vérifiez chacun avant de partager."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Salva una copia"
+            "value": "Controllali uno per uno prima di condividere."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Salvar uma cópia"
+            "value": "Revise cada um antes de compartilhar."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "保存副本"
+            "value": "分享前请逐项确认。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "儲存副本"
+            "value": "分享前請逐項確認。"
+          }
+        }
+      }
+    },
+    "SF 1234 5678 90": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SF 1234 5678 90"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SF 1234 5678 90"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SF 1234 5678 90"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SF 1234 5678 90"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SF 1234 5678 90"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SF 1234 5678 90"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SF 1234 5678 90"
+          }
+        }
+      }
+    },
+    "Save a Copy to Photos": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopie in Fotos sichern"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar copia en Fotos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer une copie dans Photos"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salva una copia in Foto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvar cópia no Fotos"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存副本到照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "儲存副本到照片"
           }
         }
       }
@@ -6119,48 +8057,48 @@
         }
       }
     },
-    "Scanning happens offline. Nothing you open is ever uploaded.": {
+    "Scanned on this iPhone — never uploaded": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Der Scan läuft offline. Nichts, was du öffnest, wird hochgeladen."
+            "value": "Auf diesem iPhone gescannt – nie hochgeladen"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "El análisis se realiza sin conexión. Nada de lo que abras se sube nunca."
+            "value": "Se analiza en este iPhone; nunca se sube"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "L'analyse se fait hors ligne. Rien de ce que vous ouvrez n'est jamais envoyé."
+            "value": "Analysé sur cet iPhone — jamais envoyé"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "La scansione avviene offline. Nulla di ciò che apri viene mai caricato."
+            "value": "Analizzato su questo iPhone: mai caricato"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "A análise acontece offline. Nada do que você abre é enviado."
+            "value": "Analisado neste iPhone — nunca enviado"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "扫描离线进行。你打开的任何内容都不会上传。"
+            "value": "在这台 iPhone 上扫描，绝不上传"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "掃描離線進行。你開啟的任何內容都不會上傳。"
+            "value": "在這支 iPhone 上掃描，絕不上傳"
           }
         }
       }
@@ -6207,6 +8145,190 @@
           "stringUnit": {
             "state": "translated",
             "value": "正在裝置上掃描…"
+          }
+        }
+      }
+    },
+    "Scans this photo for private details": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scannt dieses Foto nach privaten Details"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analiza esta foto en busca de datos privados"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analyse cette photo à la recherche d'infos privées"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizza questa foto alla ricerca di dati privati"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analisa esta foto em busca de dados privados"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "扫描这张照片中的隐私信息"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "掃描這張照片中的隱私資訊"
+          }
+        }
+      }
+    },
+    "Screenshot": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bildschirmfoto"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Captura de pantalla"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture d'écran"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Istantanea schermo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Captura de tela"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "截屏"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "螢幕截圖"
+          }
+        }
+      }
+    },
+    "Screenshots": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bildschirmfotos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Captures"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Istantanee"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturas"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "截屏"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "螢幕截圖"
+          }
+        }
+      }
+    },
+    "Screenshots you take show up here.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deine Bildschirmfotos erscheinen hier."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquí aparecerán las capturas que hagas."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos captures d'écran apparaîtront ici."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le istantanee schermo che fai compaiono qui."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As capturas de tela que você fizer aparecem aqui."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你截的屏会显示在这里。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的螢幕截圖會顯示在這裡。"
           }
         }
       }
@@ -6487,6 +8609,236 @@
         }
       }
     },
+    "Show All Photos": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle Fotos zeigen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar todas las fotos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher toutes les photos"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostra tutte le foto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar todas as fotos"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示所有照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示所有照片"
+          }
+        }
+      }
+    },
+    "Show Welcome Again": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Willkommen erneut zeigen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver la bienvenida otra vez"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revoir l'accueil"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rivedi il benvenuto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver as boas-vindas de novo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新查看欢迎页"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新查看歡迎頁"
+          }
+        }
+      }
+    },
+    "Showing the photos you picked": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur deine ausgewählten Fotos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se muestran las fotos que elegiste"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photos que vous avez choisies"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo le foto che hai scelto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrando as fotos que você escolheu"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "只显示你选择的照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "只顯示你選取的照片"
+          }
+        }
+      }
+    },
+    "Shows every detected item": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeigt alle erkannten Treffer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muestra todo lo detectado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Affiche tous les éléments détectés"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostra tutti gli elementi rilevati"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostra tudo o que foi detectado"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示所有识别结果"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示所有辨識結果"
+          }
+        }
+      }
+    },
+    "Skip": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überspringen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omitir"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passer"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salta"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跳过"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "略過"
+          }
+        }
+      }
+    },
     "Solid, irreversible cover. Tap the color well to recolor it.": {
       "localizations": {
         "de": {
@@ -6763,6 +9115,52 @@
         }
       }
     },
+    "Tap a photo to check it. Nothing leaves this iPhone.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tippe auf ein Foto, um es zu prüfen. Nichts verlässt dieses iPhone."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca una foto para revisarla. Nada sale de este iPhone."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touchez une photo pour la vérifier. Rien ne quitte cet iPhone."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tocca una foto per controllarla. Nulla lascia questo iPhone."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque em uma foto para conferir. Nada sai deste iPhone."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按照片开始检查。照片不会离开这台 iPhone。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "點一下照片開始檢查。照片不會離開這支 iPhone。"
+          }
+        }
+      }
+    },
     "Tap a text line to redact the whole line. Tap again to undo.": {
       "localizations": {
         "de": {
@@ -6897,6 +9295,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "點一下詞語即可覆蓋。所選內容會在照片上打碼。"
+          }
+        }
+      }
+    },
+    "Terms of Use": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nutzungsbedingungen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Condiciones de uso"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conditions d'utilisation"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Condizioni d'uso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termos de Uso"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用条款"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用條款"
           }
         }
       }
@@ -7085,6 +9529,52 @@
         }
       }
     },
+    "The covered version takes its place in your library. You can revert it later in the Photos app.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die abgedeckte Version tritt in deiner Mediathek an seine Stelle. In der Fotos-App kannst du das später rückgängig machen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La versión tapada ocupa su lugar en tu fototeca. Puedes revertirlo más tarde en la app Fotos."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La version masquée la remplace dans votre photothèque. Vous pourrez revenir à l'original plus tard dans l'app Photos."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La versione coperta prende il suo posto nella libreria. Puoi ripristinarla più tardi nell'app Foto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A versão oculta substitui a original na sua fototeca. Você pode reverter depois no app Fotos."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打码后的版本会替换图库中的原图。之后可以在“照片”App 中复原。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打碼後的版本會取代圖庫中的原圖。之後可以在「照片」App 中復原。"
+          }
+        }
+      }
+    },
     "This image carries no GPS, capture or device data. Screenshots and images saved by other apps usually have none; a photo taken with the Camera app normally does.": {
       "localizations": {
         "de": {
@@ -7269,48 +9759,94 @@
         }
       }
     },
-    "Try a Sample Image": {
+    "Tracking": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Beispielbild ausprobieren"
+            "value": "Sendung"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Probar una imagen de ejemplo"
+            "value": "Seguimiento"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Essayer un exemple d'image"
+            "value": "Suivi"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prova un'immagine di esempio"
+            "value": "Tracking"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Experimente uma imagem de exemplo"
+            "value": "Rastreio"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "试用示例图片"
+            "value": "运单号"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "試用範例圖片"
+            "value": "貨態單號"
+          }
+        }
+      }
+    },
+    "Try the Sample": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beispiel ausprobieren"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Probar el ejemplo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Essayer l'exemple"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prova l'esempio"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Experimentar o exemplo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "试用示例"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "試用範例"
           }
         }
       }
@@ -7499,48 +10035,48 @@
         }
       }
     },
-    "Welcome": {
+    "Weight": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Willkommen"
+            "value": "Gewicht"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bienvenido"
+            "value": "Peso"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bienvenue"
+            "value": "Poids"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Benvenuto"
+            "value": "Peso"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bem-vindo"
+            "value": "Peso"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "欢迎"
+            "value": "重量"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "歡迎"
+            "value": "重量"
           }
         }
       }
@@ -7729,94 +10265,232 @@
         }
       }
     },
-    "You've allowed access to selected photos. Tap to manage.": {
+    "Your photos,": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Du hast Zugriff auf ausgewählte Fotos erlaubt. Tippen zum Verwalten."
+            "value": "Deine Fotos,"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Has permitido el acceso a fotos seleccionadas. Toca para gestionarlas."
+            "value": "Tus fotos,"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vous avez autorisé l'accès à certaines photos. Touchez pour gérer."
+            "value": "Vos photos,"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hai consentito l'accesso alle foto selezionate. Tocca per gestire."
+            "value": "Le tue foto,"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Você permitiu o acesso a fotos selecionadas. Toque para gerenciar."
+            "value": "Suas fotos,"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "你已允许访问所选照片。点按以管理。"
+            "value": "你的照片，"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "你已允許取用所選照片。點一下管理。"
+            "value": "你的照片，"
           }
         }
       }
     },
-    "Your photos are never uploaded.": {
+    "before you share": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Deine Fotos werden nie hochgeladen."
+            "value": "bevor du teilst"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tus fotos nunca se suben."
+            "value": "antes de compartir"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vos photos ne sont jamais envoyées."
+            "value": "avant de partager"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Le tue foto non vengono mai caricate."
+            "value": "prima di condividere"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Suas fotos nunca são enviadas."
+            "value": "antes de compartilhar"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "你的照片绝不会被上传。"
+            "value": "先把隐私盖住"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "你的照片絕不會被上傳。"
+            "value": "先把隱私蓋住"
+          }
+        }
+      }
+    },
+    "on your iPhone": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "auf deinem iPhone"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "en tu iPhone"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sur votre iPhone"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sul tuo iPhone"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "no seu iPhone"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "都在你的 iPhone 上"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "都在你的 iPhone 上"
+          }
+        }
+      }
+    },
+    "one at a time": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "eins nach dem anderen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "de una en una"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "une à la fois"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "una alla volta"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "uma de cada vez"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次一张"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次一張"
+          }
+        }
+      }
+    },
+    "your call": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "deine Entscheidung"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tú decides"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vous décidez"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "decidi tu"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "você decide"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你说了算"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你說了算"
           }
         }
       }
